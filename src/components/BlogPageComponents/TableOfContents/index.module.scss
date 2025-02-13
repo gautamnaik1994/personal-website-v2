@@ -1,0 +1,40 @@
+.TOC {
+  background: var(--sideCardColor);
+  padding: 20px 15px;
+  border-radius: 8px;
+  margin-top: 2rem;
+  & > ul {
+    margin-bottom: 0;
+  }
+  li {
+    margin-top: 8px;
+  }
+
+  &.toc-popup {
+    position: fixed;
+    bottom: 80px;
+    height: 300px;
+    overflow: auto;
+    right: 15px;
+    width: 300px;
+    z-index: 1;
+    box-shadow: var(--cardShadow);
+    li {
+      margin-top: 5px;
+    }
+    @include tablet {
+      min-height: 400px;
+      height: auto;
+      max-height: 75vh;
+      bottom: 80px;
+    }
+  }
+
+  @include tablet {
+    padding: 25px;
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}

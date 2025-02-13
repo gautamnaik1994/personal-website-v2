@@ -3,6 +3,10 @@ import type { Metadata } from 'next';
 import { getPostBySlug_v2 } from '@/service/blog';
 import { PostContent } from '@/types';
 import Link from 'next/link';
+import { H1 } from '@/components/MdxComponents/TextC';
+import TableOfContents from '@/components/BlogPageComponents/TableOfContents';
+import TableOfContentsWrapper from '@/components/BlogPageComponents/TOCWrapper';
+import styles from './index.module.scss';
 // let _metadata;
 
 export const metadata: Metadata = {};
@@ -24,25 +28,25 @@ export default async function Page({
 
   metadata['title'] = frontmatter.title;
   metadata['description'] = frontmatter.description;
-  metadata['openGraph'] = {
-    type: 'article',
-    locale: 'en_US',
-    url: `https://www.gautamnaik.com/blog/${slug}`,
-    siteName: 'Gautam Naik',
-    title: frontmatter.title,
-    description: frontmatter.description,
-    images: [
-      {
-        url: `https://www.gautamnaik.com${bannerPath.src}`,
-        width: 1200,
-        height: 630,
-        alt: frontmatter.title,
-      },
-    ],
-  };
+  // metadata['openGraph'] = {
+  //   type: 'article',
+  //   locale: 'en_US',
+  //   url: `https://www.gautamnaik.com/blog/${slug}`,
+  //   siteName: 'Gautam Naik',
+  //   title: frontmatter.title,
+  //   description: frontmatter.description,
+  //   images: [
+  //     {
+  //       url: `https://www.gautamnaik.com${bannerPath.src}`,
+  //       width: 1200,
+  //       height: 630,
+  //       alt: frontmatter.title,
+  //     },
+  //   ],
+  // };
 
   return (
-    <div>
+    <div className={styles.article}>
       <Image
         src={bannerPath}
         alt={frontmatter.title}
@@ -50,18 +54,10 @@ export default async function Page({
         height={630}
         placeholder='blur'
       />
-      <article>
-        <h1>{frontmatter.title}</h1>
-        <h2>Table of Contents</h2>
-        <ul>
-          {toc.map((item) => (
-            <li key={item.slug}>
-              <a href={`#c-h-${item.slug}`}>{item.value}</a>
-            </li>
-          ))}
-        </ul>
-        <Post />
-      </article>
+      <H1>{frontmatter.title}</H1>
+      <TableOfContents items={toc} />
+      <TableOfContentsWrapper items={toc} />
+      <Post />
       <hr />
       <div>
         {prevPost && (

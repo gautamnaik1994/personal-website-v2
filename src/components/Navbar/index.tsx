@@ -9,7 +9,7 @@ export interface Props {
   className?: string;
 }
 
-const NavbarComponent = ({ className }: Props) => {
+const NavbarComponent = ({ className = '' }: Props) => {
   const pathname = usePathname();
   const isActive = (link: string) => {
     return pathname.startsWith(link);

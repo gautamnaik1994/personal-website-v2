@@ -5,6 +5,7 @@ import 'sanitize.css/typography.css';
 import 'sanitize.css/forms.css';
 import '@/styles/globals.scss';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const ubuntuFont = Ubuntu({
   variable: '--font-ubuntu',
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body className={`${ubuntuFont.variable}`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

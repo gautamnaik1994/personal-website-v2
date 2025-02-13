@@ -1,10 +1,10 @@
 import { readdir } from 'fs/promises';
-import { Frontmatter, Post, PostContent } from '@/types';
+import { Post, PostContent } from '@/types';
 
 export const categories = [
   'Data Science',
-  'Software Engineering',
   'Machine Learning',
+  'Software Engineering',
   'Web Development',
   'Vim',
 ] as const;
@@ -13,16 +13,16 @@ export type Category = (typeof categories)[number];
 
 export const slugToCategoryMap: Record<string, Category> = {
   'data-science': 'Data Science',
-  'software-engineering': 'Software Engineering',
   'machine-learning': 'Machine Learning',
+  'software-engineering': 'Software Engineering',
   'web-development': 'Web Development',
   vim: 'Vim',
 };
 
 export const categoryToSlugMap: Record<Category, string> = {
   'Data Science': 'data-science',
-  'Software Engineering': 'software-engineering',
   'Machine Learning': 'machine-learning',
+  'Software Engineering': 'software-engineering',
   'Web Development': 'web-development',
   Vim: 'vim',
 };
@@ -65,7 +65,6 @@ export async function getPostsByCategory({
 }: {
   category: Category;
 }): Promise<Post[]> {
-  console.log('Cattt', category);
   const allPosts = await getPosts();
   let _category = slugToCategoryMap[category];
   // Filter posts by specified category
