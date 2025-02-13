@@ -1,0 +1,52 @@
+.Skill {
+  border-radius: 8px;
+  background-color: var(--cardColor);
+  padding: 15px;
+  padding-top: 25px;
+  flex: 0 0 85%;
+  white-space: normal;
+  .box-title {
+    font-weight: var(--fontWeightBold);
+    font-size: 24px;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-align: center;
+    min-height: 56px;
+    line-height: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .info-sec {
+    overflow: hidden;
+  }
+  .info-inner {
+    padding-top: 25px;
+  }
+  .more-less-btn {
+    border: none;
+    color: var(--primary);
+    i {
+      vertical-align: text-bottom;
+      transform: rotate(90deg);
+      display: inline-block;
+      margin-left: 3px;
+      font-weight: bold;
+    }
+  }
+  @include tablet {
+    flex: 0 0 320px;
+  }
+}
+
+.Item {
+  .label {
+    font-size: 16px;
+    font-weight: var(--fontWeightBold);
+    color: var(--accent);
+  }
+  & + & {
+    margin-top: 1rem;
+  }
+}

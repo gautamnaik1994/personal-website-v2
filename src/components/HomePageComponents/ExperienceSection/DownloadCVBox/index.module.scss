@@ -1,0 +1,27 @@
+.StyledDownloadCV {
+  padding: 30px;
+  background: var(--sideCardColor);
+  border-radius: 8px;
+  min-height: 290px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--cardShadow);
+  .top-sec {
+    font-size: 20px;
+  }
+  .middle-sec {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: var(--fontWeightLight);
+  }
+
+  @include tablet {
+    width: 280px;
+    min-height: 230px;
+  }
+  @include desktop {
+    min-height: 290px;
+  }
+}

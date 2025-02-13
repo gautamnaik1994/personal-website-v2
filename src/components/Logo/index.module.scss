@@ -1,0 +1,20 @@
+.Logo {
+  svg,
+  h1,
+  i {
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--bodyColor);
+  }
+
+  path {
+    fill: var(--bodyColor);
+  }
+
+  h1 {
+    font-weight: var(--fontWeightRegular);
+    font-size: 24px;
+    line-height: 1;
+    margin: 6px 0 6px 13px;
+  }
+}

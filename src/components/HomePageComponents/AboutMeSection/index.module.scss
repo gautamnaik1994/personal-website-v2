@@ -1,0 +1,18 @@
+.StyledAboutMe {
+  p {
+    font-size: 16px;
+  }
+  a {
+    font-weight: var(--fontWeightMedium);
+  }
+  @include tablet {
+    padding-right: 30px;
+  }
+}
+
+.FlexBox {
+  @include tablet {
+    display: flex;
+    align-items: flex-start;
+  }
+}

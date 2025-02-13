@@ -1,0 +1,93 @@
+.PostItem {
+  padding: 15px;
+  overflow: hidden;
+  z-index: 0;
+  border-radius: 8px;
+  background-color: var(--cardColor);
+  white-space: normal;
+  box-shadow: var(--cardShadow);
+  margin-bottom: 2rem;
+  position: relative;
+  .btn-holder {
+    text-align: center;
+  }
+  @include tablet {
+    margin-bottom: 0rem;
+    padding-bottom: 50px;
+    .btn-holder {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 15px;
+    }
+  }
+  .category-holder {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    a {
+      margin-right: 5px;
+      &:after {
+        content: ', ';
+      }
+      &:last-child:after {
+        content: '';
+      }
+    }
+  }
+  .category-link {
+    display: inline-block;
+    font-weight: var(--fontWeightMedium);
+    * {
+      vertical-align: middle;
+    }
+    :global {
+      .r-icon {
+        font-size: 14px;
+      }
+      .l-icon {
+        display: inline-block;
+        font-size: 20px;
+        margin-right: 10px;
+      }
+    }
+
+    span {
+      margin: 0 5px 0 0.5rem;
+    }
+  }
+
+  .img-container {
+    margin: -15px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //height: auto;
+    // background-image: url(${({ bgImage }) => bgImage});
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .gatsby-image-wrapper {
+    width: 100% !important;
+    //height: 100%;
+  }
+  h2 {
+    font-variant-ligatures: none;
+    line-height: 2rem;
+  }
+  :global {
+    .icon-arrow-right {
+      margin-left: 3px;
+      vertical-align: text-bottom;
+      font-weight: bold;
+    }
+  }
+}

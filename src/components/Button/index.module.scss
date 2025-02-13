@@ -1,0 +1,33 @@
+.button {
+  padding: 13px 35px;
+  border-radius: 5px;
+  font-weight: var(--fontWeightRegular);
+  transition: all 0.3s ease-in-out;
+  border-width: 0px;
+  color: white;
+  display: inline-block;
+  line-height: 1;
+  font-size: 14px;
+  cursor: pointer;
+
+  &.small {
+    padding: 10px 20px;
+  }
+
+  &.default {
+    background-color: var(--default);
+  }
+
+  &.primary {
+    background-color: var(--primary);
+  }
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  &:focus,
+  &:active {
+    filter: brightness(75%);
+  }
+}

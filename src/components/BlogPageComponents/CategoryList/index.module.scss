@@ -1,0 +1,48 @@
+.CategoryTagList {
+  display: flex;
+  margin-top: 1rem;
+  padding-bottom: 15px;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  h3 {
+    display: none;
+  }
+  a {
+    display: block;
+    line-height: 1;
+    font-size: 16px;
+    color: var(--bodyColor);
+    position: relative;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #ffffff38;
+    margin-right: 10px;
+    white-space: nowrap;
+    &.active {
+      /* font-weight: var(--fontWeightBold); */
+      background-color: var(--accent);
+      color: white;
+    }
+    &:hover:not(.active) {
+      /* background-color: rgba(var(--primaryRgb), 0.5);
+      color: white; */
+    }
+  }
+  @include desktop {
+    margin-top: 2rem;
+    h3 {
+      display: block;
+      font-size: 22px;
+      margin: 0;
+      margin-right: 15px;
+      /* color: var(--accent); */
+    }
+    a {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin-right: 15px;
+    }
+  }
+}

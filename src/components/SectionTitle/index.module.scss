@@ -1,0 +1,11 @@
+.sectionTitle {
+  margin-bottom: 3rem;
+  text-align: center;
+  font-size: 30px;
+  font-weight: var(--fontWeightMedium);
+  line-height: 1.2;
+  @include desktop {
+    font-size: 35px;
+    text-transform: uppercase;
+  }
+}

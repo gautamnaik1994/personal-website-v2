@@ -1,0 +1,99 @@
+.SkillMeter {
+  --glassDims: 130px;
+  text-align: center;
+  .value {
+    font-weight: var(--fontWeightMedium);
+    font-size: 26px;
+    letter-spacing: -1px;
+    margin-top: 1rem;
+  }
+  position: relative;
+  min-height: var(--glassDims);
+  .glass-shadow {
+    background: black;
+    height: calc(var(--glassDims) / 9);
+    width: calc(var(--glassDims) * 0.9);
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 1rem;
+    filter: blur(9px);
+  }
+}
+
+.Glass {
+  --angle: 0deg;
+  --level: 0%;
+  --glow: #1e1e1e;
+  width: var(--glassDims);
+  height: var(--glassDims);
+  position: relative;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  border-radius: 50%;
+  overflow: hidden;
+  transform-origin: center;
+  transform: rotate(var(--angle));
+  background: rgba(0, 0, 0, 0.13);
+  box-shadow: inset 0 0 20px var(--glow);
+  svg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+  }
+  .liquid {
+    top: var(--level);
+    left: -2px;
+    right: -2px;
+    bottom: -20px;
+    position: absolute;
+    background-size: var(--glassDims);
+    background-repeat: repeat-x;
+    background-position-x: 0;
+  }
+}
+
+.LiquidBackground {
+  animation:
+    swim 200s infinite linear alternate,
+    bob 2s infinite ease-in-out;
+}
+
+.LiquidForeground {
+  animation:
+    swim 200s infinite linear alternate-reverse,
+    bob2 2s infinite ease-in-out;
+}
+
+.BubbleHolder {
+  --level: 0%;
+  position: absolute;
+  top: calc(var(--level) + 10%);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  .bubble {
+    width: 10px;
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    animation: swim-up 2s infinite linear;
+    height: 10px;
+    bottom: -5px;
+    left: 50%;
+  }
+  .bubble-1 {
+    animation-delay: 0.5s;
+    left: 30%;
+  }
+  .bubble-2 {
+    animation-delay: 1s;
+    left: 70%;
+  }
+  .bubble-3 {
+    animation-delay: 1.5s;
+    left: 50%;
+  }
+}

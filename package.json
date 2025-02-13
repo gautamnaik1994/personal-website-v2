@@ -3,23 +3,41 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--inspect' rm -rf .next && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/react": "^3.1.0",
+    "@next/mdx": "^15.1.6",
+    "@react-spring/web": "^9.7.5",
+    "date-fns": "^4.1.0",
+    "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.1.6"
+    "react-use": "^17.6.0",
+    "sanitize.css": "^13.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@altano/remark-mdx-toc-with-slugs": "^3.0.0",
+    "@eslint/eslintrc": "^3",
+    "@mdx-js/loader": "^3.1.0",
+    "@shikijs/rehype": "^2.3.2",
+    "@types/mdx": "^2.0.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
-    "@eslint/eslintrc": "^3"
+    "eslint-config-prettier": "^10.0.1",
+    "prettier": "^3.5.0",
+    "rehype-mdx-import-media": "^1.2.0",
+    "rehype-slug": "^6.0.0",
+    "remark-frontmatter": "^5.0.0",
+    "remark-mdx-frontmatter": "^5.0.0",
+    "remark-reading-time": "^2.0.1",
+    "sass": "^1.84.0",
+    "typescript": "^5"
   }
 }

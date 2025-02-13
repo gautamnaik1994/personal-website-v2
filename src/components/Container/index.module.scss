@@ -1,0 +1,9 @@
+.Container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  @include desktop {
+    max-width: 1140px;
+  }
+}

@@ -1,0 +1,8 @@
+.Grid {
+  margin-bottom: 2rem;
+  @include desktop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+}
