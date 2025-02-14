@@ -200,10 +200,12 @@ export default function SkillMeterFn({
       <div
         className='Glass'
         ref={glassRef}
-        style={{
-          '--level': `${100 - level}%`,
-          '--glow': `#${currentConfig.top}`,
-        }}
+        style={
+          {
+            '--level': `${100 - level}%`,
+            '--glow': `#${currentConfig.top}`,
+          } as React.CSSProperties
+        }
       >
         <div
           className='liquid LiquidBackground'
@@ -224,7 +226,10 @@ export default function SkillMeterFn({
           }}
         />
 
-        <div className='BubbleHolder' style={{ '--level': `${100 - level}%` }}>
+        <div
+          className='BubbleHolder'
+          style={{ '--level': `${100 - level}%` } as React.CSSProperties}
+        >
           <div className='bubble bubble-1' />
           <div className='bubble bubble-2' />
           <div className='bubble bubble-3' />

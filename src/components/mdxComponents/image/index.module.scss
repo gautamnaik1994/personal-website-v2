@@ -1,0 +1,18 @@
+.floating-image {
+  position: fixed;
+  width: auto !important;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-content: center;
+  cursor: zoom-out;
+  img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+  }
+}

@@ -658,3 +658,25 @@ p:has(span.gatsby-resp-image-wrapper) {
 //   counter-reset: section; /* Reset counter for nested lists */
 //   padding-left: 20px; /* Add padding for nesting */
 // }
+
+.floating-toc-button {
+  transition:
+    transform 0.5s ease-in,
+    opacity 0.5s ease-in;
+  transform: translate(50%, 0);
+  opacity: 0;
+}
+.floating-toc {
+  transition:
+    transform 0.3s ease-in,
+    opacity 0.3s ease-in;
+  transform: translate(10%, 0);
+  opacity: 0;
+}
+body.toc-not-in-view {
+  .floating-toc,
+  .floating-toc-button {
+    transform: translate(0px, 0);
+    opacity: 1;
+  }
+}

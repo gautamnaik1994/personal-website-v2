@@ -1,4 +1,4 @@
-//ts-nocheck
+// ts-nocheck
 interface MetaBallObject {
   key: number;
   x: number;
@@ -18,8 +18,9 @@ interface IState {
   r: number;
   g: number;
   b: number;
-  theme: number;
   webGLNotSupported: boolean;
+  canvasWidth: number;
+  canvasHeight: number;
 }
 
 const webglOptions = {
@@ -40,26 +41,26 @@ export class WebGLMetaballs {
   private metaballsHandle: WebGLUniformLocation | null = null;
   private bgColorUniformLocation: WebGLUniformLocation | null = null;
   private animationRequest: number | null = null;
-  private timerID: number | null = null;
-  private CANVAS_WIDTH: number | null = null;
-  private CANVAS_HEIGHT: number | null = null;
-  private CANVAS_CENTER_X: number | null = null;
-  private CANVAS_CENTER_Y: number | null = null;
+  private timerID: ReturnType<typeof setTimeout> | null = null;
+  private CANVAS_WIDTH: number = 0;
+  private CANVAS_HEIGHT: number = 0;
+  private CANVAS_CENTER_X: number = 0;
+  private CANVAS_CENTER_Y: number = 0;
   private metaBalls: Array<MetaBallObject> = [];
   private state: IState;
 
   constructor(state: IState) {
     this.state = state;
+    this.CANVAS_WIDTH = this.state.canvasWidth;
+    this.CANVAS_HEIGHT = this.state.canvasHeight;
+    this.CANVAS_CENTER_X = this.CANVAS_WIDTH / 2;
+    this.CANVAS_CENTER_Y = this.CANVAS_HEIGHT / 2;
   }
 
   widthMultiplier = (): number => {
-    if (
-      this.CANVAS_HEIGHT !== null &&
-      this.CANVAS_WIDTH !== null &&
-      this.CANVAS_HEIGHT > this.CANVAS_WIDTH
-    ) {
-      return this.CANVAS_HEIGHT / (this.state.radiusDivider * 100);
-    } else return this.CANVAS_WIDTH / (this.state.radiusDivider * 100);
+    return this.CANVAS_HEIGHT > this.CANVAS_WIDTH
+      ? this.CANVAS_HEIGHT / (this.state.radiusDivider * 100)
+      : this.CANVAS_WIDTH / (this.state.radiusDivider * 100);
   };
 
   cancelAll = (): void => {
@@ -74,8 +75,10 @@ export class WebGLMetaballs {
   };
 
   initialize(canvasElem: HTMLCanvasElement): void {
-    this.CANVAS_HEIGHT = canvasElem.parentElement.clientHeight;
-    this.CANVAS_WIDTH = canvasElem.parentElement.clientWidth;
+    this.CANVAS_HEIGHT =
+      canvasElem.parentElement?.clientHeight || this.state.canvasHeight;
+    this.CANVAS_WIDTH =
+      canvasElem.parentElement?.clientWidth || this.state.canvasWidth;
     canvasElem.setAttribute('height', this.CANVAS_HEIGHT + 'px');
     canvasElem.setAttribute('width', this.CANVAS_WIDTH + 'px');
     this.CANVAS_CENTER_X = this.CANVAS_WIDTH / 2;
@@ -102,11 +105,7 @@ export class WebGLMetaballs {
   }
 
   step = (): void => {
-    const requestAnimationFrame =
-      window.requestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.msRequestAnimationFrame;
+    const requestAnimationFrame = window.requestAnimationFrame;
 
     const ballCount = this.state.ballCount;
 
@@ -137,9 +136,9 @@ export class WebGLMetaballs {
       dataToSendToGPU[baseIndex + 1] = mb.y;
       dataToSendToGPU[baseIndex + 2] = mb.r;
     }
-    this.gl.uniform3fv(this.metaballsHandle, dataToSendToGPU);
+    this.gl?.uniform3fv(this.metaballsHandle, dataToSendToGPU);
 
-    this.gl.drawArrays(this.gl.TRIANGLE_STRIP, 0, 4);
+    this.gl?.drawArrays(this.gl.TRIANGLE_STRIP, 0, 4);
 
     this.timerID = setTimeout(() => {
       this.animationRequest = requestAnimationFrame(this.step);
@@ -284,7 +283,7 @@ export class WebGLMetaballs {
     gl: WebGLRenderingContext
   ): WebGLUniformLocation => {
     const uniformLocation = gl.getUniformLocation(program, name);
-    if (uniformLocation === -1) {
+    if (uniformLocation === -1 || uniformLocation === null) {
       throw new Error('Can not find uniform ' + name + '.');
     }
     return uniformLocation;
@@ -295,7 +294,10 @@ export class WebGLMetaballs {
     shaderType: number,
     gl: WebGLRenderingContext
   ): WebGLShader => {
-    const shader: WebGLShader = gl.createShader(shaderType);
+    const shader: WebGLShader | null = gl.createShader(shaderType);
+    if (!shader) {
+      throw new Error('Unable to create shader');
+    }
     gl.shaderSource(shader, shaderSource);
     gl.compileShader(shader);
 

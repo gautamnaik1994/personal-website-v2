@@ -13,6 +13,8 @@ interface IState {
   g: number;
   b: number;
   webGLNotSupported: boolean;
+  canvasWidth: number;
+  canvasHeight: number;
 }
 
 const Metaballs: React.FC = () => {
@@ -28,6 +30,8 @@ const Metaballs: React.FC = () => {
     g: 0.5,
     b: 0.89,
     webGLNotSupported: false,
+    canvasWidth: typeof window !== 'undefined' ? window.innerWidth : 0,
+    canvasHeight: typeof window !== 'undefined' ? window.innerHeight : 0,
   });
 
   const webGLMetaballs = new WebGLMetaballs(state);

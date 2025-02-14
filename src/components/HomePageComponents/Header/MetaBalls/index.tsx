@@ -1,5 +1,5 @@
-'use client';
 // @ts-nocheck
+'use client';
 import React from 'react';
 
 interface IState {
@@ -13,6 +13,7 @@ interface IState {
   g: number;
   b: number;
   theme: number;
+  webGLNotSupported: boolean;
 }
 
 const webglOptions = {
@@ -46,11 +47,11 @@ declare global {
 }
 
 class Metaballs extends React.Component<IProps, IState> {
-  private canvasRef: React.RefObject<HTMLCanvasElement>;
+  private canvasRef: React.RefObject<HTMLCanvasElement | null>;
 
   constructor(props: IProps) {
     super(props);
-    this.canvasRef = React.createRef();
+    this.canvasRef = React.createRef<HTMLCanvasElement>();
 
     this.state = {
       ballCount: 5,

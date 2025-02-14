@@ -1,12 +1,12 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, ReactNode } from 'react';
 
-function ExpandableSeeMore({ children }) {
+function ExpandableSeeMore({ children }: { children: ReactNode }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleClick = (event) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     setIsExpanded(!isExpanded);
-    event.target.blur();
+    // event.target.blur();
   };
 
   return (

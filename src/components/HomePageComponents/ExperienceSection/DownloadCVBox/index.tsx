@@ -2,7 +2,7 @@ import React from 'react';
 import ExternalLinkComponent from '@/components/Button/ExternalLinkButton';
 import styles from './index.module.scss';
 
-export default (): JSX.Element => {
+export default (): React.ReactNode => {
   return (
     <div className={styles.StyledDownloadCV}>
       <div className={styles['top-sec']}>Curriculum Vitae</div>

@@ -11,7 +11,6 @@ import {
   P,
 } from '@/components/MdxComponents/TextC';
 import Alert from '@/components/MdxComponents/Alert';
-import Code from '@/components/MdxComponents/Code';
 import Image from '@/components/MdxComponents/image';
 import ExpandableSeeMore from '@/components/ExpandableSeeMore';
 

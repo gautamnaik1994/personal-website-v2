@@ -11,6 +11,7 @@
   }
 
   &.toc-popup {
+    margin-top: 0;
     position: fixed;
     bottom: 80px;
     height: 300px;
@@ -25,8 +26,8 @@
     @include tablet {
       min-height: 400px;
       height: auto;
-      max-height: 75vh;
-      bottom: 80px;
+      max-height: 82vh;
+      bottom: 85px;
     }
   }
 

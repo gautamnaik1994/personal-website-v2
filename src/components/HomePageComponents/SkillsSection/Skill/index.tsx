@@ -47,6 +47,8 @@ const SkillComponent = ({
     <div className={styles.Skill} {...props}>
       <div className={styles['box-title']}>{name}</div>
       <SkillMeter className='skill-meter' level={level} />
+      {/* 
+// @ts-ignore */}
       <animated.div className={styles['info-sec']} style={expand}>
         <div
           ref={ref as unknown as React.RefObject<HTMLDivElement>}
@@ -69,6 +71,8 @@ const SkillComponent = ({
         >
           {open ? `Less` : `More`}
           {` `}
+          {/* 
+// @ts-ignore */}
           <animated.i className='icon-arrow-right' style={rotate} />
           {` `}
         </button>

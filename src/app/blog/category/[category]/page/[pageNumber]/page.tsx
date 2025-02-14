@@ -1,5 +1,5 @@
 import { type Category, categories, slugToCategoryMap } from '@/service/blog';
-import { Pagination } from '@/components/BlogPageComponents/Pagination';
+
 import {
   getPaginatedPostsByCategory,
   getPostsByCategory,
@@ -13,7 +13,8 @@ export default async function Page(props: {
   params: Promise<{ category: Category; pageNumber: number }>;
 }) {
   const params = await props.params;
-  let { category, pageNumber } = params;
+  let { pageNumber } = params;
+  const { category } = params;
   const decodedCategory = slugToCategoryMap[category];
   pageNumber = Number(pageNumber);
 

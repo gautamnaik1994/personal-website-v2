@@ -148,8 +148,9 @@ export async function getPostBySlug_v2({
 }): Promise<PostContent> {
   const allPosts = await getPosts();
   const post = allPosts.find((post) => post.slug === slug);
+
   if (!post) {
-    throw new Error('Post not found');
+    throw new Error(`Post not found: ${slug}`);
   }
 
   const nextPost = allPosts[allPosts.indexOf(post) + 1];

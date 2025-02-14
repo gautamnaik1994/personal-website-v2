@@ -26,12 +26,13 @@ const FloatingTocBtn: React.FC<FloatingTocBtnProps> = ({ items }) => {
           (e.target as HTMLElement).blur();
         }}
         variant='primary'
-        className={styles.RoundButton}
+        className={`floating-toc-button ${styles.RoundButton}`}
       >
         <i className={`icon icon-${isOpen ? `close` : `bullet-list`}`}></i>
       </Button>
       {isOpen && (
         <TableOfContents
+          className='floating-toc'
           isPhone={!isDesktop()}
           items={items}
           isPopup={true}

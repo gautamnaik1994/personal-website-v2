@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${ubuntuFont.variable}`}>
+      <body className={`${ubuntuFont.variable} toc-not-in-view `}>
         <Navbar />
         {children}
         <Footer />
