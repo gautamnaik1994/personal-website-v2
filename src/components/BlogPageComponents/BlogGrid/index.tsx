@@ -5,22 +5,30 @@ import Container from '@/components/Container';
 import HeroBanner from '@/components/HeroBanner';
 import CategoryList from '../CategoryList';
 import Pagination from '../Pagination';
+import BlogListLD from '@/components/JsonLD/blogListLD';
 
 export default function BlogGrid({
   posts,
   title = 'Gautam Blogs',
   baseUrl,
   pageNumber,
+  altBaseUrl,
   total,
 }: {
   posts: Post[];
   title?: string;
   baseUrl: string;
+  altBaseUrl?: string;
   pageNumber: number;
   total: number;
 }) {
   return (
     <>
+      <BlogListLD
+        title={title === 'Gautam Blogs' ? 'All' : title}
+        path={altBaseUrl ? altBaseUrl : `${baseUrl}/${pageNumber}`}
+        posts={posts}
+      />
       <HeroBanner title={title} />
       <Container>
         <CategoryList activeCategory={title} />

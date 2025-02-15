@@ -59,6 +59,11 @@ export interface PostContent {
   };
 }
 
+export interface PostContentLite {
+  frontmatter: Frontmatter;
+  bannerPath: ImageData;
+}
+
 export interface SocialLink {
   key: string;
   value: string;

@@ -27,6 +27,7 @@ const FloatingTocBtn: React.FC<FloatingTocBtnProps> = ({ items }) => {
         }}
         variant='primary'
         className={`floating-toc-button ${styles.RoundButton}`}
+        title='Open Table of Contents'
       >
         <i className={`icon icon-${isOpen ? `close` : `bullet-list`}`}></i>
       </Button>

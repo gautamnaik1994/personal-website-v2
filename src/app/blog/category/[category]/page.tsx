@@ -29,15 +29,24 @@ export default async function CategoryHome(props: {
   }
 
   return (
-    <main>
-      <BlogGrid
-        posts={posts}
-        title={decodedCategory}
-        baseUrl={`/blog/category/${category}/page`}
-        pageNumber={1}
-        total={total}
-      />
-    </main>
+    <>
+      {postsPerPage < total && (
+        <link
+          rel='next'
+          href={`https://www.gautamnaik.com/blog/category/${category}/page/2`}
+        />
+      )}
+      <main>
+        <BlogGrid
+          posts={posts}
+          title={decodedCategory}
+          baseUrl={`/blog/category/${category}/page`}
+          altBaseUrl={`/blog/category/${category}`}
+          pageNumber={1}
+          total={total}
+        />
+      </main>
+    </>
   );
 }
 

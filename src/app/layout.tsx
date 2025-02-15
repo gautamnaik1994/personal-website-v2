@@ -1,4 +1,5 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
+import { GoogleTagManager } from '@next/third-parties/google';
 import { Ubuntu } from 'next/font/google';
 import 'sanitize.css';
 import 'sanitize.css/typography.css';
@@ -15,15 +16,71 @@ const ubuntuFont = Ubuntu({
   display: 'swap',
 });
 
+const description =
+  'Gautam Naik is a Senior Software Engineer who specializes in Web Development, Data Science and Machine Learning';
+const title = 'Gautam Naik';
+
 export const metadata: Metadata = {
-  title: 'Gautam Naik',
-  description: 'A personal project by Gautam Naik',
+  applicationName: title,
+  title: { default: 'Gautam Naik', template: '%s | Gautam Naik' },
+  description: description,
+  authors: [{ name: title }],
+  metadataBase: new URL('https://www.gautamnaik.com'),
+  alternates: {
+    canonical: './',
+  },
+  category: 'Portfolio',
+  robots: 'index, follow',
+  formatDetection: {
+    telephone: false,
+    email: true,
+  },
+  icons: {
+    icon: '/icon-48x48.png',
+    apple: '/icons/icon-192x192.png',
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: title,
+    // startUpImage: [],
+  },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'en_IN',
     url: 'https://www.gautamnaik.com',
-    siteName: 'Gautam Naik',
+    siteName: title,
+    title: title,
+    description: description,
+    images: [
+      {
+        url: 'https://www.gautamnaik.com/img/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: title,
+    description: description,
+    site: '@gautamnaik1994',
+    images: [
+      {
+        url: 'https://www.gautamnaik.com/img/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ],
+  },
+  facebook: {
+    appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || '',
+  },
+};
+export const viewport: Viewport = {
+  themeColor: '#4BACFE',
 };
 
 export default function RootLayout({
@@ -33,6 +90,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+      <head>
+        <meta name='googlebot' content='all' />
+      </head>
+      <GoogleTagManager gtmId='GTM-XYZ' />
       <body className={`${ubuntuFont.variable} toc-not-in-view `}>
         <Navbar />
         {children}

@@ -1,5 +1,5 @@
 import { readdir } from 'fs/promises';
-import { Post, PostContent } from '@/types';
+import { Post, PostContent, PostContentLite } from '@/types';
 
 export const categories = [
   'Data Science',
@@ -121,23 +121,15 @@ export async function getPostBySlug({
   slug,
 }: {
   slug: string;
-}): Promise<PostContent> {
-  const {
-    default: content,
-    frontmatter,
-    toc,
-    readingTime,
-  } = await import(`@/content/blog/${slug}/index.md`);
+}): Promise<PostContentLite> {
+  const { frontmatter } = await import(`@/content/blog/${slug}/index.md`);
   const bannerModule = await import(
     `@/content/blog/${slug}/${frontmatter.bannerImage}`
   );
   const bannerPath = bannerModule.default;
   return {
-    content,
     frontmatter,
     bannerPath,
-    toc,
-    readingTime,
   };
 }
 

@@ -8,6 +8,7 @@ import {
 } from '@/service/blog';
 import { notFound, redirect } from 'next/navigation';
 import BlogGrid from '@/components/BlogPageComponents/BlogGrid';
+import { Metadata } from 'next/types';
 
 export default async function Page(props: {
   params: Promise<{ category: Category; pageNumber: number }>;
@@ -31,15 +32,37 @@ export default async function Page(props: {
   if (!posts.length) notFound();
 
   return (
-    <main>
-      <BlogGrid
-        posts={posts}
-        title={decodedCategory}
-        baseUrl={`/blog/category/${category}/page`}
-        pageNumber={pageNumber}
-        total={total}
-      />
-    </main>
+    <>
+      {postsPerPage * pageNumber < total && (
+        <link
+          rel='next'
+          href={`https://www.gautamnaik.com/blog/category/${category}/page/${pageNumber + 1}`}
+        />
+      )}
+      {pageNumber == 2 && (
+        <link
+          rel='prev'
+          href={`https://www.gautamnaik.com/blog/category/${category}`}
+        />
+      )}
+
+      {pageNumber > 2 && (
+        <link
+          rel='prev'
+          href={`https://www.gautamnaik.com/blog/category/${category}/page/${pageNumber - 1}`}
+        />
+      )}
+
+      <main>
+        <BlogGrid
+          posts={posts}
+          title={decodedCategory}
+          baseUrl={`/blog/category/${category}/page`}
+          pageNumber={pageNumber}
+          total={total}
+        />
+      </main>
+    </>
   );
 }
 
@@ -55,4 +78,18 @@ export async function generateStaticParams() {
     })
   );
   return paths.flat();
+}
+
+type Props = {
+  params: Promise<{ category: string; pageNumber: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const category = (await params).category;
+
+  return {
+    alternates: {
+      canonical: `/blog/category/${category}`,
+    },
+  };
 }

@@ -12,7 +12,7 @@ import {
 } from '@/components/MdxComponents/TextC';
 import Alert from '@/components/MdxComponents/Alert';
 import Image from '@/components/MdxComponents/image';
-import ExpandableSeeMore from '@/components/ExpandableSeeMore';
+import ExpandableSeeMore from '@/components/MdxComponents/ExpandableSeeMore';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

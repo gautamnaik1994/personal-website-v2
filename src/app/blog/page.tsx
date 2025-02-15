@@ -8,13 +8,17 @@ export default async function BlogHome() {
   });
 
   return (
-    <main>
-      <BlogGrid
-        posts={posts}
-        baseUrl='/blog/page'
-        pageNumber={1}
-        total={total}
-      />
-    </main>
+    <>
+      <link rel='next' href={`https://www.gautamnaik.com/blog/page/2`} />
+      <main>
+        <BlogGrid
+          posts={posts}
+          baseUrl='/blog/page'
+          altBaseUrl='/blog'
+          pageNumber={1}
+          total={total}
+        />
+      </main>
+    </>
   );
 }
