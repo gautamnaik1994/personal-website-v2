@@ -1,0 +1,62 @@
+.NavLink {
+  margin-bottom: 30px;
+  font-size: 20px;
+  position: relative;
+  align-self: flex-start;
+  font-weight: var(--fontWeightMedium);
+  &:last-of-type {
+    margin-bottom: 3rem;
+  }
+  &.navActive:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    right: -10px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--accent);
+  }
+}
+
+.Sidebar {
+  background-color: var(--bodyBackgroundColor);
+  // backdrop-filter: blur(10px);
+  padding: 35px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  will-change: transform;
+}
+.HomeLink {
+  margin-bottom: 3rem;
+  color: var(--textColor);
+}
+.Hamburger {
+  display: inline-block;
+  height: 25px;
+  overflow: hidden;
+  width: 25px;
+  overflow: hidden;
+  padding: 0px;
+  border: none;
+  outline: none;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 2;
+  @include tablet {
+    display: none;
+  }
+  rect {
+    will-change: transform;
+    transform-origin: center;
+    fill: currentColor;
+  }
+}

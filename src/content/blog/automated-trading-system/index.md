@@ -1,8 +1,8 @@
 ---
 title: Automated Trading System
-date: 2023-12-29T17:45:06.582Z
+date: 2023-12-29 
 slug: automated-trading-system
-updatedDate: 2023-12-29T17:45:06.582Z
+updatedDate: 2023-12-29 
 description: Case study of my automated trading system. This post will walk through the process of building the system, the components and technologies used, how it works, and the challenges faced.
 publish: true
 featuredPost: true

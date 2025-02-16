@@ -24,6 +24,9 @@
   font-size: generate-font-size(7);
   @extend %baseStyles;
   letter-spacing: -0.6px;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .h2 {

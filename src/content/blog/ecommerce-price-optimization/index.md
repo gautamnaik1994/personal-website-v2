@@ -1,8 +1,8 @@
 ---
 title: E-com Price Optimization
-date: 2024-07-07T17:45:06.582Z
+date: 2024-07-07 
 slug: ecommerce-price-optimization
-updatedDate: 2024-07-07T17:45:06.582Z
+updatedDate: 2024-07-07 
 description: Case study on price optimization on an e-commerce store. This post will discuss various price optimization strategies and their impact on sales along with some recommendations.
 publish: true
 featuredPost: false

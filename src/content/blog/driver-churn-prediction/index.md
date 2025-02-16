@@ -1,8 +1,8 @@
 ---
 title: Driver Churn Prediction
-date: 2024-08-30T11:54:00.060Z
+date: 2024-08-30 
 slug: driver-churn-prediction
-updatedDate: 2024-08-30T11:54:00.060Z
+updatedDate: 2024-08-30 
 description: This case study delves deeply into OLA driver data to uncover insights about the driver churn and assist the company in retaining drivers.
 publish: true
 featuredPost: true

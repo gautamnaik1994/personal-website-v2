@@ -1,8 +1,8 @@
 ---
 title: Create quick backup of current file in VIM
-date: 2023-01-29T17:45:06.582Z
+date: 2023-01-29 
 slug: create-quick-backup-vim
-updatedDate: 2023-01-29T17:45:06.607Z
+updatedDate: 2023-01-29 
 description: Sometimes we have to create a copy of the current working file,
   just to try out some new thing or feature.
 publish: true

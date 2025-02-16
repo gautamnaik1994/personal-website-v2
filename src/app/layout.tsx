@@ -6,6 +6,7 @@ import 'sanitize.css/typography.css';
 import 'sanitize.css/forms.css';
 import '@/styles/globals.scss';
 import Navbar from '@/components/Navbar';
+import Sidebar from '@/components/Sidebar';
 import Footer from '@/components/Footer';
 
 const ubuntuFont = Ubuntu({
@@ -66,6 +67,7 @@ export const metadata: Metadata = {
     title: title,
     description: description,
     site: '@gautamnaik1994',
+    creator: '@gautamnaik1994',
     images: [
       {
         url: 'https://www.gautamnaik.com/img/og-image.png',
@@ -96,6 +98,7 @@ export default function RootLayout({
       <GoogleTagManager gtmId='GTM-XYZ' />
       <body className={`${ubuntuFont.variable} toc-not-in-view `}>
         <Navbar />
+        <Sidebar />
         {children}
         <Footer />
       </body>

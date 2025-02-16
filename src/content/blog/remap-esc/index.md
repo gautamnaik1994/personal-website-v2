@@ -1,8 +1,8 @@
 ---
 title: Why should you remap ESC key in Vim
-date: 2023-01-29T18:58:12.864Z
+date: 2023-01-29
 slug: remap-esc
-updatedDate: 2023-01-29T18:58:12.879Z
+updatedDate: 2023-01-29
 description: By default, the ESC key is used to switch to Normal mode from
   Insert mode. But as you can see on a regular keyboard, the position of the ESC
   key is far from the home row keys.

@@ -1,6 +1,11 @@
 import Image from 'next/image';
 import type { Metadata, ResolvingMetadata } from 'next';
-import { getPostBySlug_v2, getPostBySlug } from '@/service/blog';
+import {
+  getPostBySlug_v2,
+  getPostBySlug,
+  categories,
+  categoryToSlugMap,
+} from '@/service/blog';
 import { PostContent, PostContentLite } from '@/types';
 import Link from 'next/link';
 import { H1 } from '@/components/MdxComponents/TextC';
@@ -9,6 +14,7 @@ import TableOfContentsWrapper from '@/components/BlogPageComponents/TOCWrapper';
 import styles from './index.module.scss';
 import Container from '@/components/Container';
 import BlogPostLD from '@/components/JsonLD/blogPostLD';
+import { format } from 'date-fns';
 
 export default async function Page({
   params,
@@ -40,7 +46,6 @@ export default async function Page({
         readingTime={readingTime.text}
       />
       <article className={styles.article}>
-        <H1>{frontmatter.title}</H1>
         <div className={styles.headerImageWrapper}>
           <Image
             className='headerImage'
@@ -51,9 +56,22 @@ export default async function Page({
             placeholder='blur'
           />
         </div>
-        <div className={styles.meta}>
-          <span>{frontmatter.date}</span>
-          <span>•</span>
+        <div className={`${styles['category-holder']} text-center`}>
+          {frontmatter.categories.map((item) => (
+            <Link
+              key={item}
+              className={styles['category-link']}
+              title={`Go to ${item}`}
+              href={`/blog/category/${categoryToSlugMap[item]}`}
+            >
+              {item}
+            </Link>
+          ))}
+        </div>
+        <H1>{frontmatter.title}</H1>
+        <div className={`${styles.meta} text-center`}>
+          <span>{format(frontmatter.date, 'MMM dd, yyyy')}</span>
+          <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
           <span>{readingTime.text}</span>
         </div>
         <TableOfContents items={toc} />
@@ -62,15 +80,27 @@ export default async function Page({
         </div>
       </article>
       <Container>
-        <div>
+        <div className={styles.PaginationWrapper}>
           {prevPost && (
-            <Link href={`/blog/${prevPost.slug}`} rel='prev'>
-              {prevPost.title}
+            <Link
+              href={`/blog/${prevPost.slug}`}
+              rel='prev'
+              className='text-right'
+              title={prevPost.title}
+            >
+              <small>Previous</small>
+              <div>{prevPost.title}</div>
             </Link>
           )}
           {nextPost && (
-            <Link href={`/blog/${nextPost.slug}`} rel='next'>
-              {nextPost.title}
+            <Link
+              href={`/blog/${nextPost.slug}`}
+              rel='next'
+              className='text-left'
+              title={nextPost.title}
+            >
+              <small>Next</small>
+              <div>{nextPost.title}</div>
             </Link>
           )}
         </div>
@@ -125,7 +155,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ],
     },
     twitter: {
-      card: 'summary_large_image',
       title: `${frontmatter.title} | Gautam Naik`,
       description: frontmatter.description,
       images: [

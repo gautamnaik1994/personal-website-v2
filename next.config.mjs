@@ -1,7 +1,6 @@
 // Import the MDX plugin
 import createMDX from '@next/mdx';
 import remarkMdxTocWithSlugs from '@altano/remark-mdx-toc-with-slugs';
-// import rehypePrettyCode from 'rehype-pretty-code';
 import readingTime from 'remark-reading-time';
 import readingMdxTime from 'remark-reading-time/mdx.js';
 import rehypeSlug from 'rehype-slug';
@@ -11,6 +10,7 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
 import withSerwistInit from '@serwist/next';
+import rehypePrettyCode from 'rehype-pretty-code';
 
 const withSerwist = withSerwistInit({
   swSrc: 'src/app/sw.ts',
@@ -73,6 +73,11 @@ const nextConfig = {
 /** @type {import('rehype-pretty-code').Options} */
 const rehypePrettyCodeOptions = {
   theme: 'catppuccin-mocha',
+  defaultLang: {
+    block: 'plaintext',
+    inline: 'plaintext',
+  },
+  // grid: false,
 };
 
 /** @type {import('rehype-slug').Options} */
@@ -92,7 +97,7 @@ const withMDX = createMDX({
     ],
     rehypePlugins: [
       rehypeUnwrapImages,
-      [rehypeShiki, rehypePrettyCodeOptions],
+      [rehypePrettyCode, rehypePrettyCodeOptions],
       [rehypeSlug, rehypeSlugOptions],
       rehypeMdxImportMedia,
     ],

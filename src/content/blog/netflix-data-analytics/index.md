@@ -1,8 +1,8 @@
 ---
 title: Netflix Data Analysis
-date: 2024-05-20T11:54:00.060Z
+date: 2024-05-20 
 slug: netflix-data-analytics
-updatedDate: 2024-05-20T11:54:16.272Z
+updatedDate: 2024-05-20 
 description: This case study delves deeply into Netflix data to uncover insights
   about the content and assist the company in recommending which content to
   upload or produce.

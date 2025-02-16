@@ -4,6 +4,7 @@ import styles from './index.module.scss';
 import Image from 'next/image';
 import { ImageData } from '@/types';
 import { categoryToSlugMap } from '@/service/blog';
+import { format } from 'date-fns';
 
 interface Props {
   link: string;
@@ -34,7 +35,7 @@ const PostItemMain = ({
       <h2 className='m-0'>{title}</h2>
     </Link>
     <small>
-      {date} &bull; {readTime}
+      {format(date, 'MMM dd, yyyy')} &bull; {readTime}
     </small>
     <div className={styles['category-holder']}>
       <i className='icon-category text-accent l-icon' />

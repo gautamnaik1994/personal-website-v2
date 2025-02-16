@@ -1,8 +1,8 @@
 ---
 title: Sales Forecasting
-date: 2025-01-31T17:45:06.582Z
+date: 2025-01-31 
 slug: sales-forecasting
-updatedDate: 2025-01-31T17:45:06.582Z
+updatedDate: 2025-01-31 
 description: Case study on sales forecasting utilizing machine learning algorithms and time series models. It includes exploratory data analysis, hypothesis testing, feature engineering and model deployment.
 publish: true
 featuredPost: true

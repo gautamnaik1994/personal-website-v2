@@ -1,5 +1,6 @@
 import { readdir } from 'fs/promises';
 import { Post, PostContent, PostContentLite } from '@/types';
+import sharp from 'sharp';
 
 export const categories = [
   'Data Science',
@@ -145,8 +146,16 @@ export async function getPostBySlug_v2({
     throw new Error(`Post not found: ${slug}`);
   }
 
-  const nextPost = allPosts[allPosts.indexOf(post) + 1];
-  const prevPost = allPosts[allPosts.indexOf(post) - 1];
+  let nextPost = allPosts[allPosts.indexOf(post) + 1];
+  let prevPost = allPosts[allPosts.indexOf(post) - 1];
+
+  if (nextPost == null) {
+    nextPost = allPosts[0];
+  }
+
+  if (prevPost == null) {
+    prevPost = allPosts[allPosts.length - 1];
+  }
 
   const {
     default: content,

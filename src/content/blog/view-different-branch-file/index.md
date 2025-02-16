@@ -1,8 +1,8 @@
 ---
 title: View different branch file inside VIM
-date: 2023-01-30T10:23:43.345Z
+date: 2023-01-30
 slug: view-different-branch-file
-updatedDate: 2023-01-30T10:23:43.364Z
+updatedDate: 2023-01-30
 description: There will come a time when you will want to view the contents of
   the same file or a different file from another branch.
 publish: true

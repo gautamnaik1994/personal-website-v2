@@ -1,8 +1,8 @@
 ---
 title: Fullstack Multi Container App
-date: 2025-01-01T17:45:06.582Z
+date: 2025-01-01 
 slug: fullstack-multi-container-app
-updatedDate: 2025-01-01T17:45:06.582Z
+updatedDate: 2025-01-01 
 description: A fullstack multi-container app using React, Express, Redis, MongoDB, and Docker. This post will discuss how to create a multi-container app using Docker and Docker Compose.
 publish: true
 featuredPost: false
@@ -63,7 +63,7 @@ If above file is not available, then use following link.
 
 Following is the `Dockerfile` for the backend.
 
-```Dockerfile
+```dockerfile
 FROM node:18-alpine
 
 # Set the working directory
