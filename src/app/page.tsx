@@ -5,6 +5,7 @@ import AboutMeSection from '@/components/HomePageComponents/AboutMeSection';
 import Container from '@/components/Container';
 import ExperienceSection from '@/components/HomePageComponents/ExperienceSection';
 import SkillsSection from '@/components/HomePageComponents/SkillsSection';
+import FeaturedBlogs from '@/components/HomePageComponents/FeaturedBlogs';
 export default function Home() {
   return (
     <>
@@ -15,6 +16,7 @@ export default function Home() {
         <AboutMeSection className='section-spacer ' />
         <ExperienceSection className='section-spacer ' />
         <SkillsSection className='section-spacer ' />
+        <FeaturedBlogs className='section-spacer ' />
         <div style={{ height: '1000px' }}></div>
       </Container>
     </>

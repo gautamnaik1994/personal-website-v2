@@ -13,6 +13,7 @@ import {
 import Alert from '@/components/MdxComponents/Alert';
 import Image from '@/components/MdxComponents/image';
 import ExpandableSeeMore from '@/components/MdxComponents/ExpandableSeeMore';
+import { Aside } from '@/components/MdxComponents/Aside';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -27,6 +28,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     p: P,
     Alert: Alert,
     img: Image,
+    Aside: Aside,
     ExpandableSeeMore: ExpandableSeeMore,
     // code: Code,
     ...components,

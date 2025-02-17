@@ -1,6 +1,5 @@
 import { readdir } from 'fs/promises';
 import { Post, PostContent, PostContentLite } from '@/types';
-import sharp from 'sharp';
 
 export const categories = [
   'Data Science',
@@ -40,7 +39,7 @@ export async function getPosts(): Promise<Post[]> {
   const posts = await Promise.all(
     slugs.map(async ({ name }) => {
       const { frontmatter, readingTime } = await import(
-        `@/content/blog/${name}/index.md`
+        `@/content/blog/${name}/index.mdx`
       );
       const bannerModule = await import(
         `@/content/blog/${name}/${frontmatter.bannerImage}`
@@ -123,7 +122,7 @@ export async function getPostBySlug({
 }: {
   slug: string;
 }): Promise<PostContentLite> {
-  const { frontmatter } = await import(`@/content/blog/${slug}/index.md`);
+  const { frontmatter } = await import(`@/content/blog/${slug}/index.mdx`);
   const bannerModule = await import(
     `@/content/blog/${slug}/${frontmatter.bannerImage}`
   );
@@ -161,7 +160,7 @@ export async function getPostBySlug_v2({
     default: content,
     frontmatter,
     toc,
-  } = await import(`@/content/blog/${slug}/index.md`);
+  } = await import(`@/content/blog/${slug}/index.mdx`);
   // const bannerModule = await import(
   //   `@/content/blog/${slug}/${frontmatter.bannerImage}`
   // );

@@ -1,22 +1,37 @@
 'use client';
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+// import dynamic from 'next/dynamic';
 import TableOfContents from '../TableOfContents';
 import Button from '@/components/Button/Button';
 import styles from './index.module.scss';
 import { TOCItem } from '@/types';
 import { isDesktop } from '@/utils/MediaQueries';
 
-interface FloatingTocBtnProps {
+interface TOCWrapperProps {
   items: TOCItem[];
 }
 
-const FloatingTocBtn: React.FC<FloatingTocBtnProps> = ({ items }) => {
+const TOCWrapper: React.FC<TOCWrapperProps> = ({ items }) => {
+  const [isClient, setIsClient] = useState(false);
   const [isOpen, setIsOpen] = useState(isDesktop());
+
+  useEffect(() => {
+    setIsClient(true);
+    setIsOpen(isDesktop());
+
+    return () => {
+      setIsClient(false);
+      setIsOpen(false);
+    };
+  }, []);
 
   const handleClose = () => {
     setIsOpen(false);
   };
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <>
@@ -26,8 +41,9 @@ const FloatingTocBtn: React.FC<FloatingTocBtnProps> = ({ items }) => {
           (e.target as HTMLElement).blur();
         }}
         variant='primary'
-        className={`floating-toc-button ${styles.RoundButton}`}
+        className={`floating-toc-button ${styles['floating']}`}
         title='Open Table of Contents'
+        isRounded={true}
       >
         <i className={`icon icon-${isOpen ? `close` : `bullet-list`}`}></i>
       </Button>
@@ -44,4 +60,4 @@ const FloatingTocBtn: React.FC<FloatingTocBtnProps> = ({ items }) => {
   );
 };
 
-export default FloatingTocBtn;
+export default TOCWrapper;

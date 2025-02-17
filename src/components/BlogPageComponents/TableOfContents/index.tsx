@@ -59,10 +59,7 @@ const TableOfContents = ({
 
   const renderItems = (items: TOCItem[], level = 0) => {
     return (
-      <ul
-        className={`toc-list `}
-        style={{ paddingLeft: `${level + 1 * 20}px` }}
-      >
+      <ul className={`toc-list`} style={{ paddingLeft: `${level + 1 * 20}px` }}>
         {items.map((item, index) => {
           const newUrl = `#c-h-` + item.slug;
           return (

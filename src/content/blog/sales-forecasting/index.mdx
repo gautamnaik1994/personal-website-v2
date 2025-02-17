@@ -1,8 +1,8 @@
 ---
 title: Sales Forecasting
-date: 2025-01-31 
+date: 2025-01-31
 slug: sales-forecasting
-updatedDate: 2025-01-31 
+updatedDate: 2025-01-31
 description: Case study on sales forecasting utilizing machine learning algorithms and time series models. It includes exploratory data analysis, hypothesis testing, feature engineering and model deployment.
 publish: true
 featuredPost: true
@@ -19,8 +19,9 @@ bannerImage: sales-forecasting.png
 
 ## Introduction
 
-<Alert variant="warning">
-  This blog post is extensive. To navigate to a specific topic, utilize the provided "Table of Contents."
+<Alert variant='warning'>
+  This blog post is extensive. To navigate to a specific topic, utilize the
+  provided "Table of Contents."
 </Alert>
 
 Imagine you run multiple retail stores. One day, you suddenly run out of your best-selling product because you didn't anticipate the high demand. Frustrating, right? That's where sales forecasting comes in handy. It helps you plan your inventory and manage resources efficiently, so you're always prepared for your customers' needs.
@@ -89,91 +90,91 @@ This case study focuses on developing a predictive model that uses historical sa
 
 ### Sample Data
 
-<div className="side-scrolling-table-container">
-<table>
-   <thead>
-      <tr >
-         <th></th>
-         <th>ID</th>
-         <th>Store_id</th>
-         <th>Store_Type</th>
-         <th>Location_Type</th>
-         <th>Region_Code</th>
-         <th width="50%">Date</th>
-         <th>Holiday</th>
-         <th>Discount</th>
-         <th>Orders</th>
-         <th>Sales</th>
-      </tr>
-   </thead>
-   <tbody>
+<div className='side-scrolling-table-container'>
+  <table>
+    <thead>
       <tr>
-         <th>147815</th>
-         <td>T1147816</td>
-         <td>136</td>
-         <td>S2</td>
-         <td>L5</td>
-         <td>R4</td>
-         <td style={{whiteSpace:'nowrap'}}>2019-02-09</td>
-         <td>0</td>
-         <td>No</td>
-         <td>33</td>
-         <td>21231.00</td>
+        <th></th>
+        <th>ID</th>
+        <th>Store_id</th>
+        <th>Store_Type</th>
+        <th>Location_Type</th>
+        <th>Region_Code</th>
+        <th width='50%'>Date</th>
+        <th>Holiday</th>
+        <th>Discount</th>
+        <th>Orders</th>
+        <th>Sales</th>
       </tr>
+    </thead>
+    <tbody>
       <tr>
-         <th>173429</th>
-         <td>T1173430</td>
-         <td>6</td>
-         <td>S4</td>
-         <td>L1</td>
-         <td>R1</td>
-         <td>2019-04-21</td>
-         <td>1</td>
-         <td>Yes</td>
-         <td>124</td>
-         <td>69333.12</td>
+        <th>147815</th>
+        <td>T1147816</td>
+        <td>136</td>
+        <td>S2</td>
+        <td>L5</td>
+        <td>R4</td>
+        <td style={{ whiteSpace: 'nowrap' }}>2019-02-09</td>
+        <td>0</td>
+        <td>No</td>
+        <td>33</td>
+        <td>21231.00</td>
       </tr>
       <tr>
-         <th>84404</th>
-         <td>T1084405</td>
-         <td>151</td>
-         <td>S1</td>
-         <td>L3</td>
-         <td>R2</td>
-         <td>2018-08-20</td>
-         <td>0</td>
-         <td>Yes</td>
-         <td>44</td>
-         <td>27156.00</td>
+        <th>173429</th>
+        <td>T1173430</td>
+        <td>6</td>
+        <td>S4</td>
+        <td>L1</td>
+        <td>R1</td>
+        <td>2019-04-21</td>
+        <td>1</td>
+        <td>Yes</td>
+        <td>124</td>
+        <td>69333.12</td>
       </tr>
       <tr>
-         <th>58312</th>
-         <td>T1058313</td>
-         <td>34</td>
-         <td>S1</td>
-         <td>L3</td>
-         <td>R1</td>
-         <td>2018-06-09</td>
-         <td>0</td>
-         <td>No</td>
-         <td>63</td>
-         <td>35919.00</td>
+        <th>84404</th>
+        <td>T1084405</td>
+        <td>151</td>
+        <td>S1</td>
+        <td>L3</td>
+        <td>R2</td>
+        <td>2018-08-20</td>
+        <td>0</td>
+        <td>Yes</td>
+        <td>44</td>
+        <td>27156.00</td>
       </tr>
       <tr>
-         <th>173540</th>
-         <td>T1173541</td>
-         <td>310</td>
-         <td>S2</td>
-         <td>L5</td>
-         <td>R1</td>
-         <td>2019-04-21</td>
-         <td>1</td>
-         <td>No</td>
-         <td>63</td>
-         <td>36906.00</td>
+        <th>58312</th>
+        <td>T1058313</td>
+        <td>34</td>
+        <td>S1</td>
+        <td>L3</td>
+        <td>R1</td>
+        <td>2018-06-09</td>
+        <td>0</td>
+        <td>No</td>
+        <td>63</td>
+        <td>35919.00</td>
       </tr>
-   </tbody>
-</table>
+      <tr>
+        <th>173540</th>
+        <td>T1173541</td>
+        <td>310</td>
+        <td>S2</td>
+        <td>L5</td>
+        <td>R1</td>
+        <td>2019-04-21</td>
+        <td>1</td>
+        <td>No</td>
+        <td>63</td>
+        <td>36906.00</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 From the above data fields, we can see that the data contains both categorical and numerical features. The target variable is 'Sales', which we aim to forecast based on the other features. The data spans multiple stores, regions, and dates, providing a rich source of information for analysis and modelling.
@@ -320,18 +321,17 @@ Click on the following badge to view the Tableau dashboard or use the embedded d
 
 ### Tableau Dashboard Embed
 
-<Alert variant="warning">
-  Following Tablueau Dashboard has to be viewed in a wide screen for better viewing experience.
+<Alert variant='warning'>
+  Following Tablueau Dashboard has to be viewed in a wide screen for better
+  viewing experience.
 </Alert>
 
 <iframe
-  src="https://public.tableau.com/views/SalesForecasting_17373524705280/SalesForecasting?:showVizHome=no&:embed=true"
-  frameborder="0"
-  height="900"
-  allowfullscreen="true"
-  mozallowfullscreen="true"
-  webkitallowfullscreen="true"
-  className="blog-wide-section"
+  src='https://public.tableau.com/views/SalesForecasting_17373524705280/SalesForecasting?:showVizHome=no&:embed=true'
+  frameBorder='0'
+  height='900'
+  allowFullScreen={true}
+  className='blog-wide-section'
 ></iframe>
 
 ### Tableau Dashboard Insights
@@ -346,13 +346,13 @@ Time series analysis is a statistical method used to analyze and forecast time-d
 
 ![Trend](./global_time_series.png)
 
-<p class="text-center">Global Time Series</p>
+<p className='text-center'>Global Time Series</p>
 
 As you can see from the above plot there is no clear trend in the data. The sales data is stationary and does not exhibit any significant upward or downward trend over time. For in-depth analysis, please check the Tableau dashboard linked above.
 
 ![Seasonal Decompose](image-13.png)
 
-<p class="text-center">Plot of Seasonal Decompose</p>
+<p className='text-center'>Plot of Seasonal Decompose</p>
 
 The above plot shows the seasonal decomposition of the sales data. The data is decomposed into trend, seasonality, and residual components. The trend component represents the long-term movement of the data, while the seasonal component captures the periodic fluctuations. The residual component represents the random noise in the data.  
 From the above plot, it is clear that there is no long-term trend in the data. The seasonal component shows that there is a weekly seasonality in the data.
@@ -607,7 +607,7 @@ The code for Recursive forecasting can be found in the notebook linked below.
 
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/gautamnaik1994/SalesForecasting_ML_CaseStudy/blob/main/notebooks/modelling/05.MLAlgo_RecursiveForecasting.ipynb?flush_cache=true)
 
-<p/>
+<p />
 
 <ExpandableSeeMore>
 
@@ -744,7 +744,7 @@ This is how I can verify the model's predictions and understand the impact of ea
 
 ![Acutual Sales vs Predicted Sales](image-15.png)
 
-<p class="text-center">Actual vs Predicted Sales</p>
+<p className='text-center'>Actual vs Predicted Sales</p>
 
 From the above plot, we can see that the model can predict the sales approximately. However, it couldn't predict the dips accurately.
 
@@ -758,37 +758,37 @@ Non-normality in residuals can also suggest the presence of outliers or structur
 
 #### Model Evaluation
 
-<div className="side-scrolling-table-container">
-<table>
-  <thead>
-    <tr>
-      <th width="70%">Model</th>
-      <th width="30%">MAE</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Linear Regression</td>
-      <td>7118.54</td>
-    </tr>
-    <tr>
-      <td>ElasticNet</td>
-      <td>6956.83</td>
-    </tr>
-    <tr>
-      <td>Random Forest</td>
-      <td>6515.05</td>
-    </tr>
-    <tr>
-      <td>XGBoost</td>
-      <td>6431.14</td>
-    </tr>
-    <tr>
-      <td>LightGBM</td>
-      <td>6107.66</td>
-    </tr>
-  </tbody>
-</table>
+<div className='side-scrolling-table-container'>
+  <table>
+    <thead>
+      <tr>
+        <th width='70%'>Model</th>
+        <th width='30%'>MAE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Linear Regression</td>
+        <td>7118.54</td>
+      </tr>
+      <tr>
+        <td>ElasticNet</td>
+        <td>6956.83</td>
+      </tr>
+      <tr>
+        <td>Random Forest</td>
+        <td>6515.05</td>
+      </tr>
+      <tr>
+        <td>XGBoost</td>
+        <td>6431.14</td>
+      </tr>
+      <tr>
+        <td>LightGBM</td>
+        <td>6107.66</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 From the above table, we can see that LightGBM performed the best in terms of MAE. Compared to linear models, tree-based models like XGBoost and LightGBM are better at capturing non-linear relationships and interactions between features, making them more suitable for time series forecasting tasks.
@@ -828,7 +828,7 @@ Code for generating data required to build dataset for clustering can be found i
 
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/gautamnaik1994/SalesForecasting_ML_CaseStudy/blob/main/notebooks/data_processing/02.DataGeneration.ipynb?flush_cache=true)
 
-<p/>
+<p />
 
 The code for the clustering can be found in the notebook linked below.
 
@@ -892,47 +892,47 @@ From the above plot, we can see that there is slight right skewness in the resid
 
 ![Actual vs Predicted](image-19.png)
 
-<p class="text-center">Actual vs Predicted Global Sales</p>
+<p className='text-center'>Actual vs Predicted Global Sales</p>
 
 #### Model Evaluation
 
-<div className="side-scrolling-table-container">
-<table>
-  <thead>
-    <tr>
-      <th>Model</th>
-      <th>Region MAPE</th>
-      <th>Global MAPE</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Facebook Prophet</td>
-      <td>13% - 16%</td>
-      <td>14%</td>
-    </tr>
-    <tr>
-      <td>Triple Exponential Smoothing</td>
-      <td>17% - 20%</td>
-      <td>19%</td>
-    </tr>
-    <tr>
-      <td>ARIMA</td>
-      <td>17%</td>
-      <td>17%</td>
-    </tr>
-    <tr>
-      <td>MSTL</td>
-      <td>17%</td>
-      <td>16%</td>
-    </tr>
-    <tr>
-      <td>MFLES</td>
-      <td>15%</td>
-      <td>18%</td>
-    </tr>
-  </tbody>
-</table>
+<div className='side-scrolling-table-container'>
+  <table>
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Region MAPE</th>
+        <th>Global MAPE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Facebook Prophet</td>
+        <td>13% - 16%</td>
+        <td>14%</td>
+      </tr>
+      <tr>
+        <td>Triple Exponential Smoothing</td>
+        <td>17% - 20%</td>
+        <td>19%</td>
+      </tr>
+      <tr>
+        <td>ARIMA</td>
+        <td>17%</td>
+        <td>17%</td>
+      </tr>
+      <tr>
+        <td>MSTL</td>
+        <td>17%</td>
+        <td>16%</td>
+      </tr>
+      <tr>
+        <td>MFLES</td>
+        <td>15%</td>
+        <td>18%</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 From the above table, we can see that the Facebook Prophet model performed the best in terms of MAPE for both regional and global sales forecasting. This may be because Facebook Prophet can capture multiple seasonalities and also handles exogenous variables well.  
@@ -984,11 +984,11 @@ Following are some screenshots of the Optuna Dashboard. Notice how the dashboard
 
 ![Optuna Timeline](image-3.png)
 
-<p class="text-center">Optuna Timeline</p>
+<p className='text-center'>Optuna Timeline</p>
 
 ![Param Important](image-23.png)
 
-<p class="text-center">Hyperparameter Importance</p>
+<p className='text-center'>Hyperparameter Importance</p>
 
 ### MLflow
 
@@ -1003,7 +1003,7 @@ Following are some screenshots of the MLflow UI. Notice how the dashboard provid
 
 ![MLflow Dashboard](./mlflow.png)
 
-<p class="text-center">MLFlow Dashboard</p>
+<p className='text-center'>MLFlow Dashboard</p>
 
 ## Deployment using Streamlit
 
@@ -1019,8 +1019,9 @@ The Streamlit app provides the following functionalities:
 
 The code for the Streamlit app can be found [here](https://github.com/gautamnaik1994/SalesForecasting_ML_CaseStudy/tree/main/deploy)
 
-<Alert variant="info">
-  If the app is inactive for a while, Streamlit may shut it down. To restart the app, click on the "Yes, get this app back up!" button.
+<Alert variant='info'>
+  If the app is inactive for a while, Streamlit may shut it down. To restart the
+  app, click on the "Yes, get this app back up!" button.
 </Alert>
 
 Click the following button to view the Streamlit app
@@ -1036,7 +1037,7 @@ Following is the flow diagram of the pipeline. It's built using [https://www.era
 
 ![Pipeline](./ml_pipeline.png)
 
-<p class="text-center">ML Prediction Pipeline</p>
+<p className='text-center'>ML Prediction Pipeline</p>
 
 ### Pipeline Implementation
 
@@ -1156,7 +1157,7 @@ lgbm.fit(transformed_df, df.iloc[pipeline[0].included_indices_]["Sales"])
 
 </ExpandableSeeMore>
 
-<p/>
+<p />
 
 Following is the notebook that contains the code of the pipeline
 
@@ -1178,7 +1179,7 @@ The complete code can be found in the GitHub repository below. All the notebooks
 
 [![GitHub](https://img.shields.io/badge/View%20on-GitHub-blue?logo=github)](https://github.com/gautamnaik1994/SalesForecasting_ML_CaseStudy)
 
-<p/>
+<p />
 
 One can browse the entire repository on nbviewer by clicking the link below:
 

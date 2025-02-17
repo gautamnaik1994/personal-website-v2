@@ -253,21 +253,6 @@ a {
   text-decoration: none;
   color: var(--primary);
 }
-
-pre {
-  //background-color: #2f1e2e !important;
-  //border-radius: 4px;
-  //font-size: 14px;
-}
-
-.gatsby-highlight-code-line {
-  background-color: #4f424c;
-  display: block;
-  margin-right: -1em;
-  margin-left: -1em;
-  padding-right: 1em;
-  padding-left: 1em;
-}
 .m-0 {
   margin: 0 !important;
 }
@@ -332,74 +317,6 @@ pre {
     margin: 10rem 0;
   }
 }
-/*Add back the container background-color, border-radius, padding, margin and overflow that we removed from <pre>.*/
-.gatsby-highlight {
-  background-color: #111111;
-  border-radius: 0.3em;
-  margin: 0.5em 0 1.5em;
-  padding: 1em;
-  overflow: auto;
-  padding-top: 45px;
-  padding-bottom: 20px;
-  position: relative;
-  &:before {
-    content: attr(data-language);
-    background: #673ab7;
-    border-radius: 0px 0px 4px 4px;
-    color: rgb(255 255 255 / 70%);
-    font-size: 14px;
-    font-weight: var(--fontWeightMedium);
-    letter-spacing: 0.05em;
-    line-height: 1;
-    padding: 5px 10px;
-    position: absolute;
-    left: 15px;
-    text-transform: uppercase;
-    top: 0px;
-  }
-  /*
-  Remove the default PrismJS theme background-color, border-radius,margin, padding and overflow.
-  1. Make the element just wide enough to fit its content.
-  2. Always fill the visible space in .gatsby-highlight.
-  3. Adjust the position of the line numbers
-  */
-  pre[class*='language-'] {
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-    overflow: initial;
-    float: left;
-    min-width: calc(100% - 3em);
-    font-size: 0.9em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    &.line-numbers {
-      padding-left: 3em;
-      padding-right: 1em;
-
-      .line-numbers-rows {
-        right: calc(100% - 25px);
-        left: unset !important;
-      }
-
-      .gatsby-highlight-code-line {
-        background-color: #455a64;
-        display: block;
-        margin-right: -1em;
-        margin-left: -1em;
-        padding-right: 1em;
-        padding-left: 0.75em;
-      }
-    }
-  }
-}
-:not(pre) > code[class*='language-'] {
-  padding: 2px 6px;
-  margin-left: 3px;
-  font-size: 0.85em;
-  color: #7ec699;
-  background: #404040;
-}
 
 .text-center {
   text-align: center;
@@ -410,14 +327,15 @@ pre {
 .text-accent {
   color: var(--accent);
 }
-.metaball-svg {
-  height: 100vh;
-  width: 100%;
-  fill: red;
-  .balls {
-    /* transition: transform 1s linear; */
-    will-change: transform;
-  }
+
+.d-none {
+  display: none !important;
+}
+.text-right {
+  text-align: right;
+}
+.relative {
+  position: relative;
 }
 
 .blog-wide-section {
@@ -433,17 +351,6 @@ pre {
   }
 }
 
-.tweakpane-container {
-  position: fixed;
-  right: 0;
-  top: 66px;
-}
-.text-right {
-  text-align: right;
-}
-.relative {
-  position: relative;
-}
 @keyframes dash {
   to {
     stroke-dashoffset: 0;
@@ -461,26 +368,6 @@ pre {
 
 .scroll-top-margin {
   scroll-margin-top: 100px;
-}
-
-table {
-  display: table !important;
-  border: 1px solid var(--bodyColor);
-  font-size: 14px;
-  border-collapse: collapse;
-}
-table thead th,
-table tfoot th {
-  // color: #777;
-  // background: rgba(0, 0, 0, 0.1);
-}
-table caption {
-  padding: 0.5em;
-}
-table th,
-table td {
-  padding: 0.5em;
-  border: 1px solid var(--bodyColor);
 }
 
 // table {
@@ -587,48 +474,6 @@ table td {
   }
 }
 
-p:has(span.gatsby-resp-image-wrapper) {
-  width: 100% !important;
-  border: none;
-  border-radius: 8px;
-  max-width: 1366px;
-}
-
-.side-scrolling-table-container {
-  overflow-x: auto;
-  table {
-    width: 100%;
-  }
-}
-
-.expandable-see-more {
-  text-align: center;
-  .inner {
-    text-align: left;
-  }
-  .open {
-    height: auto;
-  }
-  .close {
-    height: 200px;
-    overflow: hidden;
-    position: relative;
-    &:after {
-      content: '';
-      height: 80px;
-      background: linear-gradient(
-        180deg,
-        rgba(var(--bodyBackgroundColorRgb), 0) 0%,
-        rgba(var(--bodyBackgroundColorRgb), 100%) 100%
-      );
-      display: block;
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-    }
-  }
-}
-
 @keyframes swim-up {
   0% {
     transform: translateY(0);
@@ -637,82 +482,5 @@ p:has(span.gatsby-resp-image-wrapper) {
   100% {
     transform: translateY(-130px);
     opacity: 0;
-  }
-}
-
-// .toc-list {
-//   list-style: none; /* Remove default list styles */
-//   counter-reset: section; /* Initialize the counter */
-// }
-
-// .toc-list > li {
-//   counter-increment: section; /* Increment the counter */
-// }
-
-// .toc-list > li:before {
-//   content: counters(section, '.') ' '; /* Use counters to display hierarchy */
-//   font-weight: bold;
-// }
-
-// .toc-list li ul {
-//   counter-reset: section; /* Reset counter for nested lists */
-//   padding-left: 20px; /* Add padding for nesting */
-// }
-
-.floating-toc-button {
-  transition:
-    transform 0.5s ease-in,
-    opacity 0.5s ease-in;
-  transform: translate(50%, 0);
-  opacity: 0;
-}
-.floating-toc {
-  transition:
-    transform 0.3s ease-in,
-    opacity 0.3s ease-in;
-  transform: translate(10%, 0);
-  opacity: 0;
-}
-body.toc-not-in-view {
-  .floating-toc,
-  .floating-toc-button {
-    transform: translate(0px, 0);
-    opacity: 1;
-  }
-}
-
-code[data-line-numbers] {
-  counter-reset: line;
-}
-
-code[data-line-numbers] > [data-line]::before {
-  counter-increment: line;
-  content: counter(line);
-
-  /* Other styling */
-  display: inline-block;
-  width: 0.75rem;
-  margin-right: 2rem;
-  text-align: right;
-  color: gray;
-}
-
-code[data-line-numbers-max-digits='2'] > [data-line]::before {
-  width: 1.25rem;
-}
-
-code[data-line-numbers-max-digits='3'] > [data-line]::before {
-  width: 1.75rem;
-}
-
-code[data-line-numbers-max-digits='4'] > [data-line]::before {
-  width: 2.25rem;
-}
-
-span[data-rehype-pretty-code-figure] {
-  code {
-    padding: 4px 6px;
-    border-radius: 5px;
-    font-size: 14px;
   }
 }

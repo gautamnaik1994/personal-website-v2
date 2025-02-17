@@ -38,15 +38,9 @@ importers:
       react-use:
         specifier: ^17.6.0
         version: 17.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      rehype-pretty-code:
-        specifier: ^0.14.0
-        version: 0.14.0(shiki@2.4.1)
       sanitize.css:
         specifier: ^13.0.0
         version: 13.0.0
-      shiki:
-        specifier: ^2.4.1
-        version: 2.4.1
     devDependencies:
       '@altano/remark-mdx-toc-with-slugs':
         specifier: ^3.0.0
@@ -87,6 +81,9 @@ importers:
       rehype-mdx-import-media:
         specifier: ^1.2.0
         version: 1.2.0
+      rehype-pretty-code:
+        specifier: ^0.14.0
+        version: 0.14.0(shiki@2.4.1)
       rehype-slug:
         specifier: ^6.0.0
         version: 6.0.0
@@ -108,6 +105,12 @@ importers:
       serwist:
         specifier: ^9.0.11
         version: 9.0.11(typescript@5.7.3)
+      sharp:
+        specifier: ^0.33.5
+        version: 0.33.5
+      shiki:
+        specifier: ^2.4.1
+        version: 2.4.1
       typescript:
         specifier: ^5
         version: 5.7.3
@@ -3308,13 +3311,11 @@ snapshots:
     dependencies:
       color-name: 1.1.4
       simple-swizzle: 0.2.2
-    optional: true
 
   color@4.2.3:
     dependencies:
       color-convert: 2.0.1
       color-string: 1.9.1
-    optional: true
 
   comma-separated-tokens@2.0.3: {}
 
@@ -3396,8 +3397,7 @@ snapshots:
   detect-libc@1.0.3:
     optional: true
 
-  detect-libc@2.0.3:
-    optional: true
+  detect-libc@2.0.3: {}
 
   devlop@1.1.0:
     dependencies:
@@ -4115,8 +4115,7 @@ snapshots:
       call-bound: 1.0.3
       get-intrinsic: 1.2.7
 
-  is-arrayish@0.3.2:
-    optional: true
+  is-arrayish@0.3.2: {}
 
   is-async-function@2.1.1:
     dependencies:
@@ -5171,7 +5170,6 @@ snapshots:
       '@img/sharp-wasm32': 0.33.5
       '@img/sharp-win32-ia32': 0.33.5
       '@img/sharp-win32-x64': 0.33.5
-    optional: true
 
   shebang-command@2.0.0:
     dependencies:
@@ -5234,7 +5232,6 @@ snapshots:
   simple-swizzle@0.2.2:
     dependencies:
       is-arrayish: 0.3.2
-    optional: true
 
   source-map-js@1.2.1: {}
 

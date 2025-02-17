@@ -1,0 +1,71 @@
+.ProjectItemStyles {
+  padding: 15px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  background-color: var(--cardColor);
+  box-shadow: var(--cardShadow);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 1rem;
+  .imgContainer {
+    margin-bottom: -1rem;
+    height: 200px;
+    padding: 45px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    display: grid;
+    place-content: center;
+    line-height: 1.2;
+    position: relative;
+    top: -2rem;
+    box-shadow: 0 6px 40px 0px var(--boxShadowcolor);
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .gatsby-image-wrapper {
+    width: 100% !important;
+  }
+  h2 {
+    font-variant-ligatures: none;
+    line-height: 2rem;
+  }
+  .linkHolder {
+    a + a {
+      margin-left: 15px;
+    }
+  }
+  .personalTag {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 14px;
+    padding: 5px 9px;
+    font-weight: var(--fontWeightRegular);
+    background: rgb(0 0 0 / 50%);
+    border-radius: 9px 0 9px 0;
+    color: rgb(255 255 255 / 75%);
+  }
+  @include desktop {
+    margin-bottom: 0;
+  }
+}
+
+.Item {
+  .label {
+    font-size: 16px;
+    font-weight: var(--fontWeightBold);
+    color: var(--accent);
+  }
+  & + & {
+    margin-top: 1rem;
+  }
+}

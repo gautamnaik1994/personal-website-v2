@@ -1,5 +1,7 @@
 'use client';
 import React, { useState, ReactNode } from 'react';
+import Button from '@/components/Button/Button';
+import styles from './index.module.scss';
 
 function ExpandableSeeMore({ children }: { children: ReactNode }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -10,11 +12,15 @@ function ExpandableSeeMore({ children }: { children: ReactNode }) {
   };
 
   return (
-    <div className='expandable-see-more'>
-      <div className={`inner ${isExpanded ? `open` : `close`}`}>{children}</div>
-      <button onClick={(e) => handleClick(e)}>
+    <div className={`${styles.expandableSeeMore} one-rem-mb`}>
+      <div
+        className={`${styles.inner} ${isExpanded ? styles.open : styles.close}`}
+      >
+        {children}
+      </div>
+      <Button variant='primary' onClick={(e) => handleClick(e)}>
         {isExpanded ? `See Less` : `See More`}
-      </button>
+      </Button>
     </div>
   );
 }

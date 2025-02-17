@@ -1,8 +1,8 @@
 ---
 title: Automated Trading System
-date: 2023-12-29 
+date: 2023-12-29
 slug: automated-trading-system
-updatedDate: 2023-12-29 
+updatedDate: 2023-12-29
 description: Case study of my automated trading system. This post will walk through the process of building the system, the components and technologies used, how it works, and the challenges faced.
 publish: true
 featuredPost: true
@@ -26,18 +26,18 @@ The following is a case study of my automated trading system. This post will wal
 
 ## Goal
 
-* Develop a system that can automatically execute trades with minimal human intervention.
-* Store upcoming trade signals and daily trade data.
-* Keep costs as low as possible.
+- Develop a system that can automatically execute trades with minimal human intervention.
+- Store upcoming trade signals and daily trade data.
+- Keep costs as low as possible.
 
 ## Solution
 
-* Build an event-driven system.
-* Scan market data daily and weekly to generate trading signals using predefined rules built on top of indicators and price data.
-* Validate signals manually if required, then save them to the database.
-* Execute trade orders manually or automatically, depending on the strategy, on the same day or the next trading day.
-* Save P\&L data to the database after market hours.
-* Track performance, identify trends and tweak trading strategies based on results.
+- Build an event-driven system.
+- Scan market data daily and weekly to generate trading signals using predefined rules built on top of indicators and price data.
+- Validate signals manually if required, then save them to the database.
+- Execute trade orders manually or automatically, depending on the strategy, on the same day or the next trading day.
+- Save P\&L data to the database after market hours.
+- Track performance, identify trends and tweak trading strategies based on results.
 
 ## Challenges
 
@@ -60,10 +60,10 @@ The following is a dashboard that presents data based on the trades executed by 
 You can access the hosted dashboard at [Automated Trading System Dashboard](https://gmmm-dashboard.streamlit.app/), and the source code for the project is available on [Github Repo](https://github.com/gautamnaik1994/Automated-Trading-System-Dashboard).
 
 <iframe
-  src="https://gmmm-dashboard.streamlit.app/?embed=true"
-  height="600"
-  className="blog-wide-section"
-  title="Automated Trading System Dashboard"
+  src='https://gmmm-dashboard.streamlit.app/?embed=true'
+  height='600'
+  className='blog-wide-section'
+  title='Automated Trading System Dashboard'
 ></iframe>
 
 ## Backend System
@@ -77,15 +77,15 @@ You can access the hosted dashboard at [Automated Trading System Dashboard](http
 ```typescript
 const saveLiquidStocksTokenFn = new lambda.Function(
   this,
-  "SaveLiquidStocksTokenFn",
+  'SaveLiquidStocksTokenFn',
   {
     //can use Java, Javascript etc
     runtime: lambda.Runtime.PYTHON_3_9,
-    handler: "save_liquid_stocks.lambda_handler",
-    code: lambda.Code.fromAsset("src/stock_token/fno_stocks"),
+    handler: 'save_liquid_stocks.lambda_handler',
+    code: lambda.Code.fromAsset('src/stock_token/fno_stocks'),
     timeout: Duration.minutes(5),
 
-      // faster & cheaper, but complex setup
+    // faster & cheaper, but complex setup
     architecture: lambda.Architecture.ARM_64,
 
     //common code shared between functions
@@ -139,10 +139,9 @@ S3 is a cloud-based storage service that I use to store all of my stock symbols 
 **Following is the code to set up S3 bucket**
 
 ```typescript
-const csvBucket = new s3.Bucket(this, "Bucket", {
+const csvBucket = new s3.Bucket(this, 'Bucket', {
   removalPolicy: RemovalPolicy.RETAIN,
 });
-
 ```
 
 ### DynamoDB
@@ -150,14 +149,14 @@ const csvBucket = new s3.Bucket(this, "Bucket", {
 This is where I store all the data about trading signals, past trades, and their PNL data.
 
 ```typescript
-const systemConfigTableV1 = new db.Table(this, "SystemConfigTable", {
+const systemConfigTableV1 = new db.Table(this, 'SystemConfigTable', {
   partitionKey: {
-    name: "pk",
+    name: 'pk',
     type: db.AttributeType.STRING,
   },
   //Both partition key and sort key make a primary key
   sortKey: {
-    name: "sk",
+    name: 'sk',
     type: db.AttributeType.STRING,
   },
   // Will not be billed for individual requests
@@ -176,19 +175,15 @@ This is where the event to run the function at a particular time is created. It 
 
 ```typescript
 //create schedule
-const tokenGeneratorFnCron = new events.Rule(
-  this,
-  "TokenGeneratorFnCronRule",
-  {
-    schedule: events.Schedule.cron({
-      minute: "40",
-      hour: "13",
-      weekDay: "FRI",
-      month: "*",
-      year: "*",
-    }),
-  }
-);
+const tokenGeneratorFnCron = new events.Rule(this, 'TokenGeneratorFnCronRule', {
+  schedule: events.Schedule.cron({
+    minute: '40',
+    hour: '13',
+    weekDay: 'FRI',
+    month: '*',
+    year: '*',
+  }),
+});
 
 //call the function at above schedule
 tokenGeneratorFnCron.addTarget(
@@ -203,26 +198,26 @@ This service is used to build APIs. These APIs can be linked to Lambda functions
 **Folowing is the code to set up the API Gateway**
 
 ```typescript
-const httpApiV1 = new HttpApi(this, "Api", {
+const httpApiV1 = new HttpApi(this, 'Api', {
   corsPreflight: {
-    allowHeaders: ["Authorization", "Content-Type"],
+    allowHeaders: ['Authorization', 'Content-Type'],
     allowMethods: [
       CorsHttpMethod.GET,
       CorsHttpMethod.POST,
       CorsHttpMethod.PUT,
       CorsHttpMethod.DELETE,
     ],
-    allowOrigins: ["*"],
+    allowOrigins: ['*'],
     maxAge: Duration.days(10),
   },
 });
 
 httpApiV1.addRoutes({
-  path: "/demo/{date}",
+  path: '/demo/{date}',
   methods: [HttpMethod.GET],
   integration: new HttpLambdaIntegration(
-    "DemoApi",
-    DemoLambdaFunction, //Lambda function to call
+    'DemoApi',
+    DemoLambdaFunction //Lambda function to call
   ),
   authorizer,
 });
@@ -243,19 +238,24 @@ There is also an option to square off all trades during emergencies.
 **Following are some screenshots of the admin portal**
 
 ![Signals](./signals.png)
-<p class="text-center">Daily Signals</p>
+
+<p className='text-center'>Daily Signals</p>
 
 ![Trades](./trades.png)
-<p class="text-center">Daily Trades</p>
+
+<p className='text-center'>Daily Trades</p>
 
 ![Daily Pnl](./dailypnl.png)
-<p class="text-center">Daily PNL</p>
+
+<p className='text-center'>Daily PNL</p>
 
 ![Monthly Pnl](./monthlypnl.png)
-<p class="text-center">Monthly PNL</p>
+
+<p className='text-center'>Monthly PNL</p>
 
 ![Analytics](./analysis.png)
-<p class="text-center">Daily Analysis</p>
+
+<p className='text-center'>Daily Analysis</p>
 
 ## DevOps
 
@@ -270,7 +270,8 @@ Software and apps will inevitably experience problems, errors, and crashes. The 
 All you have to do is make an API request with the content and bot token, and you'll get a notification in your Telegram app. I set up all of my success messages and errors on Telegram, along with the error code or message.
 
 ![Telegram](./telegram.png)
-<p class="text-center">Telegram</p>
+
+<p className='text-center'>Telegram</p>
 
 ## Closing thoughts
 

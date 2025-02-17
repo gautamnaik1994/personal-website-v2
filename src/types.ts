@@ -1,4 +1,5 @@
 import { Category } from '@/service/blog';
+import React from 'react';
 
 export interface ImageData {
   src: string;
@@ -80,4 +81,29 @@ export interface Skill {
   value: number;
   publish: boolean;
   details: SkillDetail[];
+}
+
+export interface ProjectDetails {
+  key: string;
+  value: string;
+}
+
+export interface ProjectLinks {
+  key: string;
+  value: string;
+}
+
+export interface Project {
+  title: string;
+  banner?: string;
+  order: number;
+  publish: boolean;
+  homepage: boolean;
+  externalProject: boolean;
+  projectColor: string;
+  category: string;
+  companyName?: string;
+  details: ProjectDetails[];
+  links: ProjectLinks[];
+  content: any;
 }

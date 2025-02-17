@@ -20,24 +20,6 @@
   a {
     text-decoration: underline;
   }
-  @include tablet {
-    & > * {
-      width: 750px;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-    }
-    a {
-      display: inline-block;
-      width: auto;
-      // max-width: 750px;
-    }
-  }
-}
-.article {
-  padding-top: 60px;
-  padding-left: 15px;
-  padding-right: 15px;
   pre {
     padding: 15px;
     border-radius: 8px;
@@ -48,15 +30,25 @@
       gap: 8px;
     }
   }
-  & > * {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-
-    @include desktop {
+  @include tablet {
+    & > * {
       width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
     }
+    // a:has(img) {
+    //   display: block;
+    //   margin-left: auto;
+    //   margin-right: auto;
+    //   margin-bottom: 8px;
+    // }
   }
+}
+.article {
+  padding-top: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
   @include desktop {
     padding-left: 0;
     padding-right: 0;
@@ -80,24 +72,6 @@
     width: 1140px;
     img {
       border-radius: 8px;
-    }
-    &:after,
-    &:before {
-      content: '';
-      opacity: 0.2;
-      position: absolute;
-      width: 300px;
-      background-repeat: repeat;
-      top: 0;
-      bottom: 0;
-      background-image: radial-gradient(var(--bodyColor) 1px, transparent 1px);
-      background-size: 25px 25px;
-    }
-    &:before {
-      left: -340px;
-    }
-    &:after {
-      right: -340px;
     }
   }
 }
@@ -127,7 +101,8 @@
 }
 
 .PaginationWrapper {
-  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
   a {
     float: none !important;
     margin: 0;
@@ -137,12 +112,12 @@
     width: auto;
     max-width: none;
     font-size: 18px;
-    background: transparent;
+    background: hsl(224 26% 14% / 1);
     color: var(--primary);
     box-shadow: none;
     padding: 12px;
     white-space: normal;
-    border: 1px solid var(--cardColor);
+    border: 1px solid hsl(224 26% 25% / 1);
     small {
       color: var(--bodyColor);
     }
@@ -150,7 +125,7 @@
       line-height: 1.5;
       margin-top: 5px;
     }
-    &.right {
+    &.next {
       text-align: right;
     }
   }
@@ -163,10 +138,10 @@
     a {
       padding: 15px;
       flex: 1;
-      &.left {
+      &.prev {
         text-align: right;
       }
-      &.right {
+      &.next {
         text-align: left;
       }
       div {
@@ -176,5 +151,38 @@
         text-overflow: ellipsis;
       }
     }
+  }
+}
+
+.dot-pattern {
+  @include desktop {
+    position: relative;
+    &:after,
+    &:before {
+      content: '';
+      opacity: 0.2;
+      position: absolute;
+      width: 300px;
+      background-repeat: repeat;
+      top: 110px;
+      height: 613px;
+      background-image: radial-gradient(var(--bodyColor) 1px, transparent 1px);
+      background-size: 25px 22px;
+    }
+    &:before {
+      left: 0px;
+    }
+    &:after {
+      right: 0px;
+    }
+  }
+}
+
+.toc {
+  margin-bottom: 2rem;
+  @include tablet {
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

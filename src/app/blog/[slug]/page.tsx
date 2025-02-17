@@ -1,9 +1,9 @@
 import Image from 'next/image';
+import './index.scss';
 import type { Metadata, ResolvingMetadata } from 'next';
 import {
   getPostBySlug_v2,
   getPostBySlug,
-  categories,
   categoryToSlugMap,
 } from '@/service/blog';
 import { PostContent, PostContentLite } from '@/types';
@@ -15,6 +15,7 @@ import styles from './index.module.scss';
 import Container from '@/components/Container';
 import BlogPostLD from '@/components/JsonLD/blogPostLD';
 import { format } from 'date-fns';
+import dynamic from 'next/dynamic';
 
 export default async function Page({
   params,
@@ -45,6 +46,7 @@ export default async function Page({
         categories={frontmatter.categories || []}
         readingTime={readingTime.text}
       />
+      <div className={styles['dot-pattern']}></div>
       <article className={styles.article}>
         <div className={styles.headerImageWrapper}>
           <Image
@@ -74,18 +76,19 @@ export default async function Page({
           <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
           <span>{readingTime.text}</span>
         </div>
-        <TableOfContents items={toc} />
+        <TableOfContents items={toc} className={styles.toc} />
         <div className={styles.postParent}>
           <Post className='temp' />
         </div>
       </article>
+
       <Container>
         <div className={styles.PaginationWrapper}>
           {prevPost && (
             <Link
               href={`/blog/${prevPost.slug}`}
               rel='prev'
-              className='text-right'
+              className={styles.prev}
               title={prevPost.title}
             >
               <small>Previous</small>
@@ -96,7 +99,7 @@ export default async function Page({
             <Link
               href={`/blog/${nextPost.slug}`}
               rel='next'
-              className='text-left'
+              className={styles.next}
               title={nextPost.title}
             >
               <small>Next</small>
