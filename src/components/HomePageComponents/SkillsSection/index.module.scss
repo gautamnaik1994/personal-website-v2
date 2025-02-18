@@ -1,0 +1,11 @@
+.SkillList {
+  display: flex;
+  white-space: nowrap;
+  overflow: auto;
+  align-items: flex-start;
+  gap: 15px;
+  @include desktop {
+    justify-content: center;
+    gap: 30px;
+  }
+}
