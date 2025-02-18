@@ -14,7 +14,7 @@ const FeaturedBlogs = async ({ className }: Props) => {
 
   return (
     <section className={className}>
-      <SectionTitle title='Featured Blogs' />
+      <SectionTitle title=' Blogs' />
       <div className={`${styles.blogList} two-rem-mb`}>
         {posts.map(
           ({

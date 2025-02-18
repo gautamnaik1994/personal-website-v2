@@ -11,7 +11,7 @@ export default function HeroFn({
     <header className={styles.Hero}>
       <div className={styles['img-bg']}></div>
       <div className={`${styles['img-bg']} ${styles['img-bg-2']}`}></div>
-      <div className={styles['inner-container']}>{title}</div>
+      <h1 className={styles['inner-container']}>{title}</h1>
     </header>
   );
 }

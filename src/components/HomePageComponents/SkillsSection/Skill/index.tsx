@@ -70,11 +70,9 @@ const SkillComponent = ({
           onClick={() => toggle(!open)}
         >
           {open ? `Less` : `More`}
-          {` `}
           {/* 
 // @ts-ignore */}
           <animated.i className='icon-arrow-right' style={rotate} />
-          {` `}
         </button>
       </div>
     </div>

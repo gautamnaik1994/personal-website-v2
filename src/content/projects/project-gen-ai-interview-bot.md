@@ -14,10 +14,13 @@ details:
   - key: Technology
     value: Streamlit, LangChain
 links:
-  - key: Git Link
+  - key: Github
     value: https://github.com/gautamnaik1994/Gen_AI_Interview_Bot
   - key: App Link
     value: https://gen-ai-interview-bot.streamlit.app/
+mainLink: https://gen-ai-interview-bot.streamlit.app/
+description: |
+  This chatbot automates the shortlisting of job candidates, reducing the HR team's workload. It uses Gen AI to rate candidates' responses.
 ---
 <!--StartFragment-->
 

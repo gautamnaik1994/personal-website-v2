@@ -3,7 +3,7 @@ title: Ticlet
 image: ticlet.png
 order: 5
 publish: false
-category: Web Development
+category: Software Engineering
 externalProject: true
 projectColor: "#6b75d2"
 companyName: Genora Infotech
@@ -15,5 +15,7 @@ details:
 links:
   - key: Design Link
     value: https://www.behance.net/gallery/50665321/Events-App-UI-Design
+description: |
+  Ticlet is a mobile app that allows users to explore the nightlife in clubs in Goa & book tickets for events happening around your location.
 ---
 Ticlet is a mobile app that allows users to explore the nightlife in clubs in Goa & book tickets for events happening around your location.

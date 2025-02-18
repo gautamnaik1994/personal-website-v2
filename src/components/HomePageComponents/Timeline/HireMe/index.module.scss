@@ -1,0 +1,122 @@
+.StyledHireMe {
+  padding: 30px;
+  background: var(--sideCardColor);
+  border-radius: 8px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--cardShadow);
+  .top-sec {
+    font-weight: var(--fontWeightMedium);
+    font-size: 22px;
+    line-height: 1.2;
+  }
+  .middle-sec {
+    font-size: 30px;
+    font-weight: var(--fontWeightLight);
+    .lvl {
+      margin-left: 10px;
+      position: relative;
+      display: inline-block;
+      //transform: translateY(-100%);
+    }
+    .i-wrapper {
+      position: absolute;
+      color: var(--primary);
+      right: 50%;
+      transform: rotate(270deg);
+      top: 100%;
+      .s-icon {
+        position: absolute;
+        right: 16px;
+      }
+      /* filter: drop-shadow(-16px 0px 0px currentColor); */
+    }
+  }
+  .bottom-sec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hire-text {
+    font-size: 25px;
+    line-height: 1;
+    opacity: 0.05;
+    font-weight: var(--fontWeightBold);
+    @supports (-webkit-background-clip: text) {
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+      background: linear-gradient(
+        to right,
+        hsla(46, 100%, 65%, 1),
+        hsla(46, 100%, 86%, 1)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  }
+  @include tablet {
+    padding: 30px 15px;
+    .hire-text {
+      font-size: 40px;
+    }
+    width: 380px;
+    position: sticky;
+    top: 70px;
+  }
+  @include desktop {
+    padding: 30px;
+  }
+}
+
+.StyledBulb {
+  width: 70px;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 43%;
+    left: 43%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  .rays {
+    display: none;
+  }
+  .cls-1 {
+    fill: #8d8382;
+  }
+  .cls-2 {
+    fill: #504742;
+  }
+  .cls-3 {
+    fill: #848484;
+  }
+  .cls-4 {
+    fill: #fff;
+  }
+  svg {
+    position: relative;
+    z-index: 1;
+  }
+  &.entered {
+    &:before {
+      box-shadow: 0 0 75px 41px rgba(255, 197, 12, 0.27);
+    }
+
+    & + .hire-text {
+      opacity: 1;
+    }
+    .rays {
+      display: block;
+    }
+    .cls-3 {
+      fill: #ffc50c;
+    }
+  }
+}

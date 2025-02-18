@@ -43,7 +43,6 @@
     "remark-reading-time": "^2.0.1",
     "sass": "^1.84.0",
     "serwist": "^9.0.11",
-    "sharp": "^0.33.5",
     "shiki": "^2.4.1",
     "typescript": "^5"
   }

@@ -106,4 +106,16 @@ export interface Project {
   details: ProjectDetails[];
   links: ProjectLinks[];
   content: any;
+  description: string;
+  mainLink: string;
 }
+
+export type WorkExperience = {
+  title: string;
+  role: string;
+  timeRange: string;
+  order: number;
+  status: string;
+  companyUrl: string;
+  content: any;
+};

@@ -3,6 +3,9 @@
   bottom: 20px;
   right: 15px;
   box-shadow: var(--cardShadow);
+  & + :global(.outer-links) {
+    display: none;
+  }
   @include tablet {
     bottom: 20px;
   }

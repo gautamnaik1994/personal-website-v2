@@ -1,0 +1,57 @@
+.StyledOuterLinks {
+  position: sticky;
+  bottom: 5px;
+  padding: 0 10px;
+  display: none;
+  & > div {
+    position: absolute;
+    bottom: 0;
+    --sideSpace: 30px;
+    a {
+      transition: transform 0.3s ease-in;
+      &:hover {
+        transform: translateY(-4px);
+      }
+    }
+    &:after {
+      content: '';
+      height: 80px;
+      width: 1px;
+      background: var(--bodyColor);
+      display: block;
+      margin: 10px auto 10px auto;
+    }
+  }
+  .left-side {
+    left: var(--sideSpace);
+    a {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+    i:before,
+    i:after {
+      color: var(--bodyColor);
+    }
+  }
+  .right-side {
+    right: var(--sideSpace);
+    i {
+      display: inline-block;
+      color: #7af478;
+      margin-bottom: 5px;
+      position: relative;
+      right: 3px;
+      font-size: 20px;
+    }
+    .inner {
+      writing-mode: vertical-rl;
+      color: var(--bodyColor);
+      margin-bottom: 5px;
+    }
+  }
+
+  @include desktop {
+    display: block;
+  }
+}

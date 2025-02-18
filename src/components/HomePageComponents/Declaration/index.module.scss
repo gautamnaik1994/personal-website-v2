@@ -1,0 +1,80 @@
+.StyledDiv {
+  text-align: center;
+  .declaration {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+  .name-sign {
+    display: inline-block;
+    border: 2px dashed grey;
+    padding: 15px 50px;
+    border-radius: 8px;
+  }
+  @include desktop {
+    width: 680px;
+    margin: auto;
+    .name-sign {
+      text-align: right;
+      svg {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+@keyframes dashAnim {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.StyledSvg {
+  path {
+    fill: none;
+    stroke: var(--primary);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3px;
+  }
+
+  #gautam {
+    stroke-dasharray: 1231.695556640625;
+    stroke-dashoffset: 1231.695556640625;
+  }
+  #t_line {
+    stroke-dasharray: 40.52498245239258;
+    stroke-dashoffset: 40.52498245239258;
+  }
+  #n {
+    stroke-dasharray: 180.76527404785156;
+    stroke-dashoffset: 180.76527404785156;
+  }
+  #aik {
+    stroke-dasharray: 374.37042236328125;
+    stroke-dashoffset: 374.37042236328125;
+  }
+  #idot {
+    stroke-dasharray: 32.17362594604492;
+    stroke-dashoffset: 32.17362594604492;
+  }
+
+  &.animate {
+    #gautam {
+      animation: dashAnim 3.5s linear forwards;
+    }
+    #t_line {
+      animation: dashAnim 150ms 3.5s linear forwards;
+    }
+    #n {
+      animation: dashAnim 700ms 4s linear forwards;
+    }
+    #aik {
+      animation: dashAnim 1.5s 5s linear forwards;
+    }
+
+    #idot {
+      animation: dashAnim 100ms 6.8s linear forwards;
+    }
+  }
+}

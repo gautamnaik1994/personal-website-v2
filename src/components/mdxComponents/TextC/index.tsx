@@ -36,3 +36,7 @@ export function UL(props: ComponentPropsWithoutRef<'ul'>) {
 export function OL(props: ComponentPropsWithoutRef<'ol'>) {
   return <ol className={styles.ol} {...props} />;
 }
+
+export function A(props: ComponentPropsWithoutRef<'a'>) {
+  return <a {...props} target='_blank' rel='noopener noreferrer' />;
+}

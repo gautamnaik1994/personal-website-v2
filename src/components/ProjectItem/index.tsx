@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './index.module.scss';
 import Image from 'next/image';
-// import Item from './Skill/Item';
-// import media from '../utils/MediaQueries';
 
 interface Props {
   projectColor: string;
@@ -33,7 +31,14 @@ export default function ProjectItem({
           style={{ background: projectColor }}
         >
           {banner ? (
-            <Image src={banner} alt={title} width={300} height={200} />
+            <Image
+              src={banner}
+              alt={title}
+              width={300}
+              height={200}
+              loading='lazy'
+              placeholder='blur'
+            />
           ) : (
             <>{title}</>
           )}
@@ -44,8 +49,6 @@ export default function ProjectItem({
 
         <h2 className='m-0 text-primary'>{title}</h2>
         {children}
-
-        {/* <p dangerouslySetInnerHTML={{ __html: props.description }} /> */}
         <div>
           {details.map(({ key, value }) => (
             <div key={key} className={styles.Item}>
@@ -65,3 +68,5 @@ export default function ProjectItem({
     </div>
   );
 }
+
+//  <Image src={banner} alt={title} width={300} height={200} />

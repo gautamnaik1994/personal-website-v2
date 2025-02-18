@@ -23,6 +23,9 @@
     li {
       margin-top: 5px;
     }
+    & + :global(.outer-links) {
+      display: none;
+    }
     @include tablet {
       // min-height: 400px;
       height: auto;

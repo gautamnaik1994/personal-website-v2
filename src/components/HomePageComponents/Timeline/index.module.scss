@@ -1,0 +1,15 @@
+.parent {
+  @include desktop {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+.workExperience {
+  margin-bottom: 30px;
+  @include desktop {
+    margin-bottom: 0px;
+  }
+}

@@ -5,7 +5,7 @@ order: 0
 publish: true
 externalProject: true
 projectColor: "#36c1c8"
-category: Web Development
+category: Software Engineering
 companyName: Grassdoor
 details:
   - key: "Role "
@@ -15,8 +15,10 @@ details:
 links:
   - key: Link
     value: https://grassdoor.com/
-description: Grassdoor is a web platform that allows users to place orders for
-  medical supplies and get them delivered at home.
+    
+description: |
+  Grassdoor is a web platform that allows users to place orders for medical supplies and get them delivered at home.
+mainLink: https://grassdoor.com/
 ---
 <!--StartFragment-->
 

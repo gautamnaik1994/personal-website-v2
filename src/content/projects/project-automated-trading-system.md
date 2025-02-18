@@ -18,6 +18,9 @@ links:
     value: /blog/automated-trading-system/
   - key: Dashboard Link
     value: https://gmmm-dashboard.streamlit.app/
+mainLink: https://www.gautamnaik.com/blog/automated-trading-system/
+description: |
+  This system scans daily market data to generate trade signals, automatically places orders, and saves trade data to a database.
 ---
 <!--StartFragment-->
 

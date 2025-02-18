@@ -4,17 +4,17 @@
     box-shadow 0.3s ease-in;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   gap: 25px;
   background-color: rgba(var(--bodyBackgroundColorRgb), 0.7);
   box-shadow: 0 1px 9px 1px rgba(0, 0, 0, 0.3);
-  padding: 10px 30px 10px 15px;
+  padding: 0px 30px 0px 15px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 2;
   backdrop-filter: blur(10px);
+  height: 60px;
 }
 
 .navLink {
@@ -23,12 +23,13 @@
   display: none;
   position: relative;
   @include tablet {
-    display: inline-block;
+    display: flex;
+    align-items: center;
   }
   &.navActive:after {
     content: '';
     position: absolute;
-    bottom: -21px;
+    bottom: 0px;
     left: -10px;
     right: -10px;
     height: 3px;
@@ -38,4 +39,6 @@
 }
 .homeLink {
   margin-right: auto;
+  display: flex;
+  align-items: center;
 }

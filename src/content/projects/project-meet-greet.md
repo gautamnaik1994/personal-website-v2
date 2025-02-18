@@ -3,7 +3,7 @@ title: Meet & Greet
 image: mglogo.png
 order: 7
 publish: false
-category: Web Development
+category: Software Engineering
 externalProject: true
 projectColor: "#f53e3b"
 companyName: Grassdoor
@@ -15,8 +15,8 @@ details:
 links:
   - key: Design
     value: https://www.behance.net/gallery/69419925/Meet-Greet-Guide
-description: Meet & Greet is a platform where users can create blog posts, live
-  events that can then be accessed by other users.
+description: |
+  Meet & Greet is a platform where users can create blog posts, live events that can then be accessed by other users.
 ---
 <!--StartFragment-->
 

@@ -8,6 +8,7 @@ import '@/styles/globals.scss';
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
 import Footer from '@/components/Footer';
+import OuterLinks from '@/components/OuterLinks';
 
 const ubuntuFont = Ubuntu({
   variable: '--font-ubuntu',
@@ -100,6 +101,7 @@ export default function RootLayout({
         <Navbar />
         <Sidebar />
         {children}
+        <OuterLinks />
         <Footer />
       </body>
     </html>

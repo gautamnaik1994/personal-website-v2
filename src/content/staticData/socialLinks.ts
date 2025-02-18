@@ -1,5 +1,7 @@
 import { type SocialLink } from '@/types';
 
+export const emailID = 'gautamnaik1994@gmail.com';
+
 const socialLinks: SocialLink[] = [
   {
     key: 'Stack Overflow',

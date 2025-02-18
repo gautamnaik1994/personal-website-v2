@@ -9,6 +9,7 @@ import {
   UL,
   OL,
   P,
+  A,
 } from '@/components/MdxComponents/TextC';
 import Alert from '@/components/MdxComponents/Alert';
 import Image from '@/components/MdxComponents/image';
@@ -26,6 +27,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ul: UL,
     ol: OL,
     p: P,
+    a: A,
     Alert: Alert,
     img: Image,
     Aside: Aside,

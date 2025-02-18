@@ -1,0 +1,12 @@
+.StyledDiv {
+  text-align: center;
+  .contact-me-text {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+  @include desktop {
+    width: 680px;
+    margin: auto;
+  }
+}
