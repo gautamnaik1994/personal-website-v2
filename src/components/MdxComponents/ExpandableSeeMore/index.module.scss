@@ -1,0 +1,27 @@
+.expandableSeeMore {
+  text-align: center;
+  .inner {
+    text-align: left;
+  }
+  .open {
+    height: auto;
+  }
+  .close {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    &:after {
+      content: '';
+      height: 80px;
+      background: linear-gradient(
+        180deg,
+        rgba(var(--bodyBackgroundColorRgb), 0) 0%,
+        rgba(var(--bodyBackgroundColorRgb), 100%) 100%
+      );
+      display: block;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}
