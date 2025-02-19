@@ -8,7 +8,7 @@ interface ItemProps {
   className?: string;
 }
 
-export default ({ title, titlemed, value, className }: ItemProps) => (
+const Item = ({ title, titlemed, value, className }: ItemProps) => (
   <div className={`${styles.Item} ${className}`}>
     <div className={styles.value}>{value}</div>
     <div
@@ -18,3 +18,5 @@ export default ({ title, titlemed, value, className }: ItemProps) => (
     ></div>
   </div>
 );
+
+export default Item;

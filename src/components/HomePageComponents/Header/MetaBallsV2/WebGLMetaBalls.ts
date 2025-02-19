@@ -90,7 +90,7 @@ export class WebGLMetaballs {
         webglOptions
       ) as WebGLRenderingContext;
     } catch (e) {
-      console.log('not supported');
+      console.log('not supported' + e);
     }
 
     if (!this.gl) {

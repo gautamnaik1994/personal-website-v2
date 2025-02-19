@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Logo from '@/components/Logo';
 import Link from 'next/Link';
 import styles from './index.module.scss';
@@ -9,7 +9,7 @@ const getYear = () => {
   return d.getFullYear();
 };
 
-export default () => {
+const Footer = () => {
   return (
     <footer className={styles.Footer}>
       <Logo className={styles.StyledLogo} />
@@ -30,8 +30,8 @@ export default () => {
       </div>
       <small className='two-rem-mt half-rem-mb'>
         Built using{' '}
-        <Link title='GatsbyJs' target='_blank' href='https://www.nextjs.org/'>
-          GatsbyJs
+        <Link title='NextJS' target='_blank' href='https://www.nextjs.org/'>
+          NextJS
         </Link>{' '}
         and hosted on{' '}
         <Link title='Netlify' href='https://www.netlify.com/' target='_blank'>
@@ -42,3 +42,5 @@ export default () => {
     </footer>
   );
 };
+
+export default Footer;

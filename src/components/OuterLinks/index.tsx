@@ -2,7 +2,7 @@ import React from 'react';
 import socialLinks from '@/content/staticData/socialLinks';
 import styles from './index.module.scss';
 
-export default () => {
+const OuterLinks = () => {
   return (
     <div className={`${styles.StyledOuterLinks} outer-links`}>
       <div className={styles['left-side']}>
@@ -32,3 +32,5 @@ export default () => {
     </div>
   );
 };
+
+export default OuterLinks;

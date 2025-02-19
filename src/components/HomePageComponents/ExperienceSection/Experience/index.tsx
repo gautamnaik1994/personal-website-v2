@@ -17,10 +17,7 @@ interface dateTypes {
   seconds: number;
 }
 
-const ExperienceComponent = ({
-  className = '',
-  ...props
-}: Props): React.ReactNode => {
+const ExperienceComponent = ({ className = '' }: Props): React.ReactNode => {
   const [dateData, setDateData] = useState<dateTypes>({
     years: 0,
     months: 0,
@@ -63,6 +60,7 @@ const ExperienceComponent = ({
         rel='stylesheet'
       />
       <div className={styles.imgContainer}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src='/img/space.svg' alt='space' />
       </div>
       <Item titlemed='Years' title='Yrs' value={dateData.years} />

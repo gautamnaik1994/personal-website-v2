@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 function ExpandableSeeMore({ children }: { children: ReactNode }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+  const handleClick = (): void => {
     setIsExpanded(!isExpanded);
     // event.target.blur();
   };
@@ -18,7 +18,7 @@ function ExpandableSeeMore({ children }: { children: ReactNode }) {
       >
         {children}
       </div>
-      <Button variant='primary' onClick={(e) => handleClick(e)}>
+      <Button variant='primary' onClick={handleClick}>
         {isExpanded ? `See Less` : `See More`}
       </Button>
     </div>

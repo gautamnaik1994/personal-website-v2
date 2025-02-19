@@ -42,7 +42,8 @@ export default async function JsonLD(props: ProjectListLDProps) {
 
   return (
     <Script
-      strategy='beforeInteractive'
+      id='json-ld-project-list'
+      // strategy='beforeInteractive'
       type='application/ld+json'
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />

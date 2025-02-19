@@ -5,38 +5,41 @@ import { getPosts, slugToCategoryMap } from '@/service/blog';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getPosts();
   const baseUrl = 'https://www.gautamnaik.com'; // Replace with your homepage
+
+  const CHANGE_FREQUENCY_MONTHLY = 'monthly' as const;
+
   const links = [
     {
-      url: 'https://www.gautamnaik.com', // Replace with your homepage
+      url: baseUrl, // Replace with your homepage
       lastModified: new Date(),
-      changeFrequency: 'monthly' as 'monthly',
+      changeFrequency: CHANGE_FREQUENCY_MONTHLY,
       priority: 1,
     },
     {
-      url: 'https://www.gautamnaik.com/blog', // Replace with your blog page
+      url: `${baseUrl}/blog`, // Replace with your blog page
       lastModified: new Date(),
-      changeFrequency: 'monthly' as 'monthly',
+      changeFrequency: CHANGE_FREQUENCY_MONTHLY,
       priority: 0.8,
     },
     {
-      url: 'https://www.gautamnaik.com/blog/page/2', // Updated for pagination
+      url: `${baseUrl}/blog/page/2`, // Updated for pagination
       lastModified: new Date(),
-      changeFrequency: 'monthly' as 'monthly',
+      changeFrequency: CHANGE_FREQUENCY_MONTHLY,
       priority: 0.8,
     },
     {
-      url: 'https://www.gautamnaik.com/projects', // Replace with your about page
+      url: `${baseUrl}/projects`, // Replace with your projects page
       lastModified: new Date(),
-      changeFrequency: 'monthly' as 'monthly',
+      changeFrequency: CHANGE_FREQUENCY_MONTHLY,
       priority: 0.8,
     },
   ];
 
   posts.forEach((post) => {
     links.push({
-      url: baseUrl + `/blog/${post.slug}`,
+      url: `${baseUrl}/blog/${post.slug}`,
       lastModified: (post.updatedDate as unknown as Date) || new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: CHANGE_FREQUENCY_MONTHLY,
       priority: 0.9,
     });
   });
@@ -44,9 +47,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const categories = Object.keys(slugToCategoryMap);
   categories.forEach((category) => {
     links.push({
-      url: baseUrl + `/blog/category/${category}`,
+      url: `${baseUrl}/blog/category/${category}`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: CHANGE_FREQUENCY_MONTHLY,
       priority: 0.8,
     });
   });

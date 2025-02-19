@@ -1,16 +1,28 @@
 .grid {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 
   @include tablet {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px 20px;
+    margin-bottom: 3rem;
+  }
+}
+
+.c-container {
+  margin-top: 2rem;
+  @include desktop {
+    margin-top: 3rem;
   }
 }
 
 .h2 {
   font-weight: var(--fontWeightMedium);
   font-size: 25px;
+  margin: 0;
   margin-bottom: 2rem;
-  margin-top: 3rem;
+  // margin-top: 2rem;
+  @include desktop {
+    // margin-top: 3rem;
+  }
 }

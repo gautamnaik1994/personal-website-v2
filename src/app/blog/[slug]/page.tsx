@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import './index.scss';
-import type { Metadata, ResolvingMetadata } from 'next';
+import type { Metadata } from 'next';
 import {
   getPostBySlug_v2,
   getPostBySlug,
@@ -15,7 +15,6 @@ import styles from './index.module.scss';
 import Container from '@/components/Container';
 import BlogPostLD from '@/components/JsonLD/blogPostLD';
 import { format } from 'date-fns';
-import dynamic from 'next/dynamic';
 
 export default async function Page({
   params,
@@ -24,7 +23,7 @@ export default async function Page({
 }) {
   const slug = (await params).slug;
   const {
-    content: Post,
+    content: BlogPost,
     frontmatter,
     bannerPath,
     readingTime,
@@ -53,9 +52,11 @@ export default async function Page({
             className='headerImage'
             src={bannerPath}
             alt={frontmatter.title}
-            width={1200}
-            height={630}
+            width={1140}
+            height={599}
             placeholder='blur'
+            quality={100}
+            priority={true}
           />
         </div>
         <div className={`${styles['category-holder']} text-center`}>
@@ -78,7 +79,7 @@ export default async function Page({
         </div>
         <TableOfContents items={toc} className={styles.toc} />
         <div className={styles.postParent}>
-          <Post className='temp' />
+          <BlogPost />
         </div>
       </article>
 

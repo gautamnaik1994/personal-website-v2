@@ -1,10 +1,10 @@
 ---
 title: Grassdoor
-role: Frontend Developer
+role: Lead Software Engineer
 timeRange: April 2017 - Dec 2023
 order: 4
 status: stop
-companyUrl: https://grassdoor.com/
+companyUrl: https://www.grassdoorlogitech.com/
 ---
 
 <!--StartFragment-->

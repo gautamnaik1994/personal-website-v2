@@ -1,8 +1,8 @@
 ---
 title: Fullstack Multi Container App
-date: 2025-01-01 
+date: 2025-01-01
 slug: fullstack-multi-container-app
-updatedDate: 2025-01-01 
+updatedDate: 2025-01-01
 description: A fullstack multi-container app using React, Express, Redis, MongoDB, and Docker. This post will discuss how to create a multi-container app using Docker and Docker Compose.
 publish: true
 featuredPost: false
@@ -27,8 +27,9 @@ The application should include a frontend that displays the price data dynamical
 The solution is to build a application using React, Express, Socket.io, Redis and MongoDB.
 Docker will be used to containerize the application and Docker Compose will be used to manage the containers.
 
-<Alert title="NOTE" variant="warning">
-The goal of this project is to showcase how to use docker and docker-compose to build a multi-container application.
+<Alert title='NOTE' variant='warning'>
+  The goal of this project is to showcase how to use docker and docker-compose
+  to build a multi-container application.
 </Alert>
 
 ## Architecture
@@ -96,7 +97,7 @@ CMD ["node", "dist/index.js"]
 
 - MongoDB was used as the database for the application.
 - MongoDB also supports time-series data, which makes it a good choice for storing historical price data.
-- You can read more about Time Series collections in MongoDB [here](https://www.mongodb.com/products/capabilities/time-series).
+- You can read more about Time Series collections in MongoDB [documentation](https://www.mongodb.com/products/capabilities/time-series).
 - Following is the link to the documentation for using MongoDB with Time Series
   collections. [Time Series Collections](https://www.mongodb.com/docs/manual/core/timeseries-collections/)
 
@@ -106,7 +107,7 @@ One can develop and deploy most of the web apps without need for containerizatio
 However, containerization is a good practice to ensure that the application runs consistently across different environments.
 Docker Compose is a tool that allows you to define and run multi-container Docker applications. It uses a YAML file to configure the application's services, networks, and volumes.
 
-You can learn more about Docker Compose [here](https://docs.docker.com/compose/).
+You can learn more about Docker Compose in [documentation](https://docs.docker.com/compose/).
 
 Following is the `docker-compose.yml` file that defines the services for the application.
 
@@ -163,9 +164,13 @@ The `redis` service uses the `redis:latest` image to run a Redis server.
 
 Following is the video that demonstrates the application.
 
-<iframe width="100%" height="900" className="blog-wide-section google-slides"
-src="https://www.youtube.com/embed/qBpcCyikD0A">
-</iframe>
+<iframe
+  width='100%'
+  height='900'
+  title='Fullstack Multi Container App'
+  className='blog-wide-section google-slides'
+  src='https://www.youtube.com/embed/qBpcCyikD0A'
+></iframe>
 
 ## Links
 

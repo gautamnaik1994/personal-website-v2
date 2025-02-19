@@ -93,7 +93,8 @@ export default async function JsonLD() {
 
   return (
     <Script
-      strategy='beforeInteractive'
+      id='homePageLD'
+      // strategy='beforeInteractive'
       type='application/ld+json'
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />

@@ -51,6 +51,7 @@ const LinkBox = (): React.ReactElement => {
           href='https://stackoverflow.com/users/2376317/gautam-naik'
           className='stack-badge'
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src='https://stackoverflow.com/users/flair/2376317.png?theme=dark'
             loading='lazy'

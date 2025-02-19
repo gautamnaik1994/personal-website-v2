@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from './index.module.scss';
 import Image from 'next/image';
+import { type ImageData } from '@/types';
 
 interface Props {
   projectColor: string;
   title: string;
   details: Array<{ key: string; value: string }>;
   links: Array<{ key: string; value: string }>;
-  banner: any;
-  children: any;
+  banner?: ImageData | undefined;
+  children: React.ReactNode;
   className?: string;
   externalProject?: boolean;
 }
@@ -47,7 +48,7 @@ export default function ProjectItem({
           )}
         </div>
 
-        <h2 className='m-0 text-primary'>{title}</h2>
+        <h3>{title}</h3>
         {children}
         <div>
           {details.map(({ key, value }) => (

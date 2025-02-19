@@ -41,7 +41,7 @@ const FeaturedBlogs = async ({ className }: Props) => {
       </div>
       <div className='text-center'>
         <InternalLinkButton
-          href='/blogs'
+          href='/blog'
           title='View All Blogs'
           variant='primary'
         >

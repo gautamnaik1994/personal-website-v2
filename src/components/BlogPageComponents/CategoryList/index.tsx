@@ -10,7 +10,7 @@ interface Props {
 export default function List({ activeCategory }: Props) {
   return (
     <div className={styles.CategoryTagList}>
-      <h3 className='one-rem-mb'>Categories</h3>
+      <h2 className='one-rem-mb'>Categories</h2>
       <Link
         title='All'
         href={`/blog/`}

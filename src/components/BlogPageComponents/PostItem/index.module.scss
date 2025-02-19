@@ -75,9 +75,11 @@
     object-fit: cover;
     display: block;
   }
-  h2 {
+  h3 {
     font-variant-ligatures: none;
     line-height: 2rem;
+    font-size: 24px;
+    margin: 0;
   }
   :global {
     .icon-arrow-right {

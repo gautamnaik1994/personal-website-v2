@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import { WebGLMetaballs } from './WebGLMetaBalls';
 
 interface IState {
@@ -19,22 +19,26 @@ interface IState {
 
 const Metaballs: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [state, setState] = useState<IState>({
-    ballCount: 5,
-    smallCircleRadius: 100,
-    distributionRadius: 90,
-    xSpeed: 1,
-    ySpeed: 1,
-    radiusDivider: 15,
-    r: 0.34,
-    g: 0.5,
-    b: 0.89,
-    webGLNotSupported: false,
-    canvasWidth: typeof window !== 'undefined' ? window.innerWidth : 0,
-    canvasHeight: typeof window !== 'undefined' ? window.innerHeight : 0,
-  });
 
-  const webGLMetaballs = new WebGLMetaballs(state);
+  const state: IState = useMemo(
+    () => ({
+      ballCount: 5,
+      smallCircleRadius: 100,
+      distributionRadius: 90,
+      xSpeed: 1,
+      ySpeed: 1,
+      radiusDivider: 15,
+      r: 0.34,
+      g: 0.5,
+      b: 0.89,
+      webGLNotSupported: false,
+      canvasWidth: typeof window !== 'undefined' ? window.innerWidth : 0,
+      canvasHeight: typeof window !== 'undefined' ? window.innerHeight : 0,
+    }),
+    []
+  );
+
+  const webGLMetaballs = useMemo(() => new WebGLMetaballs(state), [state]);
 
   useEffect(() => {
     webGLMetaballs.cancelAll();

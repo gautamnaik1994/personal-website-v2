@@ -186,8 +186,8 @@ body {
   --fontWeightRegular: 400;
   --fontWeightLight: 300;
   --theme: dark;
-  --primary: #4bacfe;
-  --primaryRgb: 75, 172, 254;
+  --primary: #2196f3;
+  --primaryRgb: 33, 150, 243;
   --accent: #ee5651;
   --tertiary: #ffc107;
   --bodyBackgroundColor: #212738;
@@ -453,4 +453,19 @@ a {
     transform: translateY(-130px);
     opacity: 0;
   }
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  word-break: normal;
 }

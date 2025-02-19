@@ -3,8 +3,7 @@ import styles from './index.module.scss';
 interface Props {
   className?: string;
 }
-
-export default ({ className }: Props): React.ReactNode => {
+const Signature = ({ className }: Props): React.ReactNode => {
   return (
     <svg
       width={150}
@@ -39,3 +38,5 @@ export default ({ className }: Props): React.ReactNode => {
     </svg>
   );
 };
+
+export default Signature;

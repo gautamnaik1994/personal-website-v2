@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: '/',
     id: 'gautamnaik',
     background_color: '#212738',
-    theme_color: '#4BACFE',
+    theme_color: '#2196f3',
     display: 'standalone',
     orientation: 'portrait',
     description:

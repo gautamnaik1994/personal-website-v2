@@ -25,14 +25,18 @@ const PostItemMain = ({
   categories,
   readTime,
   banner,
-  ...props
+  className = '',
 }: Props): React.ReactElement => (
-  <div className={`${styles.PostItem}  ${props.className}`}>
+  <div className={`${styles.PostItem}  ${className}`}>
     <div className={styles['img-container']}>
       <Image src={banner} alt={title} />
     </div>
-    <Link title={title} href={`/blog/${link}`}>
-      <h2 className='m-0'>{title}</h2>
+    <Link
+      title={`Read more about ${title}`}
+      href={`/blog/${link}`}
+      aria-label={`Read more about ${title}`}
+    >
+      <h3>{title}</h3>
     </Link>
     <small>
       {format(date, 'MMM dd, yyyy')} &bull; {readTime}
@@ -55,7 +59,12 @@ const PostItemMain = ({
 
     <article className='one-rem-mt one-rem-mb'>{excerpt}</article>
     <div className={styles['btn-holder']}>
-      <Link title='Read More' href={`/blog/${link}`}>
+      <Link
+        title={`Read more about ${title}`}
+        href={`/blog/${link}`}
+        aria-label={`Read more about ${title}`}
+      >
+        <div className='screen-reader-text'>Read more about {title}!</div>
         Read More
         <i className='icon-arrow-right ' />
       </Link>

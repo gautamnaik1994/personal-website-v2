@@ -34,7 +34,7 @@ export default function Sidebar({ className = '' }: Props): React.ReactElement {
   return (
     <Fragment>
       {/* 
-// @ts-ignore */}
+//@ts-expect-error: TypeScript cannot infer the type correctly */}
       <animated.aside
         className={`${styles.Sidebar} ${className}`}
         style={{ transform: sideBarProps.transform }}

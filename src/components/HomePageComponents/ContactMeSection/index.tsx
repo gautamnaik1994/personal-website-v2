@@ -16,8 +16,8 @@ export default function ContactMeSection({
       <div className={styles.StyledDiv}>
         <div className={styles['contact-me-text']}>
           I am always on the lookout for new and exciting opportunities. Drop an
-          email if you have something exciting to share and I'll try my best to
-          get back to you!
+          email if you have something exciting to share and I&apos;ll try my
+          best to get back to you!
         </div>
         <ExternalLinkButton
           variant='primary'

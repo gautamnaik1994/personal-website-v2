@@ -1,5 +1,5 @@
 import { Category } from '@/service/blog';
-import React from 'react';
+import { ElementType } from 'react';
 
 export interface ImageData {
   src: string;
@@ -39,13 +39,13 @@ export interface Post extends Frontmatter {
 export interface TOCItem {
   depth: number;
   value: string;
-  attributes: Record<string, any>;
+  attributes: Record<string, string>;
   children: TOCItem[];
   slug: string;
 }
 
 export interface PostContent {
-  content: any;
+  content: ElementType;
   frontmatter: Frontmatter;
   bannerPath: ImageData;
   toc: TOCItem[];
@@ -95,7 +95,7 @@ export interface ProjectLinks {
 
 export interface Project {
   title: string;
-  banner?: string;
+  banner?: ImageData;
   order: number;
   publish: boolean;
   homepage: boolean;
@@ -105,7 +105,7 @@ export interface Project {
   companyName?: string;
   details: ProjectDetails[];
   links: ProjectLinks[];
-  content: any;
+  content: ElementType;
   description: string;
   mainLink: string;
 }
@@ -117,5 +117,5 @@ export type WorkExperience = {
   order: number;
   status: string;
   companyUrl: string;
-  content: any;
+  content: ElementType;
 };

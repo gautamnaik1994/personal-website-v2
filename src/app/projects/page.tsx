@@ -5,6 +5,24 @@ import Container from '@/components/Container';
 import styles from './index.module.scss';
 import HeroFn from '@/components/HeroBanner';
 import ProkectListLD from '@/components/JsonLD/projectListLD';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Projects',
+  description: 'Projects I have worked on',
+  appleWebApp: {
+    title: 'Projects',
+  },
+  openGraph: {
+    url: 'https://www.gautamnaik.com/projects',
+    title: 'Projects',
+    description: 'Projects I have worked on',
+  },
+  twitter: {
+    title: 'Projects',
+    description: 'Projects I have worked on',
+  },
+};
 
 async function ProjectsPage() {
   const softwareProjects: Project[] = await getProjectsByCategory({
@@ -18,7 +36,7 @@ async function ProjectsPage() {
     <>
       <ProkectListLD projects={[...softwareProjects, ...aiProjects]} />
       <HeroFn title='Projects' />
-      <Container className='two-rem-mt'>
+      <Container className={styles['c-container']}>
         <h2 className={styles.h2}>AI & Machine Learning Projects</h2>
         <div className={`${styles.grid}`}>
           {aiProjects.map((project) => (

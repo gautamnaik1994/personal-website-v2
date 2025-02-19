@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next';
+import type { Metadata } from 'next';
 
 const description =
   'Here you will find blogs on Web Development, Data Science and Machine Learning.';

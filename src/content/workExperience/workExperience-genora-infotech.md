@@ -1,6 +1,6 @@
 ---
 title: Genora Infotech
-role: UI & Web Designer
+role: Frontend Developer
 timeRange: August 2015 - March 2017
 order: 3
 status: stop

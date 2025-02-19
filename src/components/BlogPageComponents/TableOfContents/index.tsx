@@ -26,7 +26,9 @@ const TableOfContents = ({
     const targetElement = document.querySelector(url);
     if (targetElement) {
       targetElement.scrollIntoView();
-      isPhone && onCloseHandler();
+      if (isPhone) {
+        onCloseHandler();
+      }
     }
   };
 
@@ -46,15 +48,17 @@ const TableOfContents = ({
       }
     );
 
-    if (tocRef.current && !isPopup) {
-      observer.observe(tocRef.current);
+    const currentTocRef = tocRef.current;
+    if (currentTocRef && !isPopup) {
+      observer.observe(currentTocRef);
     }
 
     return () => {
-      if (tocRef.current) {
-        observer.unobserve(tocRef.current);
+      if (currentTocRef) {
+        observer.unobserve(currentTocRef);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderItems = (items: TOCItem[], level = 0) => {

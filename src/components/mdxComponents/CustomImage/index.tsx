@@ -11,7 +11,6 @@ interface ImageComponentProps {
         blurHeight?: number;
         width: number;
         height: number;
-        [key: string]: any;
         src: string;
       };
   alt: string;
@@ -27,17 +26,21 @@ function ImageComponent(props: ImageComponentProps) {
   };
 
   if (typeof src === 'string') {
+    /* eslint-disable-next-line @next/next/no-img-element */
     return <img src={src} alt={alt} />;
   }
 
-  const { blurWidth, blurHeight, ...otherSrc } = src;
+  // const { blurWidth, blurHeight, ...otherSrc } = src;
 
-  const aspectRatio = otherSrc.height / otherSrc.width;
+  delete src.blurWidth;
+  delete src.blurHeight;
+
+  const aspectRatio = src.height / src.width;
 
   return (
     <>
       <Image
-        {...otherSrc}
+        {...src}
         alt={alt}
         width={750}
         height={750 * aspectRatio}
@@ -53,6 +56,7 @@ function ImageComponent(props: ImageComponentProps) {
           onClick={() => setIsOpen(false)}
         >
           {isLoading && <div className={styles.loader}>Loading</div>}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={src.src} alt={alt} onLoad={handleImageLoad} />
         </div>
       )}

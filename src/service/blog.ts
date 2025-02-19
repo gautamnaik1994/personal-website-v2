@@ -27,7 +27,7 @@ export const categoryToSlugMap: Record<Category, string> = {
   Vim: 'vim',
 };
 
-export const postsPerPage = 3 as const;
+export const postsPerPage = 9 as const;
 
 export async function getPosts(): Promise<Post[]> {
   // Retrieve slugs from post routes
@@ -66,7 +66,7 @@ export async function getPostsByCategory({
   category: Category;
 }): Promise<Post[]> {
   const allPosts = await getPosts();
-  let _category = slugToCategoryMap[category];
+  const _category = slugToCategoryMap[category];
   // Filter posts by specified category
   const posts = allPosts.filter(
     (post) => post.categories.indexOf(_category) !== -1

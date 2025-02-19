@@ -8,8 +8,7 @@ import Signature from './Signature';
 interface Props {
   className?: string;
 }
-
-export default ({ className }: Props): React.ReactElement => {
+const Declaration = ({ className }: Props): React.ReactElement => {
   const [entered, setEntered] = useState(false);
   const intersectionRef = useRef<HTMLDivElement>(null);
 
@@ -32,13 +31,15 @@ export default ({ className }: Props): React.ReactElement => {
         //root: document.querySelector('#f_root'),
       }
     );
-    intersectionRef &&
-      intersectionRef.current &&
-      observer.observe(intersectionRef.current);
+
+    const currentIntersectionRef = intersectionRef.current;
+    if (currentIntersectionRef) {
+      observer.observe(currentIntersectionRef);
+    }
     return () => {
-      intersectionRef &&
-        intersectionRef.current &&
-        observer.unobserve(intersectionRef.current);
+      if (currentIntersectionRef) {
+        observer.unobserve(currentIntersectionRef);
+      }
     };
   }, []);
 
@@ -57,3 +58,5 @@ export default ({ className }: Props): React.ReactElement => {
     </section>
   );
 };
+
+export default Declaration;

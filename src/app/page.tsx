@@ -10,7 +10,6 @@ import FeaturedProjects from '@/components/HomePageComponents/ProjectsSection';
 import Timeline from '@/components/HomePageComponents/Timeline';
 import Declaration from '@/components/HomePageComponents/Declaration';
 import ContactMeSection from '@/components/HomePageComponents/ContactMeSection';
-import OuterLinks from '@/components/OuterLinks';
 
 export default function Home() {
   return (

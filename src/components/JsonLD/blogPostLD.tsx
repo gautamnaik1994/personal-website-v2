@@ -59,7 +59,8 @@ export default async function JsonLD(props: BlogPostLDProps) {
 
   return (
     <Script
-      strategy='beforeInteractive'
+      id='blogPostLD'
+      // strategy='beforeInteractive'
       type='application/ld+json'
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />

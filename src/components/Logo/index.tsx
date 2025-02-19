@@ -4,8 +4,7 @@ interface Props {
   className?: string;
   hideName?: boolean;
 }
-
-export default ({ className, hideName }: Props): React.ReactElement => (
+const Logo = ({ className, hideName }: Props): React.ReactElement => (
   <div className={`${styles.Logo} ${className}`}>
     <svg
       width='30'
@@ -26,3 +25,5 @@ export default ({ className, hideName }: Props): React.ReactElement => (
     {!hideName && <h1>Gautam Naik</h1>}
   </div>
 );
+
+export default Logo;

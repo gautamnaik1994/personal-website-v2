@@ -1,7 +1,7 @@
 ---
 title: Scaler
 role: Data Science & Machine Learning Student
-timeRange: June 2023 - Feb 2025
+timeRange: June 2023 - May 2025
 order: 5
 status: pause
 companyUrl: https://www.scaler.com/data-science-course/

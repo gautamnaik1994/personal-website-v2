@@ -11,6 +11,7 @@ import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
 import withSerwistInit from '@serwist/next';
 import rehypePrettyCode from 'rehype-pretty-code';
+import withBundleAnalyzer from '@next/bundle-analyzer';
 
 const withSerwist = withSerwistInit({
   swSrc: 'src/app/sw.ts',
@@ -28,7 +29,7 @@ const nextConfig = {
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
-    ignoreDuringBuilds: true,
+    // ignoreDuringBuilds: true,
   },
   // async headers() {
   //   return [
@@ -105,4 +106,6 @@ const withMDX = createMDX({
 });
 
 // Use the MDX plugin
-export default withSerwist(withMDX(nextConfig));
+export default withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})(withSerwist(withMDX(nextConfig)));

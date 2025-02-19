@@ -5,7 +5,8 @@ interface Props {
   children: React.ReactNode;
   className?: string;
 }
-export default ({ children, className = '' }: Props) => (
+
+const Container = ({ children, className = '' }: Props) => (
   <div
     className={`
     ${styles.Container}
@@ -14,3 +15,5 @@ export default ({ children, className = '' }: Props) => (
     {children}
   </div>
 );
+
+export default Container;

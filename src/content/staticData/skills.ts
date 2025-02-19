@@ -3,13 +3,13 @@ import { Skill } from '@/types';
 export const skills: Skill[] = [
   {
     title: 'Data Science',
-    value: 50,
+    value: 80,
     publish: true,
     details: [
       {
         key: 'Expertise',
         value:
-          'Machine Learning • Time Series Analysis • Data Cleaning • EDA • Visualizations • Business Intelligence',
+          'Predictive Analysis • Time Series Analysis • Data Analysis • EDA • Model Deployment • Business Intelligence',
       },
       {
         key: 'Tools',
@@ -19,7 +19,7 @@ export const skills: Skill[] = [
     ],
   },
   {
-    title: 'Frontend Developer',
+    title: 'Frontend Dev',
     value: 80,
     publish: true,
     details: [
@@ -36,7 +36,7 @@ export const skills: Skill[] = [
     ],
   },
   {
-    title: 'Backend Developer',
+    title: 'Backend Dev',
     value: 50,
     publish: true,
     details: [

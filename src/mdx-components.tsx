@@ -12,7 +12,7 @@ import {
   A,
 } from '@/components/MdxComponents/TextC';
 import Alert from '@/components/MdxComponents/Alert';
-import Image from '@/components/MdxComponents/image';
+import Image from '@/components/MdxComponents/CustomImage';
 import ExpandableSeeMore from '@/components/MdxComponents/ExpandableSeeMore';
 import { Aside } from '@/components/MdxComponents/Aside';
 

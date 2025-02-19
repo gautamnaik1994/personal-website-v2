@@ -25,7 +25,9 @@ export default function BelowHeaderComponent() {
       }
     );
 
-    belowHeaderRef.current && observer.observe(belowHeaderRef.current);
+    if (belowHeaderRef.current) {
+      observer.observe(belowHeaderRef.current);
+    }
     return () => {
       document.querySelector(`nav`)?.classList.remove(`navbar-special-styles`);
       observer.disconnect();

@@ -6,8 +6,11 @@
   flex-wrap: nowrap;
   overflow-x: auto;
   margin-bottom: 1rem;
-  h3 {
+  h2 {
     display: none;
+    font-size: 22px;
+    margin: 0;
+    margin-right: 15px;
   }
   a {
     display: block;
@@ -25,19 +28,11 @@
       background-color: var(--accent);
       color: white;
     }
-    &:hover:not(.active) {
-      /* background-color: rgba(var(--primaryRgb), 0.5);
-      color: white; */
-    }
   }
   @include desktop {
     margin-top: 2rem;
-    h3 {
+    h2 {
       display: block;
-      font-size: 22px;
-      margin: 0;
-      margin-right: 15px;
-      /* color: var(--accent); */
     }
     a {
       font-size: 18px;

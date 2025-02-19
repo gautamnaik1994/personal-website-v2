@@ -34,9 +34,12 @@
   .gatsby-image-wrapper {
     width: 100% !important;
   }
-  h2 {
+  h3 {
     font-variant-ligatures: none;
     line-height: 2rem;
+    font-size: 24px;
+    margin: 0;
+    color: var(--primary);
   }
   .linkHolder {
     a + a {

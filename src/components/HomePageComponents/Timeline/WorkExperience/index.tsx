@@ -60,18 +60,23 @@ const WorkExpeContainer = ({
           <i className={`icon-${status}`} />
         </div>
         <div className={styles['role']}>{role}</div>
-        <a
-          href={companyUrl}
-          className={`${styles.company} text-primary`}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          {title}
-        </a>
+        {companyUrl ? (
+          <a
+            href={companyUrl}
+            className={`${styles.company} text-primary`}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            {title}
+          </a>
+        ) : (
+          <div className={`${styles.company} text-primary`}>{title}</div>
+        )}
+
         <div className={styles['time']}>{timeRange}</div>
       </div>
       {/* 
-// @ts-ignore */}
+//@ts-expect-error: TypeScript cannot infer the type correctly */}
       <animated.div className={styles['info-sec']} style={expand}>
         <div
           ref={ref as unknown as React.RefObject<HTMLDivElement>}
@@ -89,7 +94,7 @@ const WorkExpeContainer = ({
         title='Show Responsibilities'
       >
         {/* 
-// @ts-ignore */}
+//@ts-expect-error: TypeScript cannot infer the type correctly */}
         <animated.i className='icon-arrow-right' style={rotate} />
       </button>
     </div>

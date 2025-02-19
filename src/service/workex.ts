@@ -6,7 +6,7 @@ export async function getWorkEx(): Promise<WorkExperience[]> {
   const files = await readdir('src/content/workExperience');
   const mdFiles = files.filter((file) => path.extname(file) === '.md');
 
-  let workex = await Promise.all(
+  const workex = await Promise.all(
     mdFiles.map(async (file) => {
       const { frontmatter, default: content } = await import(
         `@/content/workExperience/${file}`

@@ -4,7 +4,7 @@ import { useSpring, animated } from '@react-spring/web';
 import styles from './index.module.scss';
 import Bulb from './Bulb';
 
-export default function HireMe(props: any): React.ReactNode {
+const HireMe = (): React.ReactNode => {
   const [entered, setEntered] = useState(false);
   const [entered2, setEntered2] = useState(false);
   const intersectionRef = useRef<HTMLDivElement>(null);
@@ -12,10 +12,10 @@ export default function HireMe(props: any): React.ReactNode {
     config: { mass: 4, tension: 250, friction: 30 },
     transform: entered ? `translateY(-100%)` : `translateY(0%)`,
   });
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       function (entries) {
-        // console.log('called callback', entries[0].intersectionRatio);
         if (intersectionRef && intersectionRef.current) {
           const ratio = entries[0].intersectionRatio;
           if (ratio > 0.75) {
@@ -24,10 +24,8 @@ export default function HireMe(props: any): React.ReactNode {
             setEntered(false);
           }
           if (ratio > 0.8) {
-            // play();
             setEntered2(true);
           } else {
-            // play();
             setEntered2(false);
           }
         }
@@ -35,21 +33,23 @@ export default function HireMe(props: any): React.ReactNode {
       {
         threshold: [0.75, 1],
         rootMargin: `200px 0px -150px 0px`,
-        // root: document.querySelector('#f_root'),
       }
     );
-    intersectionRef &&
-      intersectionRef.current &&
-      observer.observe(intersectionRef.current);
+
+    const currentRef = intersectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
     return () => {
-      intersectionRef &&
-        intersectionRef.current &&
-        observer.unobserve(intersectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
     };
   }, []);
 
   return (
-    <div ref={intersectionRef} {...props} className={styles.StyledHireMe}>
+    <div ref={intersectionRef} className={styles.StyledHireMe}>
       <div className={`${styles['top-sec']} text-center`}>
         Want someone to take
         <br />
@@ -57,6 +57,8 @@ export default function HireMe(props: any): React.ReactNode {
       </div>
       <div className={styles['middle-sec']}>
         <span>NEXT</span>
+        {/* 
+// @ts-expect-error: TypeScript cannot infer the type correctly */}
         <animated.span className={styles['lvl']} style={jump}>
           LEVEL?{` `}
           <span className={styles['i-wrapper']}>
@@ -72,4 +74,6 @@ export default function HireMe(props: any): React.ReactNode {
       </div>
     </div>
   );
-}
+};
+
+export default HireMe;
