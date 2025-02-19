@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '@/components/Logo';
-import Link from 'next/Link';
+import Link from 'next/link';
 import styles from './index.module.scss';
 import socialLinks from '@/content/staticData/socialLinks';
 
