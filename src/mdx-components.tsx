@@ -1,20 +1,9 @@
 import type { MDXComponents } from 'mdx/types';
-import {
-  H1,
-  H2,
-  H3,
-  H4,
-  H5,
-  H6,
-  UL,
-  OL,
-  P,
-  A,
-} from '@/components/MdxComponents/TextC';
-import Alert from '@/components/MdxComponents/Alert';
-import Image from '@/components/MdxComponents/CustomImage';
-import ExpandableSeeMore from '@/components/MdxComponents/ExpandableSeeMore';
-import { Aside } from '@/components/MdxComponents/Aside';
+import { H1, H2, H3, H4, H5, H6, UL, OL, P, A } from '@/components/MComp/TextC';
+import Alert from '@/components/MComp/Alert';
+import Image from '@/components/MComp/CustomImage';
+import ExpandableSeeMore from '@/components/MComp/ExpandableSeeMore';
+import { Aside } from '@/components/MComp/Aside';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

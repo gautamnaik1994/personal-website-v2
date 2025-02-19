@@ -8,7 +8,7 @@ import {
 } from '@/service/blog';
 import { PostContent, PostContentLite } from '@/types';
 import Link from 'next/link';
-import { H1 } from '@/components/MdxComponents/TextC';
+import { H1 } from '@/components/MComp/TextC';
 import TableOfContents from '@/components/BlogPageComponents/TableOfContents';
 import TableOfContentsWrapper from '@/components/BlogPageComponents/TOCWrapper';
 import styles from './index.module.scss';
