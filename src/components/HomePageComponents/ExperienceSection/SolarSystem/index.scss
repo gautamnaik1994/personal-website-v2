@@ -1,0 +1,43 @@
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.SolarSystem {
+  --base-animation-duration: 30s; // Base animation duration
+}
+.orbit-container {
+  transform-origin: 1000px 1000px;
+  animation: orbit linear infinite;
+}
+
+.mercury {
+  animation-duration: calc(var(--base-animation-duration) * 1);
+}
+.venus {
+  animation-duration: calc(var(--base-animation-duration) * 1);
+}
+.earth {
+  animation-duration: calc(var(--base-animation-duration) * 1.2);
+}
+.mars {
+  animation-duration: calc(var(--base-animation-duration) * 1.4);
+}
+.jupiter {
+  animation-duration: calc(var(--base-animation-duration) * 1.6);
+}
+.saturn {
+  animation-duration: calc(var(--base-animation-duration) * 1.8);
+}
+.uranus {
+  animation-duration: calc(var(--base-animation-duration) * 2.2);
+}
+.neptune {
+  animation-duration: calc(var(--base-animation-duration) * 2.6);
+}
+.pluto {
+  animation-duration: calc(var(--base-animation-duration) * 3);
+}

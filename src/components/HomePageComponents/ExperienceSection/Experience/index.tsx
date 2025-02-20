@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { intervalToDuration } from 'date-fns';
 import Item from './Item';
 import styles from './index.module.scss';
+import SolarSystem from '../SolarSystem';
 
 interface Props {
   className?: string;
@@ -60,8 +61,7 @@ const ExperienceComponent = ({ className = '' }: Props): React.ReactNode => {
         rel='stylesheet'
       />
       <div className={styles.imgContainer}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src='/img/space.svg' alt='space' />
+        <SolarSystem />
       </div>
       <Item titlemed='Years' title='Yrs' value={dateData.years} />
       <Item titlemed='Months' title='Mons' value={dateData.months} />

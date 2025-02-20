@@ -135,7 +135,7 @@ export default function SkillMeterFn({ level }: Props): React.ReactElement {
         >
           <path
             d='M12.9999 32.9575C15.9534 20.791 31.8952 10.5788 42.6582 11.5877C29.3058 16.1892 20.9487 23.1235 12.9999 32.9575Z'
-            fill='#FFFFFF'
+            fill='#d7d7d7'
           />
           <ellipse
             cx='79.1921'
@@ -143,7 +143,7 @@ export default function SkillMeterFn({ level }: Props): React.ReactElement {
             rx='1.38894'
             ry='4.40973'
             transform='rotate(-51.8978 79.1921 17)'
-            fill='#FFFFFF'
+            fill='#d7d7d7'
           />
         </svg>
       </div>

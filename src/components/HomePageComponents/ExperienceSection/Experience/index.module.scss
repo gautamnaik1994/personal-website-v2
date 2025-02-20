@@ -8,7 +8,7 @@
 }
 
 .Experience {
-  padding: 35px 18px;
+  padding: 40px 18px 30px 18px;
   border-radius: 8px;
   background: var(--cardColor);
   box-shadow: var(--cardShadow);
@@ -36,7 +36,7 @@
     font-weight: var(--fontWeightMedium);
     letter-spacing: 1px;
   }
-  img {
+  svg {
     width: 200%;
     opacity: 0.7;
     position: absolute;
@@ -45,12 +45,18 @@
     transform: translateY(-50%) scale(1);
     z-index: 0;
     right: 0;
-    animation: enlarge 50s linear infinite;
+    animation: enlarge 10s linear infinite forwards;
+    animation-play-state: paused;
+    &:hover {
+      animation-play-state: running;
+    }
+    // animation: enlarge 50s linear infinite;
   }
   .seconds {
     display: none;
   }
   @include tablet {
+    padding: 35px 18px;
     width: 500px;
   }
 

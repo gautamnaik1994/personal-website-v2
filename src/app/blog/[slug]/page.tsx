@@ -8,12 +8,11 @@ import {
 } from '@/service/blog';
 import { PostContent, PostContentLite } from '@/types';
 import Link from 'next/link';
-import { H1 } from '@/components/MComp/TextC';
+import { H1 } from '@/components/MDComponents/TextC';
 import TableOfContents from '@/components/BlogPageComponents/TableOfContents';
 import TableOfContentsWrapper from '@/components/BlogPageComponents/TOCWrapper';
 import styles from './index.module.scss';
 import Container from '@/components/Container';
-import BlogPostLD from '@/components/JsonLD/blogPostLD';
 import { format } from 'date-fns';
 
 export default async function Page({
@@ -34,17 +33,6 @@ export default async function Page({
 
   return (
     <>
-      <BlogPostLD
-        title={frontmatter.title}
-        description={frontmatter.description}
-        banner={bannerPath.src}
-        slug={slug}
-        date={frontmatter.date}
-        headings={toc.map((item) => item.value)}
-        keywords={frontmatter.keywords || []}
-        categories={frontmatter.categories || []}
-        readingTime={readingTime.text}
-      />
       <div className={styles['dot-pattern']}></div>
       <article className={styles.article}>
         <div className={styles.headerImageWrapper}>

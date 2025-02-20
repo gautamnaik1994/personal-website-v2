@@ -1,5 +1,5 @@
 .parent {
-  @include desktop {
+  @include tablet {
     display: flex;
     gap: 30px;
     justify-content: center;
@@ -9,7 +9,7 @@
 
 .workExperience {
   margin-bottom: 30px;
-  @include desktop {
+  @include tablet {
     margin-bottom: 0px;
   }
 }
