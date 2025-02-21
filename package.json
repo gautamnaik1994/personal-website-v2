@@ -28,7 +28,7 @@
     "@next/bundle-analyzer": "^15.1.7",
     "@shikijs/rehype": "^2.3.2",
     "@types/mdx": "^2.0.13",
-    "@types/node": "^20",
+    "@types/node": "^22.0.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
