@@ -1,7 +1,11 @@
 .blogList {
   @include tablet {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: nowrap;
     gap: 30px;
+    overflow: auto;
+    & > div {
+      flex: 0 0 350px;
+    }
   }
 }

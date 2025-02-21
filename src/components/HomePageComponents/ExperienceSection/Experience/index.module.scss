@@ -17,6 +17,7 @@
   position: relative;
   overflow: hidden;
   align-items: center;
+  margin-bottom: 30px;
   .imgContainer {
     position: absolute;
     top: 0;
@@ -57,11 +58,12 @@
   }
   @include tablet {
     padding: 35px 18px;
-    width: 500px;
+    flex: 0 0 500px;
+    margin-bottom: 0;
   }
 
   @include desktop {
-    width: 830px;
+    flex: 0 0 830px;
     .seconds {
       display: block;
     }

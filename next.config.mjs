@@ -10,7 +10,7 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
 import withSerwistInit from '@serwist/next';
-import rehypePrettyCode from 'rehype-pretty-code';
+// import rehypePrettyCode from 'rehype-pretty-code';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
 const withSerwist = withSerwistInit({
@@ -71,7 +71,7 @@ const nextConfig = {
   // },
 };
 
-/** @type {import('rehype-pretty-code').Options} */
+// /** @type {import('rehype-pretty-code').Options} */
 const rehypePrettyCodeOptions = {
   theme: 'catppuccin-mocha',
   defaultLang: {
@@ -98,7 +98,7 @@ const withMDX = createMDX({
     ],
     rehypePlugins: [
       rehypeUnwrapImages,
-      [rehypePrettyCode, rehypePrettyCodeOptions],
+      [rehypeShiki, rehypePrettyCodeOptions],
       [rehypeSlug, rehypeSlugOptions],
       rehypeMdxImportMedia,
     ],

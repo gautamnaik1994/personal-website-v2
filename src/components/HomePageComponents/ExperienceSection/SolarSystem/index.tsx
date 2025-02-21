@@ -55,15 +55,6 @@ const SolarSystem = (props: SVGProps<SVGSVGElement>) => (
       />
       <g className='moon-orbit'>
         <circle cx={1182} cy={788} r={2} fill='#FBF474' className='moon' />
-        <animateTransform
-          attributeName='transform'
-          attributeType='XML'
-          dur='3s'
-          from='0 1171 799.2'
-          repeatCount='indefinite'
-          to='360 1171 799.2'
-          type='rotate'
-        />
       </g>
     </g>
     <g className='orbit-container mars'>

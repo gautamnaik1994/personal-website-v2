@@ -23,7 +23,7 @@ const NavbarLinks = ({
     <>
       {NAVIGATION.map((navigation) => (
         <Link
-          className={`${className} ${isActive(navigation.to) && activeClassName}`}
+          className={`${className} ${navigation.navClassName} ${isActive(navigation.to) && activeClassName}`}
           key={navigation.label}
           title={navigation.title}
           href={navigation.to}

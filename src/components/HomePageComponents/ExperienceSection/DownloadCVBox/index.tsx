@@ -10,17 +10,13 @@ const DownloadCVBox = (): React.ReactElement => {
       <div className={styles.cv}>
         <div className={`${styles.page} ${styles['second-page']}`}>
           <p>
-            Achievements
-            <br />
-            Interests
-            <br />
-            References
+            Education
             <br />
             Contact
             <br />
             Links
             <br />
-            Socials
+            References
           </p>
         </div>
         <div className={`${styles.page} ${styles['first-page']}`}>
@@ -33,16 +29,17 @@ const DownloadCVBox = (): React.ReactElement => {
             <br />
             Skills
             <br />
+            Projects
+            <br />
             Experience
             <br />
-            Education
           </p>
         </div>
       </div>
 
       <ExternalLinkComponent
         href='https://docs.google.com/document/d/11sbc2ZdMQ29icbyBnARn6zPXepX3IispmQKP2ptu7_Q/edit?usp=sharing'
-        title='Download CV'
+        title='Checkout my CV'
         variant='primary'
       >
         Checkout my CV

@@ -1,5 +1,7 @@
 .StyledDownloadCV {
-  padding: 25px 30px;
+  flex: 1 1;
+  padding: 18px;
+  padding-bottom: 25px;
   background: var(--sideCardColor);
   border-radius: 8px;
   min-height: 290px;
@@ -8,6 +10,11 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--cardShadow);
+  &:hover {
+    .first-page {
+      transform: translate(11px, 8px) rotate3d(6, -12, 0, 118deg);
+    }
+  }
   .top-sec {
     font-size: 20px;
   }
@@ -15,17 +22,12 @@
     position: relative;
     perspective: 500px;
     perspective-origin: center;
+    left: 5px;
+    top: 3px;
     p {
       margin: 0;
       font-size: 12px;
       line-height: 1.7;
-    }
-    &:hover {
-      .first-page {
-        // transform: rotateY(-150deg) rotateZ(-10deg);
-        // z-index: -1;
-        transform: rotate3d(6, -12, 0, 118deg);
-      }
     }
   }
   .page {
@@ -34,24 +36,36 @@
     padding: 8px;
     border: 2px solid #2c364d;
     width: 100px;
+    min-height: 142px;
   }
 
   .first-page {
     position: absolute;
-    top: 6px;
-    left: 3px;
+    top: -7px;
+    left: -9px;
     transition: transform 0.8s;
     transform-style: preserve-3d;
     transform-origin: 0px 0px;
+    backface-visibility: hidden;
+
+    &:after {
+      content: '';
+      right: 0px;
+      bottom: 0px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      border-radius: inherit;
+      background-color: inherit;
+      transform: rotateY(180deg);
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      border: inherit;
+    }
   }
   .second-page {
     position: relative;
-    top: 8px;
-  }
-
-  @include tablet {
-    width: 280px;
-    min-height: 230px;
+    // top: 8px;
   }
   @include desktop {
     min-height: 290px;

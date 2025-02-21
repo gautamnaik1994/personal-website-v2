@@ -20,8 +20,8 @@
 .navLink {
   font-size: 18px;
   font-weight: var(--fontWeightMedium);
-  display: none;
   position: relative;
+  display: none;
   @include tablet {
     display: flex;
     align-items: center;
@@ -36,9 +36,28 @@
     border-radius: 3px;
     background-color: var(--accent);
   }
+  &.navActive:before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: -10px;
+    right: -10px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--accent);
+    filter: blur(5px);
+  }
 }
 .homeLink {
   margin-right: auto;
   display: flex;
   align-items: center;
 }
+
+// .Navbar :global(.github),
+// .Navbar :global(.snips-tips) {
+//   display: none;
+//   @include tablet {
+//     display: flex;
+//   }
+// }
