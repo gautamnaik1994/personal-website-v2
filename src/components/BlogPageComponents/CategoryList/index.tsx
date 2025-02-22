@@ -14,7 +14,7 @@ export default function List({ activeCategory }: Props) {
       <Link
         title='All'
         href={`/blog/`}
-        className={activeCategory == 'Gautam Blogs' ? styles.active : ``}
+        className={activeCategory == `Gautam Blogs` ? styles.active : ``}
       >
         All
       </Link>
@@ -22,8 +22,8 @@ export default function List({ activeCategory }: Props) {
         <Link
           key={item}
           scroll={false}
-          href={'/blog/category/' + categoryToSlugMap[item]}
-          className={item == activeCategory ? styles.active : 'no'}
+          href={`/blog/category/` + categoryToSlugMap[item]}
+          className={item == activeCategory ? styles.active : `no`}
         >
           {item}
         </Link>

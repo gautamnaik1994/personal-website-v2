@@ -7,6 +7,7 @@ import {
 } from '@/service/blog';
 import { notFound } from 'next/navigation';
 import BlogGrid from '@/components/BlogPageComponents/BlogGrid';
+import siteMetaData from '@/content/staticData/siteMetaData';
 
 export default async function CategoryHome(props: {
   params: Promise<{ category: Category }>;
@@ -33,7 +34,7 @@ export default async function CategoryHome(props: {
       {postsPerPage < total && (
         <link
           rel='next'
-          href={`https://www.gautamnaik.com/blog/category/${category}/page/2`}
+          href={`${siteMetaData.siteUrl}/blog/category/${category}/page/2`}
         />
       )}
       <main>

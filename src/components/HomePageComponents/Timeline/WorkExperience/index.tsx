@@ -51,15 +51,15 @@ const WorkExpeContainer = ({
   return (
     <div className={styles.WorkExperienceMainItem} {...props}>
       {status === `play` ? (
-        <div className={styles['test-tube']} title='Frustration Meter' />
+        <div className={styles[`test-tube`]} title='Frustration Meter' />
       ) : (
-        <div className={styles['link-chain']} />
+        <div className={styles[`link-chain`]} />
       )}
-      <div className={styles['top-content']}>
-        <div className={`${styles['Status']} ${styles[status]} `}>
+      <div className={styles[`top-content`]}>
+        <div className={`${styles[`Status`]} ${styles[status]} `}>
           <i className={`icon-${status}`} />
         </div>
-        <div className={styles['role']}>{role}</div>
+        <div className={styles[`role`]}>{role}</div>
         {companyUrl ? (
           <a
             href={companyUrl}
@@ -73,22 +73,22 @@ const WorkExpeContainer = ({
           <div className={`${styles.company} text-primary`}>{title}</div>
         )}
 
-        <div className={styles['time']}>{timeRange}</div>
+        <div className={styles[`time`]}>{timeRange}</div>
       </div>
       {/* 
 //@ts-expect-error: TypeScript cannot infer the type correctly */}
-      <animated.div className={styles['info-sec']} style={expand}>
+      <animated.div className={styles[`info-sec`]} style={expand}>
         <div
           ref={ref as unknown as React.RefObject<HTMLDivElement>}
-          className={styles['info-inner']}
+          className={styles[`info-inner`]}
         >
           {children}
-          <div className={styles['pad-bottom']} />
+          <div className={styles[`pad-bottom`]} />
         </div>
       </animated.div>
 
       <button
-        className={styles['more-less-btn']}
+        className={styles[`more-less-btn`]}
         onClick={() => toggle(!open)}
         aria-label='Show Responsibilities'
         title='Show Responsibilities'

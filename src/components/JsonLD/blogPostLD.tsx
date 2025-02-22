@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import siteMetaData from '@/content/staticData/siteMetaData';
 
 interface BlogPostLDProps {
   title: string;
@@ -14,50 +15,51 @@ interface BlogPostLDProps {
 
 export default async function JsonLD(props: BlogPostLDProps) {
   const data = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
+    '@context': `https://schema.org`,
+    '@type': `BlogPosting`,
     headline: props.title, // Use props title
     name: props.title, // Use props title
-    url: `https://www.gautamnaik.com/blog/${props.slug}`, // Use props slug
+    url: `${siteMetaData.siteUrl}/blog/${props.slug}`,
     dateCreated: props.date, // YYYY-MM-DD format
     datePublished: props.date, // YYYY-MM-DD format
     dateModified: props.date, // YYYY-MM-DD format
     description: props.description, // Use props description
 
     author: {
-      '@type': 'Person',
-      name: 'Gautam Naik', // Or your name
-      url: 'https://www.gautamnaik.com', // Or your website URL
+      '@type': `Person`,
+      name: siteMetaData.title,
+      url: siteMetaData.siteUrl,
     },
     image: {
       // Recommended: Add image information
-      '@type': 'ImageObject',
-      url: `https://www.gautamnaik.com${props.banner}`, // URL of the featured image
+      '@type': `ImageObject`,
+      url: `${siteMetaData.siteUrl}${props.banner}`,
       width: 1200, // Width in pixels
       height: 630, // Height in pixels (aspect ratio important for some rich results)
     },
     mainEntityOfPage: {
       // Helps search engines understand the context
-      '@type': 'WebPage',
-      url: `https://www.gautamnaik.com/blog/${props.slug}`, // Same as the blog post URL
+      '@type': `WebPage`,
+      url: `${siteMetaData.siteUrl}/blog/${props.slug}`,
     },
     publisher: {
       // Important for branding and authority
-      '@type': 'Organization',
-      name: 'Gautam Naik', // Updated company/organization name
-      url: 'https://www.gautamnaik.com',
+      '@type': `Organization`,
+      name: siteMetaData.title,
+      url: siteMetaData.siteUrl,
       logo: {
-        '@type': 'ImageObject',
-        url: 'https://www.gautamnaik.com/img/og-image.png', // URL of the logo
+        '@type': `ImageObject`,
+        url: `${siteMetaData.siteUrl}/img/og-image.png`,
       },
     },
-    keywords: props.keywords, // Use props keywords
+    keywords: props.keywords,
     articleSection: props.headings,
     genre: props.categories,
     timeRequired: props.readingTime,
   };
 
   return (
+    //eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
     <Script
       id='blogPostLD'
       strategy='beforeInteractive'

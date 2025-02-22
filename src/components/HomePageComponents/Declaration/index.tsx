@@ -27,7 +27,7 @@ const Declaration = ({ className }: Props): React.ReactElement => {
       },
       {
         threshold: 1,
-        rootMargin: '200px 0px -100px 0px',
+        rootMargin: `200px 0px -100px 0px`,
         //root: document.querySelector('#f_root'),
       }
     );
@@ -47,12 +47,12 @@ const Declaration = ({ className }: Props): React.ReactElement => {
     <section className={className} ref={intersectionRef}>
       <SectionTitle title='Declaration' />
       <div className={styles.StyledDiv}>
-        <div className={styles['declaration']}>
+        <div className={styles[`declaration`]}>
           I declare that the information given above is genuine & correct to the
           best of my knowledge.
         </div>
-        <div className={styles['name-sign']}>
-          <Signature className={entered ? styles['animate'] : ''} />
+        <div className={styles[`name-sign`]}>
+          <Signature className={entered ? styles[`animate`] : ``} />
         </div>
       </div>
     </section>

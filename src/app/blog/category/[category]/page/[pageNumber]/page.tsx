@@ -9,6 +9,7 @@ import {
 import { notFound, redirect } from 'next/navigation';
 import BlogGrid from '@/components/BlogPageComponents/BlogGrid';
 import { Metadata } from 'next/types';
+import siteMetaData from '@/content/staticData/siteMetaData';
 
 export default async function Page(props: {
   params: Promise<{ category: Category; pageNumber: number }>;
@@ -36,20 +37,20 @@ export default async function Page(props: {
       {postsPerPage * pageNumber < total && (
         <link
           rel='next'
-          href={`https://www.gautamnaik.com/blog/category/${category}/page/${pageNumber + 1}`}
+          href={`${siteMetaData.siteUrl}/blog/category/${category}/page/${pageNumber + 1}`}
         />
       )}
       {pageNumber == 2 && (
         <link
           rel='prev'
-          href={`https://www.gautamnaik.com/blog/category/${category}`}
+          href={`${siteMetaData.siteUrl}/blog/category/${category}`}
         />
       )}
 
       {pageNumber > 2 && (
         <link
           rel='prev'
-          href={`https://www.gautamnaik.com/blog/category/${category}/page/${pageNumber - 1}`}
+          href={`${siteMetaData.siteUrl}/blog/category/${category}/page/${pageNumber - 1}`}
         />
       )}
 

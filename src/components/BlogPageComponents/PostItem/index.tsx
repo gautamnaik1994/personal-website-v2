@@ -25,10 +25,10 @@ const PostItemMain = ({
   categories,
   readTime,
   banner,
-  className = '',
+  className = ``,
 }: Props): React.ReactElement => (
   <div className={`${styles.PostItem}  ${className}`}>
-    <div className={styles['img-container']}>
+    <div className={styles[`img-container`]}>
       <Image src={banner} alt={title} />
     </div>
     <Link
@@ -39,15 +39,15 @@ const PostItemMain = ({
       <h3>{title}</h3>
     </Link>
     <small>
-      {format(date, 'MMM dd, yyyy')} &bull; {readTime}
+      {format(date, `MMM dd, yyyy`)} &bull; {readTime}
     </small>
-    <div className={styles['category-holder']}>
+    <div className={styles[`category-holder`]}>
       <i className='icon-category text-accent l-icon' />
       <span>
         {categories.map((item) => (
           <Link
             key={item}
-            className={styles['category-link']}
+            className={styles[`category-link`]}
             title={`Go to ${item}`}
             href={`/blog/category/${categoryToSlugMap[item]}`}
           >
@@ -58,7 +58,7 @@ const PostItemMain = ({
     </div>
 
     <article className='one-rem-mt one-rem-mb'>{excerpt}</article>
-    <div className={styles['btn-holder']}>
+    <div className={styles[`btn-holder`]}>
       <Link
         title={`Read more about ${title}`}
         href={`/blog/${link}`}

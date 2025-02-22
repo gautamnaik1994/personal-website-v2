@@ -13,15 +13,15 @@ export interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = (props) => {
   const {
-    variant = 'default',
-    size = 'default',
+    variant = `default`,
+    size = `default`,
     className,
     children,
     onClick,
     title,
     isRounded,
   } = props;
-  const buttonClassNames = `${styles.button} ${styles[variant]} ${size === 'small' ? styles.small : ''} ${className || ''} ${isRounded ? styles.rounded : ''}`;
+  const buttonClassNames = `${styles.button} ${styles[variant]} ${size === `small` ? styles.small : ``} ${className || ``} ${isRounded ? styles.rounded : ``}`;
 
   return (
     <button className={buttonClassNames} onClick={onClick} title={title}>

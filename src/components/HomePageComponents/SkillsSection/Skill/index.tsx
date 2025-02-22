@@ -45,19 +45,19 @@ const SkillComponent = ({
   }, [height]);
   return (
     <div className={styles.Skill} {...props}>
-      <div className={styles['box-title']}>{name}</div>
+      <div className={styles[`box-title`]}>{name}</div>
       <SkillMeter level={level} />
       {/* 
 //@ts-expect-error: TypeScript cannot infer the type correctly */}
-      <animated.div className={styles['info-sec']} style={expand}>
+      <animated.div className={styles[`info-sec`]} style={expand}>
         <div
           ref={ref as unknown as React.RefObject<HTMLDivElement>}
-          className={styles['info-inner']}
+          className={styles[`info-inner`]}
         >
           {details.map(
             ({ key, value }): ReactNode => (
               <div key={key} className={styles.Item}>
-                <div className={styles['label']}>{key}</div>
+                <div className={styles[`label`]}>{key}</div>
                 <div className='value'>{value}</div>
               </div>
             )
@@ -66,7 +66,7 @@ const SkillComponent = ({
       </animated.div>
       <div className='button-holder text-center'>
         <button
-          className={styles['more-less-btn']}
+          className={styles[`more-less-btn`]}
           onClick={() => toggle(!open)}
         >
           {open ? `Less` : `More`}

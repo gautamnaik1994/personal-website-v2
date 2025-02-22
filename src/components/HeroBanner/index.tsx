@@ -9,9 +9,9 @@ export default function HeroFn({
 }: Props): React.ReactNode {
   return (
     <header className={styles.Hero}>
-      <div className={styles['img-bg']}></div>
-      <div className={`${styles['img-bg']} ${styles['img-bg-2']}`}></div>
-      <h1 className={styles['inner-container']}>{title}</h1>
+      <div className={styles[`img-bg`]}></div>
+      <div className={`${styles[`img-bg`]} ${styles[`img-bg-2`]}`}></div>
+      <h1 className={styles[`inner-container`]}>{title}</h1>
     </header>
   );
 }

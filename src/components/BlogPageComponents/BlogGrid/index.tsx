@@ -9,7 +9,7 @@ import BlogListLD from '@/components/JsonLD/blogListLD';
 
 export default function BlogGrid({
   posts,
-  title = 'Gautam Blogs',
+  title = `Gautam Blogs`,
   baseUrl,
   pageNumber,
   altBaseUrl,
@@ -25,7 +25,7 @@ export default function BlogGrid({
   return (
     <>
       <BlogListLD
-        title={title === 'Gautam Blogs' ? 'All' : title}
+        title={title === `Gautam Blogs` ? `All` : title}
         path={altBaseUrl ? altBaseUrl : `${baseUrl}/${pageNumber}`}
         posts={posts}
       />

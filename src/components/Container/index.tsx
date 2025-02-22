@@ -6,7 +6,7 @@ interface Props {
   className?: string;
 }
 
-const Container = ({ children, className = '' }: Props) => (
+const Container = ({ children, className = `` }: Props) => (
   <div
     className={`
     ${styles.Container}

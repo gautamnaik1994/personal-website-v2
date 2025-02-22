@@ -18,7 +18,7 @@ interface dateTypes {
   seconds: number;
 }
 
-const ExperienceComponent = ({ className = '' }: Props): React.ReactNode => {
+const ExperienceComponent = ({ className = `` }: Props): React.ReactNode => {
   const [dateData, setDateData] = useState<dateTypes>({
     years: 0,
     months: 0,

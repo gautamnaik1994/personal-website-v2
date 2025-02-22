@@ -17,7 +17,7 @@ const TableOfContents = ({
   isPopup = false,
   isPhone = false,
   onCloseHandler = () => {},
-  className = '',
+  className = ``,
 }: Props) => {
   const tocRef = useRef<HTMLDivElement>(null);
 
@@ -36,14 +36,14 @@ const TableOfContents = ({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          document.body.classList.remove('toc-not-in-view');
+          document.body.classList.remove(`toc-not-in-view`);
         } else {
-          document.body.classList.add('toc-not-in-view');
+          document.body.classList.add(`toc-not-in-view`);
         }
       },
       {
         root: null,
-        rootMargin: '0px 0px 300px 0px',
+        rootMargin: `0px 0px 300px 0px`,
         threshold: 0.1,
       }
     );
@@ -89,7 +89,7 @@ const TableOfContents = ({
   return (
     <>
       <div
-        className={`${styles.TOC}  ${isPopup && styles['toc-popup']} ${className} `}
+        className={`${styles.TOC}  ${isPopup && styles[`toc-popup`]} ${className} `}
         ref={tocRef}
       >
         <h2 className='mt-0'>Table of Contents</h2>

@@ -12,14 +12,14 @@ export interface LinkProps {
 
 const ExternalLinkComponent: React.FC<LinkProps> = (props) => {
   const {
-    variant = 'default',
-    size = 'default',
+    variant = `default`,
+    size = `default`,
     className,
     children,
     title,
     href,
   } = props;
-  const linkClassNames = `${styles.button} ${styles[variant]} ${size === 'small' ? styles.small : ''} ${className || ''}`;
+  const linkClassNames = `${styles.button} ${styles[variant]} ${size === `small` ? styles.small : ``} ${className || ``}`;
 
   return (
     <a

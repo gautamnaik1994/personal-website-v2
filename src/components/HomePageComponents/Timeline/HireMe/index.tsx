@@ -50,27 +50,27 @@ const HireMe = (): React.ReactNode => {
 
   return (
     <div ref={intersectionRef} className={styles.StyledHireMe}>
-      <div className={`${styles['top-sec']} text-center`}>
+      <div className={`${styles[`top-sec`]} text-center`}>
         Want someone to take
         <br />
         your product to the
       </div>
-      <div className={styles['middle-sec']}>
+      <div className={styles[`middle-sec`]}>
         <span>NEXT</span>
         {/* 
 // @ts-expect-error: TypeScript cannot infer the type correctly */}
-        <animated.span className={styles['lvl']} style={jump}>
+        <animated.span className={styles[`lvl`]} style={jump}>
           LEVEL?{` `}
-          <span className={styles['i-wrapper']}>
+          <span className={styles[`i-wrapper`]}>
             {` `}
             <i className='icon-arrow-right' />
-            <i className={`icon-arrow-right ${styles['s-icon']}`} />
+            <i className={`icon-arrow-right ${styles[`s-icon`]}`} />
           </span>
         </animated.span>
       </div>
-      <div className={styles['bottom-sec']}>
+      <div className={styles[`bottom-sec`]}>
         <Bulb entered={entered2} />
-        <div className={styles['hire-text']}>HIRE ME!!!</div>
+        <div className={styles[`hire-text`]}>HIRE ME!!!</div>
       </div>
     </div>
   );

@@ -21,7 +21,7 @@ export default function BelowHeaderComponent() {
       },
       {
         threshold: [0, 0.5, 1],
-        rootMargin: '-50% 0px 200px 0px',
+        rootMargin: `-50% 0px 200px 0px`,
       }
     );
 

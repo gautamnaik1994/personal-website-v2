@@ -32,8 +32,8 @@ const Metaballs: React.FC = () => {
       g: 0.5,
       b: 0.89,
       webGLNotSupported: false,
-      canvasWidth: typeof window !== 'undefined' ? window.innerWidth : 0,
-      canvasHeight: typeof window !== 'undefined' ? window.innerHeight : 0,
+      canvasWidth: typeof window !== `undefined` ? window.innerWidth : 0,
+      canvasHeight: typeof window !== `undefined` ? window.innerHeight : 0,
     }),
     []
   );
@@ -56,8 +56,8 @@ const Metaballs: React.FC = () => {
   return (
     <div
       style={{
-        height: '100vh',
-        overflow: 'hidden',
+        height: `100vh`,
+        overflow: `hidden`,
       }}
     >
       <canvas ref={canvasRef} id='main'></canvas>

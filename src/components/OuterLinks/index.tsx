@@ -5,7 +5,7 @@ import styles from './index.module.scss';
 const OuterLinks = () => {
   return (
     <div className={`${styles.StyledOuterLinks} outer-links`}>
-      <div className={styles['left-side']}>
+      <div className={styles[`left-side`]}>
         {socialLinks.map((link, index) => {
           return (
             <a
@@ -20,7 +20,7 @@ const OuterLinks = () => {
           );
         })}
       </div>
-      <div className={styles['right-side']}>
+      <div className={styles[`right-side`]}>
         <a
           className={styles.inner}
           title='Mail me'

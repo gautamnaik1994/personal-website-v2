@@ -1,5 +1,6 @@
 import Script from 'next/script';
 import { Project } from '@/types';
+import siteMetaData from '@/content/staticData/siteMetaData';
 
 interface ProjectListLDProps {
   projects: Project[];
@@ -8,20 +9,19 @@ interface ProjectListLDProps {
 export default async function JsonLD(props: ProjectListLDProps) {
   const projects = props.projects;
   const data = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage', // Describes the page
-    name: 'Projects',
-    description:
-      'A showcase of my software engineering and AI/Machine learning projects.',
-    url: 'https://gautamnaik.com/projects',
+    '@context': `https://schema.org`,
+    '@type': `WebPage`, // Describes the page
+    name: `Projects`,
+    description: siteMetaData.projectPageDescription,
+    url: `${siteMetaData.siteUrl}/projects`,
     mainEntity: {
-      '@type': 'ItemList',
+      '@type': `ItemList`,
       itemListElement: [
         projects.map((project, i) => ({
-          '@type': 'ListItem',
+          '@type': `ListItem`,
           position: i + 1,
           item: {
-            '@type': 'Project',
+            '@type': `Project`,
             name: project.title,
             description: project.description,
             url: project.mainLink,
@@ -30,12 +30,12 @@ export default async function JsonLD(props: ProjectListLDProps) {
       ],
     },
     publisher: {
-      '@type': 'Organization',
-      name: 'Gautam Naik',
-      url: 'https://www.gautamnaik.com',
+      '@type': `Organization`,
+      name: siteMetaData.title,
+      url: siteMetaData.siteUrl,
       logo: {
-        '@type': 'ImageObject',
-        url: 'https://www.gautamnaik.com/img/og-image.png', // URL of the logo
+        '@type': `ImageObject`,
+        url: `${siteMetaData.siteUrl}/img/og-image.png`,
       },
     },
   };

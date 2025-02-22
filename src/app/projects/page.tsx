@@ -4,39 +4,40 @@ import ProjectItem from '@/components/ProjectItem';
 import Container from '@/components/Container';
 import styles from './index.module.scss';
 import HeroFn from '@/components/HeroBanner';
-import ProkectListLD from '@/components/JsonLD/projectListLD';
+import ProjectListLD from '@/components/JsonLD/projectListLD';
 import { Metadata } from 'next';
+import siteMetaData from '@/content/staticData/siteMetaData';
 
 export const metadata: Metadata = {
-  title: 'Projects',
-  description: 'Projects I have worked on',
+  title: `Projects`,
+  description: siteMetaData.projectPageDescription,
   appleWebApp: {
-    title: 'Projects',
+    title: `Projects`,
   },
   openGraph: {
-    url: 'https://www.gautamnaik.com/projects',
-    title: 'Projects',
-    description: 'Projects I have worked on',
+    url: `${siteMetaData.siteUrl}/projects`, // fixed the URL to use siteMetaData
+    title: `Projects`,
+    description: siteMetaData.projectPageDescription,
   },
   twitter: {
-    title: 'Projects',
-    description: 'Projects I have worked on',
+    title: `Projects`,
+    description: siteMetaData.projectPageDescription,
   },
 };
 
 async function ProjectsPage() {
   const softwareProjects: Project[] = await getProjectsByCategory({
-    category: 'Software Engineering',
+    category: `Software Engineering`,
   });
   const aiProjects: Project[] = await getProjectsByCategory({
-    category: 'AI & Machine Learning',
+    category: `AI & Machine Learning`,
   });
 
   return (
     <>
-      <ProkectListLD projects={[...softwareProjects, ...aiProjects]} />
+      <ProjectListLD projects={[...softwareProjects, ...aiProjects]} />
       <HeroFn title='Projects' />
-      <Container className={styles['c-container']}>
+      <Container className={styles[`c-container`]}>
         <h2 className={styles.h2}>AI & Machine Learning Projects</h2>
         <div className={`${styles.grid}`}>
           {aiProjects.map((project) => (

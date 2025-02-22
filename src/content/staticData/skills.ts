@@ -2,50 +2,50 @@ import { Skill } from '@/types';
 
 export const skills: Skill[] = [
   {
-    title: 'Data Science',
+    title: `Data Science`,
     value: 80,
     publish: true,
     details: [
       {
-        key: 'Expertise',
+        key: `Expertise`,
         value:
-          'Predictive Analysis • Time Series Analysis • Data Analysis • EDA • Model Deployment • Business Intelligence',
+          `Predictive Analysis • Time Series Analysis • Data Analysis • EDA • Model Deployment • Business Intelligence`,
       },
       {
-        key: 'Tools',
+        key: `Tools`,
         value:
-          'Python • Pandas • Numpy • SQL • Streamlit • Tableau • Sci-kit Learn • PySpark',
+          `Python • Pandas • Numpy • SQL • Streamlit • Tableau • Sci-kit Learn • PySpark`,
       },
     ],
   },
   {
-    title: 'Frontend Dev',
+    title: `Frontend Dev`,
     value: 80,
     publish: true,
     details: [
       {
-        key: 'Expertise',
+        key: `Expertise`,
         value:
-          'Web Development • Single Page Applications • Progressive Web Apps',
+          `Web Development • Single Page Applications • Progressive Web Apps`,
       },
       {
-        key: 'Technologies',
+        key: `Technologies`,
         value:
-          'HTML-CSS • ReactJS • NextJS • Redux • JavaScript • Typescript • Webpack',
+          `HTML-CSS • ReactJS • NextJS • Redux • JavaScript • Typescript • Webpack`,
       },
     ],
   },
   {
-    title: 'Backend Dev',
+    title: `Backend Dev`,
     value: 50,
     publish: true,
     details: [
-      { key: 'Expertise', value: 'Serverless Apps • API Design' },
+      { key: `Expertise`, value: `Serverless Apps • API Design` },
       {
-        key: 'Technologies',
-        value: 'Python • Fast API • AWS CDK • AWS Lambda • NodeJS',
+        key: `Technologies`,
+        value: `Python • Fast API • AWS CDK • AWS Lambda • NodeJS`,
       },
-      { key: 'Databases', value: 'DynamoDB • MySQL' },
+      { key: `Databases`, value: `DynamoDB • MySQL` },
     ],
   },
   // {

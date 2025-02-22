@@ -29,11 +29,11 @@ const Footer = () => {
         })}
       </div>
       <small className='two-rem-mt half-rem-mb'>
-        Built using{' '}
+        Built using{` `}
         <Link title='NextJS' target='_blank' href='https://www.nextjs.org/'>
           NextJS
-        </Link>{' '}
-        and hosted on{' '}
+        </Link>{` `}
+        and hosted on{` `}
         <Link title='Netlify' href='https://www.netlify.com/' target='_blank'>
           Netlify
         </Link>

@@ -1,5 +1,6 @@
 import Script from 'next/script';
 import { Post } from '@/types';
+import siteMetaData from '@/content/staticData/siteMetaData';
 
 interface BlogListLDProps {
   title: string;
@@ -9,25 +10,25 @@ interface BlogListLDProps {
 
 export default async function JsonLD(props: BlogListLDProps) {
   const data = {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: props.title + ' Blogs',
-    url: `https://www.gautamnaik.com${props.path}`,
-    description: 'This page contains blogs from ' + props.title + ' category.', // Use props description
+    '@context': `https://schema.org`,
+    '@type': `CollectionPage`,
+    name: props.title + ` Blogs`,
+    url: `${siteMetaData.siteUrl}${props.path}`,
+    description: `This page contains blogs from ` + props.title + ` category.`, // Use props description
 
     author: {
-      '@type': 'Person',
-      name: 'Gautam Naik', // Or your name
-      url: 'https://www.gautamnaik.com', // Or your website URL
+      '@type': `Person`,
+      name: siteMetaData.title,
+      url: siteMetaData.siteUrl,
     },
     publisher: {
       // Important for branding and authority
-      '@type': 'Organization',
-      name: 'Gautam Naik', // Updated company/organization name
-      url: 'https://www.gautamnaik.com', // Or your website URL
+      '@type': `Organization`,
+      name: siteMetaData.title,
+      url: siteMetaData.siteUrl,
       logo: {
-        '@type': 'ImageObject',
-        url: 'https://www.gautamnaik.com/img/og-image.png', // URL of the logo
+        '@type': `ImageObject`,
+        url: `${siteMetaData.siteUrl}/img/og-image.png`, // URL of the logo
       },
     },
     hasPart: [
@@ -48,17 +49,17 @@ export default async function JsonLD(props: BlogListLDProps) {
       //   genre: ['Category 1', 'Category 2'], // Or single category if needed
       // },
       props.posts.map((post) => ({
-        '@type': 'BlogPosting',
+        '@type': `BlogPosting`,
         name: post.title,
         description: post.description,
-        url: `https://www.gautamnaik.com/blog/${post.slug}`,
+        url: `${siteMetaData.siteUrl}/blog/${post.slug}`,
         image: {
-          '@type': 'ImageObject',
-          url: `https://www.gautamnaik.com${post.bannerImage}`,
+          '@type': `ImageObject`,
+          url: `${siteMetaData.siteUrl}${post.bannerImage}`,
           width: 1200,
           height: 630,
         },
-        keywords: post.keywords.join(', '),
+        keywords: post.keywords.join(`, `),
         datePublished: post.date,
         timeRequired: post.readingTime.text,
         genre: post.categories,

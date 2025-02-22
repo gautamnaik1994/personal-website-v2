@@ -14,7 +14,7 @@ export default function ContactMeSection({
     <section className={className}>
       <SectionTitle title="Let's Talk" />
       <div className={styles.StyledDiv}>
-        <div className={styles['contact-me-text']}>
+        <div className={styles[`contact-me-text`]}>
           I am always on the lookout for new and exciting opportunities. Drop an
           email if you have something exciting to share and I&apos;ll try my
           best to get back to you!

@@ -10,8 +10,8 @@ export interface Props {
 }
 
 const NavbarLinks = ({
-  className = '',
-  activeClassName = '',
+  className = ``,
+  activeClassName = ``,
   onClick = () => {},
 }: Props) => {
   const pathname = usePathname();

@@ -27,7 +27,6 @@ export default function Home() {
         <Declaration className='section-spacer ' />
         <ContactMeSection className='section-spacer ' />
       </Container>
-      {/* <OuterLinks /> */}
     </>
   );
 }

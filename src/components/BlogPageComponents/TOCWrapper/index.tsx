@@ -41,7 +41,7 @@ const TOCWrapper: React.FC<TOCWrapperProps> = ({ items }) => {
           (e.target as HTMLElement).blur();
         }}
         variant='primary'
-        className={`floating-toc-button ${styles['floating']}`}
+        className={`floating-toc-button ${styles[`floating`]}`}
         title='Open Table of Contents'
         isRounded={true}
       >

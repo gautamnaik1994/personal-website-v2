@@ -2,10 +2,11 @@ import { getPaginatedPosts, getPosts, postsPerPage } from '@/service/blog';
 import { notFound, redirect } from 'next/navigation';
 import BlogGrid from '@/components/BlogPageComponents/BlogGrid';
 import { Metadata } from 'next/types';
+import siteMetaData from '@/content/staticData/siteMetaData';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/blog',
+    canonical: `/blog`,
   },
 };
 
@@ -18,7 +19,7 @@ export default async function Page(props: {
 
   if (pageNumber < 1) notFound();
 
-  if (pageNumber == 1) redirect('/blog');
+  if (pageNumber == 1) redirect(`/blog`);
 
   const { posts, total } = await getPaginatedPosts({
     page: pageNumber,
@@ -31,15 +32,15 @@ export default async function Page(props: {
     <>
       <link
         rel='next'
-        href={`https://www.gautamnaik.com/blog/page/${pageNumber + 1}`}
+        href={`${siteMetaData.siteUrl}/blog/page/${pageNumber + 1}`}
       />
       {pageNumber == 2 && (
-        <link rel='prev' href={`https://www.gautamnaik.com/blog`} />
+        <link rel='prev' href={`${siteMetaData.siteUrl}/blog`} />
       )}
       {pageNumber > 2 && (
         <link
           rel='prev'
-          href={`https://www.gautamnaik.com/blog/page/${pageNumber - 1}`}
+          href={`${siteMetaData.siteUrl}/blog/page/${pageNumber - 1}`}
         />
       )}
       <main>

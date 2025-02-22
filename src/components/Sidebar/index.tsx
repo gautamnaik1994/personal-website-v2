@@ -6,6 +6,7 @@ import Logo from '@/components/Logo';
 import Hamburger from './Hamburger';
 import styles from './index.module.scss';
 import NavbarLinks from '@/components/NavLinks';
+import siteMetaData from '@/content/staticData/siteMetaData';
 
 const properties = {
   close: {
@@ -21,7 +22,7 @@ export interface Props {
   className?: string;
 }
 
-export default function Sidebar({ className = '' }: Props): React.ReactElement {
+export default function Sidebar({ className = `` }: Props): React.ReactElement {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const { transform } = properties[menuOpen ? `open` : `close`];
@@ -40,7 +41,7 @@ export default function Sidebar({ className = '' }: Props): React.ReactElement {
         style={{ transform: sideBarProps.transform }}
       >
         <Link
-          title='Gautam Naik'
+          title={siteMetaData.title}
           className={styles.HomeLink}
           href='/'
           onClick={() => {

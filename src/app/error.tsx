@@ -18,11 +18,11 @@ export default function Error({
   return (
     <div
       style={{
-        height: 'calc(100vh - 212px)',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
+        height: `calc(100vh - 212px)`,
+        display: `flex`,
+        flexDirection: `column`,
+        justifyContent: `center`,
+        alignItems: `center`,
       }}
     >
       <h2>Something went wrong!</h2>

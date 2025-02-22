@@ -2,11 +2,11 @@ import { readdir } from 'fs/promises';
 import path from 'path';
 import { Project } from '@/types';
 
-export const categories = ['AI & Machine Learning', 'Software Engineering'];
+export const categories = [`AI & Machine Learning`, `Software Engineering`];
 
 export async function getProjects(): Promise<Project[]> {
-  const files = await readdir('src/content/projects');
-  const mdFiles = files.filter((file) => path.extname(file) === '.md');
+  const files = await readdir(`src/content/projects`);
+  const mdFiles = files.filter((file) => path.extname(file) === `.md`);
 
   let projects = await Promise.all(
     mdFiles.map(async (file) => {

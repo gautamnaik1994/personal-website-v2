@@ -2,29 +2,29 @@ import { readdir } from 'fs/promises';
 import { Post, PostContent, PostContentLite } from '@/types';
 
 export const categories = [
-  'Data Science',
-  'Machine Learning',
-  'Software Engineering',
-  'Web Development',
-  'Vim',
+  `Data Science`,
+  `Machine Learning`,
+  `Software Engineering`,
+  `Web Development`,
+  `Vim`,
 ] as const;
 
 export type Category = (typeof categories)[number];
 
 export const slugToCategoryMap: Record<string, Category> = {
-  'data-science': 'Data Science',
-  'machine-learning': 'Machine Learning',
-  'software-engineering': 'Software Engineering',
-  'web-development': 'Web Development',
-  vim: 'Vim',
+  'data-science': `Data Science`,
+  'machine-learning': `Machine Learning`,
+  'software-engineering': `Software Engineering`,
+  'web-development': `Web Development`,
+  vim: `Vim`,
 };
 
 export const categoryToSlugMap: Record<Category, string> = {
-  'Data Science': 'data-science',
-  'Machine Learning': 'machine-learning',
-  'Software Engineering': 'software-engineering',
-  'Web Development': 'web-development',
-  Vim: 'vim',
+  'Data Science': `data-science`,
+  'Machine Learning': `machine-learning`,
+  'Software Engineering': `software-engineering`,
+  'Web Development': `web-development`,
+  Vim: `vim`,
 };
 
 export const postsPerPage = 9 as const;
@@ -32,7 +32,7 @@ export const postsPerPage = 9 as const;
 export async function getPosts(): Promise<Post[]> {
   // Retrieve slugs from post routes
   const slugs = (
-    await readdir('./src/content/blog', { withFileTypes: true })
+    await readdir(`./src/content/blog`, { withFileTypes: true })
   ).filter((dirent) => dirent.isDirectory());
 
   // Retrieve metadata from MDX files

@@ -1,12 +1,12 @@
 import { MetadataRoute } from 'next';
-
+import siteMetaData from '@/content/staticData/siteMetaData';
 import { getPosts, slugToCategoryMap } from '@/service/blog';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getPosts();
-  const baseUrl = 'https://www.gautamnaik.com'; // Replace with your homepage
+  const baseUrl = siteMetaData.siteUrl;
 
-  const CHANGE_FREQUENCY_MONTHLY = 'monthly' as const;
+  const CHANGE_FREQUENCY_MONTHLY = `monthly` as const;
 
   const links = [
     {

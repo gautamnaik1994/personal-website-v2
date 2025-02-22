@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './index.module.scss';
 
 export default function SectionTitle({
-  title = 'Default',
+  title = `Default`,
 }: {
   title: string;
 }): React.ReactElement {

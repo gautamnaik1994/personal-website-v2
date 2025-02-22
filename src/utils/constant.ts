@@ -6,14 +6,14 @@ export const NAVIGATION = [
     label: `Projects`,
     closeSidebar: true,
     title: `Checkout my cool projects`,
-    navClassName: '',
+    navClassName: ``,
   },
   {
     to: `/blog`,
     label: `Blog`,
     closeSidebar: true,
     title: `Read articles of my blog`,
-    navClassName: '',
+    navClassName: ``,
   },
   // { to: '/snippets/', label: 'Snippets' },
   {
@@ -21,13 +21,13 @@ export const NAVIGATION = [
     label: `Snips & Tips`,
     external: true,
     title: `My Digital Garden`,
-    navClassName: 'snips-tips',
+    navClassName: `snips-tips`,
   },
   {
     to: `https://github.com/gautamnaik1994/`,
     label: `Github`,
     external: true,
     title: `My Github`,
-    navClassName: 'github',
+    navClassName: `github`,
   },
 ];

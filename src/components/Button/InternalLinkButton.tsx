@@ -14,15 +14,15 @@ export interface LinkProps {
 
 const InternalLinkButton: React.FC<LinkProps> = (props) => {
   const {
-    variant = 'default',
-    size = 'default',
+    variant = `default`,
+    size = `default`,
     className,
     children,
     title,
     href,
     ...rest
   } = props;
-  const linkClassNames = `${styles.button} ${styles[variant]} ${size === 'small' ? styles.small : ''} ${className || ''}`;
+  const linkClassNames = `${styles.button} ${styles[variant]} ${size === `small` ? styles.small : ``} ${className || ``}`;
 
   return (
     <Link

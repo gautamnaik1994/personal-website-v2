@@ -1,78 +1,78 @@
 import socialLinks from '@/content/staticData/socialLinks';
 import Script from 'next/script';
+import siteMetaData from '@/content/staticData/siteMetaData';
 
 export default async function JsonLD() {
   const data = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Gautam Naik',
-    url: 'https://www.gautamnaik.com',
-    jobTitle: 'Software Engineer, Data Scientist, Machine Learning Engineer',
-    description:
-      'I am a software engineer with a passion for building web applications and data science projects.',
-    image: 'https://yourdomain.com/path/to/your/profile/picture.jpg',
-    email: 'gautamnaik1994@gmail.com',
+    '@context': `https://schema.org`,
+    '@type': `Person`,
+    name: siteMetaData.title,
+    url: siteMetaData.siteUrl,
+    jobTitle: `Software Engineer, Data Scientist, Machine Learning Engineer`,
+    description: `I am a software engineer with a passion for building web applications and data science projects.`,
+    image: `${siteMetaData.siteUrl}/icons/icon-512x512.png`,
+    email: `gautamnaik1994@gmail.com`,
     sameAs: socialLinks.map((link) => link.value),
     alumniOf: [
       {
-        '@type': 'EducationalOrganization',
-        name: 'Padre Conceicao College of Engineering',
-        url: 'https://pccegoa.edu.in/',
+        '@type': `EducationalOrganization`,
+        name: `Padre Conceicao College of Engineering`,
+        url: `https://pccegoa.edu.in/`,
       },
       {
-        '@type': 'EducationalOrganization',
-        name: 'Woolf University',
-        url: 'https://woolf.university/',
+        '@type': `EducationalOrganization`,
+        name: `Woolf University`,
+        url: `https://woolf.university/`,
       },
     ],
     hasCredential: [
       {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'Bachelor of Computer Science',
-        educationalLevel: 'BachelorDegree',
+        '@type': `EducationalOccupationalCredential`,
+        name: `Bachelor of Computer Science`,
+        educationalLevel: `BachelorDegree`,
       },
       {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'Masters in Computer Science: AI and ML',
-        educationalLevel: 'MasterDegree',
+        '@type': `EducationalOccupationalCredential`,
+        name: `Masters in Computer Science: AI and ML`,
+        educationalLevel: `MasterDegree`,
       },
     ],
     skills: [
       {
-        '@type': 'DefinedTerm',
-        name: 'Web Development',
-        description: 'Building websites and web applications',
+        '@type': `DefinedTerm`,
+        name: `Web Development`,
+        description: `Building websites and web applications`,
       },
       {
-        '@type': 'DefinedTerm',
-        name: 'Data Science and Analysis',
-        description: 'Analyzing and interpreting complex data',
+        '@type': `DefinedTerm`,
+        name: `Data Science and Analysis`,
+        description: `Analyzing and interpreting complex data`,
       },
       {
-        '@type': 'DefinedTerm',
-        name: 'Machine Learning',
-        description: 'Building predictive models',
+        '@type': `DefinedTerm`,
+        name: `Machine Learning`,
+        description: `Building predictive models`,
       },
       {
-        '@type': 'DefinedTerm',
-        name: 'Backend Development',
-        description: 'Building server-side applications',
+        '@type': `DefinedTerm`,
+        name: `Backend Development`,
+        description: `Building server-side applications`,
       },
     ],
     knowsAbout: [
-      'Artificial Intelligence',
-      'Cloud Computing',
-      'Databases',
-      'DevOps',
-      'Frontend Development',
-      'Software Development',
-      'Web Development',
-      'Game Development',
-      'Progressive Web Apps',
-      'Unity Game Development',
-      'Photoshop',
-      'Illustrator',
-      'Figma',
+      `Artificial Intelligence`,
+      `Cloud Computing`,
+      `Databases`,
+      `DevOps`,
+      `Frontend Development`,
+      `Software Development`,
+      `Web Development`,
+      `Game Development`,
+      `Progressive Web Apps`,
+      `Unity Game Development`,
+      `Photoshop`,
+      `Illustrator`,
+      `Figma`,
     ],
     // experience: [
     //   {
@@ -92,9 +92,10 @@ export default async function JsonLD() {
   };
 
   return (
+    //eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
     <Script
       id='homePageLD'
-      // strategy='beforeInteractive'
+      strategy='beforeInteractive'
       type='application/ld+json'
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />

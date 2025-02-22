@@ -4,7 +4,7 @@ import { PostContent } from '@/types';
 
 interface BlogLayoutProps {
   children: React.ReactNode;
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default async function BlogLayout({

@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
+import siteMetaData from '@/content/staticData/siteMetaData';
 
 const description =
-  'Here you will find blogs on Web Development, Data Science and Machine Learning.';
-const title = 'Gautam Blogs';
+  `Here you will find blogs on Web Development, Data Science and Machine Learning.`;
+const title = `Gautam Blogs`;
 
 export const metadata: Metadata = {
   title: title,
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     title: title,
   },
   openGraph: {
-    url: 'https://www.gautamnaik.com/blog',
+    url: `${siteMetaData.siteUrl}/blog`,
     title: title,
     description: description,
   },

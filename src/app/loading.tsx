@@ -4,10 +4,10 @@ export default function Loading() {
     <div
       className='loading-container'
       style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
+        display: `flex`,
+        justifyContent: `center`,
+        alignItems: `center`,
+        height: `100vh`,
       }}
     >
       <Logo />

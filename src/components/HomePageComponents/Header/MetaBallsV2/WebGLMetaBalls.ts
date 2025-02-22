@@ -24,7 +24,7 @@ interface IState {
 }
 
 const webglOptions = {
-  powerPreference: 'high-performance',
+  powerPreference: `high-performance`,
   antialias: false,
   transparent: true,
   resolution: 0.1,
@@ -79,18 +79,18 @@ export class WebGLMetaballs {
       canvasElem.parentElement?.clientHeight || this.state.canvasHeight;
     this.CANVAS_WIDTH =
       canvasElem.parentElement?.clientWidth || this.state.canvasWidth;
-    canvasElem.setAttribute('height', this.CANVAS_HEIGHT + 'px');
-    canvasElem.setAttribute('width', this.CANVAS_WIDTH + 'px');
+    canvasElem.setAttribute(`height`, this.CANVAS_HEIGHT + `px`);
+    canvasElem.setAttribute(`width`, this.CANVAS_WIDTH + `px`);
     this.CANVAS_CENTER_X = this.CANVAS_WIDTH / 2;
     this.CANVAS_CENTER_Y = this.CANVAS_HEIGHT / 2;
 
     try {
       this.gl = canvasElem.getContext(
-        'webgl',
+        `webgl`,
         webglOptions
       ) as WebGLRenderingContext;
     } catch (e) {
-      console.log('not supported' + e);
+      console.log(`not supported` + e);
     }
 
     if (!this.gl) {
@@ -225,7 +225,7 @@ export class WebGLMetaballs {
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexDataBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, vertexData, gl.STATIC_DRAW);
 
-    const positionHandle = this.getAttribLocation(program, 'position', gl);
+    const positionHandle = this.getAttribLocation(program, `position`, gl);
     gl.enableVertexAttribArray(positionHandle);
     gl.vertexAttribPointer(
       positionHandle,
@@ -236,15 +236,15 @@ export class WebGLMetaballs {
       0 // offset into each span of vertex data
     );
 
-    this.metaballsHandle = this.getUniformLocation(program, 'metaballs', gl);
+    this.metaballsHandle = this.getUniformLocation(program, `metaballs`, gl);
     this.bgColorUniformLocation = this.getUniformLocation(
       program,
-      'bg_color',
+      `bg_color`,
       gl
     );
     const metaballColorUniformLocation = this.getUniformLocation(
       program,
-      'metaball_color',
+      `metaball_color`,
       gl
     );
 
@@ -272,7 +272,7 @@ export class WebGLMetaballs {
   ): number => {
     const attributeLocation = gl.getAttribLocation(program, name);
     if (attributeLocation === -1) {
-      throw new Error('Can not find attribute ' + name + '.');
+      throw new Error(`Can not find attribute ` + name + `.`);
     }
     return attributeLocation;
   };
@@ -284,7 +284,7 @@ export class WebGLMetaballs {
   ): WebGLUniformLocation => {
     const uniformLocation = gl.getUniformLocation(program, name);
     if (uniformLocation === -1 || uniformLocation === null) {
-      throw new Error('Can not find uniform ' + name + '.');
+      throw new Error(`Can not find uniform ` + name + `.`);
     }
     return uniformLocation;
   };
@@ -296,14 +296,14 @@ export class WebGLMetaballs {
   ): WebGLShader => {
     const shader: WebGLShader | null = gl.createShader(shaderType);
     if (!shader) {
-      throw new Error('Unable to create shader');
+      throw new Error(`Unable to create shader`);
     }
     gl.shaderSource(shader, shaderSource);
     gl.compileShader(shader);
 
     if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
       throw new Error(
-        'Shader compile failed with: ' + gl.getShaderInfoLog(shader)
+        `Shader compile failed with: ` + gl.getShaderInfoLog(shader)
       );
     }
 

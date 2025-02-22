@@ -25,7 +25,7 @@ function ImageComponent(props: ImageComponentProps) {
     setIsLoading(false);
   };
 
-  if (typeof src === 'string') {
+  if (typeof src === `string`) {
     /* eslint-disable-next-line @next/next/no-img-element */
     return <img src={src} alt={alt} />;
   }
@@ -52,7 +52,7 @@ function ImageComponent(props: ImageComponentProps) {
       />
       {isOpen && (
         <div
-          className={styles['floating-image']}
+          className={styles[`floating-image`]}
           onClick={() => setIsOpen(false)}
         >
           {isLoading && <div className={styles.loader}>Loading</div>}

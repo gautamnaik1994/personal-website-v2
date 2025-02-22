@@ -14,6 +14,14 @@ const eslintConfig = [
   {
     rules: {
       '@next/next/no-page-custom-font': 'off',
+      // backticks
+      // quotes: [
+      //   2,
+      //   'backtick',
+      //   {
+      //     avoidEscape: true,
+      //   },
+      // ],
     },
   },
 ];

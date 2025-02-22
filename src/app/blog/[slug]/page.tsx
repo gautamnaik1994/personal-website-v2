@@ -14,6 +14,7 @@ import TableOfContentsWrapper from '@/components/BlogPageComponents/TOCWrapper';
 import styles from './index.module.scss';
 import Container from '@/components/Container';
 import { format } from 'date-fns';
+import siteMetaData from '@/content/staticData/siteMetaData';
 
 export default async function Page({
   params,
@@ -33,7 +34,7 @@ export default async function Page({
 
   return (
     <>
-      <div className={styles['dot-pattern']}></div>
+      <div className={styles[`dot-pattern`]}></div>
       <article className={styles.article}>
         <div className={styles.headerImageWrapper}>
           <Image
@@ -47,11 +48,11 @@ export default async function Page({
             priority={true}
           />
         </div>
-        <div className={`${styles['category-holder']} text-center`}>
+        <div className={`${styles[`category-holder`]} text-center`}>
           {frontmatter.categories.map((item) => (
             <Link
               key={item}
-              className={styles['category-link']}
+              className={styles[`category-link`]}
               title={`Go to ${item}`}
               href={`/blog/category/${categoryToSlugMap[item]}`}
             >
@@ -61,7 +62,7 @@ export default async function Page({
         </div>
         <H1>{frontmatter.title}</H1>
         <div className={`${styles.meta} text-center`}>
-          <span>{format(frontmatter.date, 'MMM dd, yyyy')}</span>
+          <span>{format(frontmatter.date, `MMM dd, yyyy`)}</span>
           <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
           <span>{readingTime.text}</span>
         </div>
@@ -103,13 +104,13 @@ export default async function Page({
 }
 
 export async function generateStaticParams() {
-  const { readdir } = await import('fs/promises');
+  const { readdir } = await import(`fs/promises`);
 
-  const files = await readdir('src/content/blog');
+  const files = await readdir(`src/content/blog`);
   return files
-    .filter((file) => !file.startsWith('.')) // Ignore hidden files like .DS_Store
+    .filter((file) => !file.startsWith(`.`)) // Ignore hidden files like .DS_Store
     .map((file) => ({
-      slug: file.replace(/\.mdx?$/, ''), // Remove file extension if applicable
+      slug: file.replace(/\.mdx?$/, ``), // Remove file extension if applicable
     }));
 }
 
@@ -124,22 +125,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 
   return {
-    title: `${frontmatter.title} | Gautam Naik`,
+    title: `${frontmatter.title} | ${siteMetaData.title}`,
     description: frontmatter.description,
     keywords: frontmatter.keywords || [],
     openGraph: {
-      type: 'article',
-      locale: 'en_IN',
-      url: `https://www.gautamnaik.com/blog/${slug}`,
-      siteName: 'Gautam Naik',
-      title: `${frontmatter.title} | Gautam Naik`,
+      type: `article`,
+      locale: `en_IN`,
+      url: `${siteMetaData.siteUrl}/blog/${slug}`,
+      siteName: siteMetaData.title,
+      title: `${frontmatter.title} | ${siteMetaData.title}`,
       description: frontmatter.description,
       publishedTime: frontmatter.date,
       modifiedTime: frontmatter.updatedDate,
-      section: frontmatter.categories.join(', '),
+      section: frontmatter.categories.join(`, `),
       images: [
         {
-          url: `https://www.gautamnaik.com${bannerPath.src}`,
+          url: `${siteMetaData.siteUrl}${bannerPath.src}`,
           width: 1200,
           height: 630,
           alt: frontmatter.title,
@@ -147,11 +148,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ],
     },
     twitter: {
-      title: `${frontmatter.title} | Gautam Naik`,
+      title: `${frontmatter.title} | ${siteMetaData.title}`,
       description: frontmatter.description,
       images: [
         {
-          url: `https://www.gautamnaik.com${bannerPath.src}`,
+          url: `${siteMetaData.siteUrl}${bannerPath.src}`,
           width: 1200,
           height: 630,
           alt: frontmatter.title,

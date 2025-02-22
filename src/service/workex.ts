@@ -3,8 +3,8 @@ import { readdir } from 'fs/promises';
 import path from 'path';
 
 export async function getWorkEx(): Promise<WorkExperience[]> {
-  const files = await readdir('src/content/workExperience');
-  const mdFiles = files.filter((file) => path.extname(file) === '.md');
+  const files = await readdir(`src/content/workExperience`);
+  const mdFiles = files.filter((file) => path.extname(file) === `.md`);
 
   const workex = await Promise.all(
     mdFiles.map(async (file) => {
