@@ -26,7 +26,7 @@
     border: 1px solid #4c4c4c;
     code {
       font-size: 12px;
-      // display: grid;
+      display: grid;
       gap: 8px;
     }
   }
@@ -77,23 +77,28 @@
 }
 
 .category-holder {
-  a {
-    &:after {
-      content: '  •  ';
-      margin-right: 5px;
-      position: relative;
-      top: -2px;
-    }
-    &:last-child:after {
-      content: '';
-    }
-  }
+  // a {
+  // &:after {
+  // content: '  •  ';
+  // margin-right: 5px;
+  // position: relative;
+  // top: -2px;
+  // }
+  // &:last-child:after {
+  // content: '';
+  // }
+  // }
 }
 .category-link {
   display: inline-block;
   font-weight: var(--fontWeightMedium);
   vertical-align: middle;
   text-transform: uppercase;
+  background: var(--cardColor);
+  margin: 4px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
 .meta {

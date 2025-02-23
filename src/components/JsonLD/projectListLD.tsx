@@ -1,4 +1,4 @@
-import Script from 'next/script';
+// import Script from 'next/script';
 import { Project } from '@/types';
 import siteMetaData from '@/content/staticData/siteMetaData';
 
@@ -41,8 +41,10 @@ export default async function JsonLD(props: ProjectListLDProps) {
   };
 
   return (
-    <Script
-      id='json-ld-project-list'
+    //eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
+    <script
+      async={true}
+      id='projectListLD'
       // strategy='beforeInteractive'
       type='application/ld+json'
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}

@@ -1,4 +1,4 @@
-import Script from 'next/script';
+// import Script from 'next/script';
 import siteMetaData from '@/content/staticData/siteMetaData';
 
 interface BlogPostLDProps {
@@ -60,9 +60,10 @@ export default async function JsonLD(props: BlogPostLDProps) {
 
   return (
     //eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
-    <Script
+    <script
       id='blogPostLD'
-      strategy='beforeInteractive'
+      async={true}
+      // strategy='beforeInteractive'
       type='application/ld+json'
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />

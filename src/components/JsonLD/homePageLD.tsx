@@ -1,5 +1,5 @@
 import socialLinks from '@/content/staticData/socialLinks';
-import Script from 'next/script';
+// import Script from 'next/script';
 import siteMetaData from '@/content/staticData/siteMetaData';
 
 export default async function JsonLD() {
@@ -93,9 +93,10 @@ export default async function JsonLD() {
 
   return (
     //eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
-    <Script
+    <script
       id='homePageLD'
-      strategy='beforeInteractive'
+      async={true}
+      // strategy='beforeInteractive'
       type='application/ld+json'
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />

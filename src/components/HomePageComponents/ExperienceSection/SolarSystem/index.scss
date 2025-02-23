@@ -15,7 +15,7 @@
 }
 
 .moon-orbit {
-  animation: orbit 3s linear infinite;
+  animation: orbit 3s linear infinite forwards;
   transform-origin: 1171px 799.2px;
 }
 

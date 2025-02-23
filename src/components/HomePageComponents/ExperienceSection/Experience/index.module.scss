@@ -51,6 +51,11 @@
     &:hover {
       animation-play-state: running;
     }
+    &:hover {
+      :global(.moon-orbit) {
+        animation-duration: 1s;
+      }
+    }
     // animation: enlarge 50s linear infinite;
   }
   .seconds {
@@ -83,6 +88,8 @@
   text-align: center;
   text-transform: uppercase;
   position: relative;
+  user-select: none;
+  pointer-events: none;
   .title {
     font-size: 12px;
     color: #808080;

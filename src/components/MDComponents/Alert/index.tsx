@@ -1,14 +1,18 @@
+import styles from './index.module.scss';
+
 interface AlertProps {
   children: React.ReactNode;
-  type: string;
+  variant: 'default' | 'warning' | 'danger' | 'info' | 'success';
 }
 
-function Alert({ type, children }: AlertProps) {
+function Alert({ variant, children }: AlertProps) {
   return (
-    <div className={`alert alert-${type}`}>
-      {children}
-    </div>
+    <div className={`${styles.AlertStyles} ${styles[variant]}`}>{children}</div>
   );
 }
+
+Alert.defaultProps = {
+  variant: 'default',
+};
 
 export default Alert;
