@@ -247,8 +247,8 @@ export class WebGLMetaballs {
       `metaball_color`,
       gl
     );
-
-    gl.uniform4f(this.bgColorUniformLocation, 0.1294, 0.1529, 0.2196, 1);
+    // bgcolor=#1c2230
+    gl.uniform4f(this.bgColorUniformLocation, 0.109, 0.133, 0.188, 1); // Updated background color to a lighter tone`
 
     gl.uniform4f(
       metaballColorUniformLocation,
@@ -261,7 +261,7 @@ export class WebGLMetaballs {
 
   changeBackground = (): void => {
     if (this.gl) {
-      this.gl.uniform4f(this.bgColorUniformLocation, 0.1294, 0.1529, 0.2196, 1);
+      this.gl.uniform4f(this.bgColorUniformLocation, 0.109, 0.133, 0.188, 1);
     }
   };
 

@@ -190,10 +190,12 @@ body {
   --primaryRgb: 33, 150, 243;
   --accent: #ee5651;
   --tertiary: #ffc107;
-  --bodyBackgroundColor: #212738;
-  --bodyBackgroundColorRgb: 33, 39, 56;
-  --bodyColor: #adbac7;
-  --cardColor: #2d364d;
+  // --bodyBackgroundColor: #212738;
+  --bodyBackgroundColor: hsl(224 26% 15% / 1);
+  --bodyBackgroundColorRgb: 28, 34, 48;
+  --bodyColor: #b5c3d1;
+  // --cardColor: #2d364d;
+  --cardColor: hsl(223 26% 22% / 1);
   --sideCardColor: #0d1117;
   --cardShadow: 0px 22px 40px rgba(0, 0, 0, 0);
   --mobile: 576px;

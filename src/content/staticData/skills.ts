@@ -2,19 +2,17 @@ import { Skill } from '@/types';
 
 export const skills: Skill[] = [
   {
-    title: `Data Science`,
+    title: `Data Science, AI & ML`,
     value: 80,
     publish: true,
     details: [
       {
         key: `Expertise`,
-        value:
-          `Predictive Analysis • Time Series Analysis • Data Analysis • EDA • Model Deployment • Business Intelligence`,
+        value: `Predictive Analysis • Time Series Analysis • EDA • Model Deployment • Business Intelligence • Experiment Tracking`,
       },
       {
         key: `Tools`,
-        value:
-          `Python • Pandas • Numpy • SQL • Streamlit • Tableau • Sci-kit Learn • PySpark`,
+        value: `Python • Pandas • Numpy • SQL • Streamlit • Tableau • Sci-kit Learn • PySpark`,
       },
     ],
   },
@@ -25,13 +23,11 @@ export const skills: Skill[] = [
     details: [
       {
         key: `Expertise`,
-        value:
-          `Web Development • Single Page Applications • Progressive Web Apps`,
+        value: `Web Development • Single Page Applications • Progressive Web Apps`,
       },
       {
         key: `Technologies`,
-        value:
-          `HTML-CSS • ReactJS • NextJS • Redux • JavaScript • Typescript • Webpack`,
+        value: `HTML-CSS • ReactJS • NextJS • Redux • JavaScript • Typescript • Webpack`,
       },
     ],
   },

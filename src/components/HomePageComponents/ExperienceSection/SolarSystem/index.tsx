@@ -55,7 +55,7 @@ const SolarSystem = (props: SVGProps<SVGSVGElement>) => (
       />
       <g className='moon-orbit'>
         <circle cx={1182} cy={788} r={2} fill='#FBF474' className='moon' />
-      </g>
+              </g>
     </g>
     <g className='orbit-container mars'>
       <circle

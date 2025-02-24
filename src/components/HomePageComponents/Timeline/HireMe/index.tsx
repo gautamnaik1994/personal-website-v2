@@ -18,12 +18,12 @@ const HireMe = (): React.ReactNode => {
       function (entries) {
         if (intersectionRef && intersectionRef.current) {
           const ratio = entries[0].intersectionRatio;
-          if (ratio > 0.75) {
+          if (ratio > 0.85) {
             setEntered(true);
           } else {
             setEntered(false);
           }
-          if (ratio > 0.8) {
+          if (ratio > 0.9) {
             setEntered2(true);
           } else {
             setEntered2(false);
@@ -31,7 +31,7 @@ const HireMe = (): React.ReactNode => {
         }
       },
       {
-        threshold: [0.75, 1],
+        threshold: [0.85, 1],
         rootMargin: `200px 0px -150px 0px`,
       }
     );
