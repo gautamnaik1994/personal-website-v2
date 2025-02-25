@@ -46,7 +46,7 @@ function ImageComponent(props: ImageComponentProps) {
         height={750 * aspectRatio}
         placeholder='blur'
         onClick={() => setIsOpen(true)}
-        className='main-image'
+        className={styles['main-image']}
         loading='lazy'
         quality={100}
       />

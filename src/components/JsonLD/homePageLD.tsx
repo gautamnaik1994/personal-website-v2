@@ -9,7 +9,7 @@ export default async function JsonLD() {
     name: siteMetaData.title,
     url: siteMetaData.siteUrl,
     jobTitle: `Software Engineer, Data Scientist, Machine Learning Engineer`,
-    description: `I am a software engineer with a passion for building web applications and data science projects.`,
+    description: siteMetaData.description,
     image: `${siteMetaData.siteUrl}/icons/icon-512x512.png`,
     email: `gautamnaik1994@gmail.com`,
     sameAs: socialLinks.map((link) => link.value),

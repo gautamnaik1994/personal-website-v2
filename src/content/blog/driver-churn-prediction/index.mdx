@@ -313,13 +313,16 @@ Although I am not a [Tableau](https://public.tableau.com/app/discover) expert, I
 - Drivers whose salary and rating increased are less likely to churn
 - Higher-grade drivers have high business value
 - We can see that Drivers who have negative business months are less likely to churn
-
-**Driver Rating**
-
 - The majority of driver ratings are 1 star. But there was no single 5-star rating.
 - As Age increases, Quarterly ratings move towards the higher side.
 
-**Change in ratings for different cities**
+### Ratings Related
+
+![Change in rating](image-1.png)
+
+![heatmap](image-6.png)
+
+**Observations**
 
 - C29 had the highest positive change in 4-star rating from 2019 to 2020
 - C17 had the biggest fall of all types of rating from 2019 to 2020
@@ -327,10 +330,97 @@ Although I am not a [Tableau](https://public.tableau.com/app/discover) expert, I
 
 **Effect on business value when ratings decrease**
 
+<ExpandableSeeMore>
+
+```python
+business_decrease_df= spark.sql("""
+        with Lower_Rating_Drivers as (
+            select 
+                distinct Driver_ID 
+            from 
+                (select 
+                    Driver_ID, 
+                    first(`Quarterly Rating`) over(partition by Driver_ID order by reporting_month_year) as first_rating, 
+                    last(`Quarterly Rating`) over(partition by Driver_ID order by reporting_month_year) as last_rating 
+                from 
+                    ola_driver
+                ) 
+            where 
+                first_rating > last_rating
+        ), 
+        Quarterly_Business_Value as (
+            select 
+                Driver_ID, 
+                ReportingYear_Quarter, 
+                sum(`Total Business Value`) over( partition by Driver_ID, ReportingYear_Quarter) as Total_Business_Value 
+            from 
+                ola_driver 
+                join Lower_Rating_Drivers using(Driver_ID)
+        ) 
+        select 
+            Driver_ID, 
+            first(Total_Business_Value) as First_Business_Value, 
+            last(Total_Business_Value) as Last_Business_Value, 
+            (Last_Business_Value - First_Business_Value)/ First_Business_Value as Business_Value_Change, 
+            case when Last_Business_Value < First_Business_Value then 1 else 0 end as Business_Decrease 
+        from 
+            Quarterly_Business_Value 
+        group by 
+            Driver_ID 
+""").toPandas()
+business_decrease_df.head()
+business_decrease_df["Business_Decrease"].value_counts().to_frame().T.rename(columns={1:"Business Decrease Count", 0:"Business Increase Count"}).T.plot(kind="barh")
+plt.ylabel(" ")
+plt.title("Count of Drivers with Change in Business Value");
+```
+
+</ExpandableSeeMore>
+
+![Change in business value](image-2.png)
+
+**Observations**
+
 - From the above plot we can see that out of 559 drivers whose rating decreased, 540 drivers' business decreased significantly.
 - This shows that Driver rating has a significant impact on business
 
 **Effect of rating based on the month of the year**
+
+```python
+spark.sql(""" 
+  with Quarterly_Agg as (
+    select 
+        Driver_ID, 
+        ReportingYear_Quarter, 
+        case when max(`Quarterly Rating`) = 1 then 1 else 0 end as rating_1_flag,
+        case when max(`Quarterly Rating`) = 2 then 1 else 0 end as rating_2_flag,
+        case when max(`Quarterly Rating`) = 3 then 1 else 0 end as rating_3_flag,
+        case when max(`Quarterly Rating`) = 4 then 1 else 0 end as rating_4_flag,
+        reporting_month_year 
+    from 
+        ola_driver 
+    group by 
+        ReportingYear_Quarter, 
+        Driver_ID, 
+        reporting_month_year
+  )
+  select 
+      reporting_month_year, 
+      sum(rating_1_flag) as Total_Rating_1,
+      sum(rating_2_flag) as Total_Rating_2,
+      sum(rating_3_flag) as Total_Rating_3,
+      sum(rating_4_flag) as Total_Rating_4
+  from 
+      Quarterly_Agg 
+  group by 
+      reporting_month_year
+  order by 
+      reporting_month_year  
+""")
+```
+
+![ratings based on month year](image-3.png)
+
+**Observations**
 
 - We can see that demand increases from November to January but falls slightly during other months.
 - This is because of the holiday season. Since the number of rides increases, the corresponding ratings also increase.
@@ -338,11 +428,17 @@ Although I am not a [Tableau](https://public.tableau.com/app/discover) expert, I
 
 **Effect of Ratings based on City**
 
+![effect of rating based on city](image-4.png)
+
+**Observations**
+
 - There is little effect on drivers working in different cities, but there are some important points related to some cities.
 - C17 has the lowest 4-star rating and the highest 1-star.
 - C14, C16 and C24 have good pct of 4-star rating among other cities.
 
 **Other features affecting Quarterly Rating**
+
+![alt text](image-5.png)
 
 - We can see that drivers joining at higher designation have a higher ratio of lower rating.
 - But their absolute rating count is lesser as compared to lower designation.

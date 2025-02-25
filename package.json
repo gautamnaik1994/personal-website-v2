@@ -19,6 +19,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-use": "^17.6.0",
+    "rehype-pretty-code": "^0.14.0",
     "sanitize.css": "^13.0.0"
   },
   "devDependencies": {
@@ -45,5 +46,10 @@
     "serwist": "^9.0.11",
     "shiki": "^3.0.0",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "rehype-pretty-code": "patches/rehype-pretty-code.patch"
+    }
   }
 }

@@ -5,12 +5,12 @@ import readingTime from 'remark-reading-time';
 import readingMdxTime from 'remark-reading-time/mdx.js';
 import rehypeSlug from 'rehype-slug';
 import rehypeMdxImportMedia from 'rehype-mdx-import-media';
-import rehypeShiki from '@shikijs/rehype';
+// import rehypeShiki from '@shikijs/rehype';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
 import withSerwistInit from '@serwist/next';
-// import rehypePrettyCode from 'rehype-pretty-code';
+import rehypePrettyCode from 'rehype-pretty-code';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
 const withSerwist = withSerwistInit({
@@ -31,53 +31,65 @@ const nextConfig = {
     // your project has ESLint errors.
     // ignoreDuringBuilds: true,
   },
-  // async headers() {
-  //   return [
-  //     {
-  //       source: '/(.*)',
-  //       headers: [
-  //         {
-  //           key: 'X-Content-Type-Options',
-  //           value: 'nosniff',
-  //         },
-  //         {
-  //           key: 'X-Frame-Options',
-  //           value: 'DENY',
-  //         },
-  //         {
-  //           key: 'Referrer-Policy',
-  //           value: 'strict-origin-when-cross-origin',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       source: '/sw.js',
-  //       headers: [
-  //         {
-  //           key: 'Content-Type',
-  //           value: 'application/javascript; charset=utf-8',
-  //         },
-  //         {
-  //           key: 'Cache-Control',
-  //           value: 'no-cache, no-store, must-revalidate',
-  //         },
-  //         {
-  //           key: 'Content-Security-Policy',
-  //           value: "default-src 'self'; script-src 'self'",
-  //         },
-  //       ],
-  //     },
-  //   ];
-  // },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self' *",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' *",
+              "style-src 'self' 'unsafe-inline' *",
+              "img-src 'self' data: blob: *",
+              "font-src 'self' data: *",
+              "connect-src 'self' *",
+              "media-src 'self' *",
+            ].join('; '),
+          },
+        ],
+      },
+      {
+        source: '/sw.js',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/javascript; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+    ];
+  },
 };
 
-// /** @type {import('rehype-pretty-code').Options} */
+/** @type {import('rehype-pretty-code').Options} */
 const rehypePrettyCodeOptions = {
   theme: 'catppuccin-mocha',
+  // inline: true,
+  // fallbackLanguage: 'plaintext',
+  // addLanguageClass: true,
   defaultLang: {
     block: 'plaintext',
     inline: 'plaintext',
   },
+  bypassInlineCode: true,
   // grid: false,
 };
 
@@ -98,7 +110,7 @@ const withMDX = createMDX({
     ],
     rehypePlugins: [
       rehypeUnwrapImages,
-      [rehypeShiki, rehypePrettyCodeOptions],
+      [rehypePrettyCode, rehypePrettyCodeOptions],
       [rehypeSlug, rehypeSlugOptions],
       rehypeMdxImportMedia,
     ],

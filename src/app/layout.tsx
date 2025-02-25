@@ -28,6 +28,7 @@ export const metadata: Metadata = {
   description: siteMetaData.description,
   authors: [{ name: siteMetaData.title }],
   metadataBase: new URL(siteMetaData.siteUrl),
+  keywords: siteMetaData.keywords,
   alternates: {
     canonical: `./`,
   },

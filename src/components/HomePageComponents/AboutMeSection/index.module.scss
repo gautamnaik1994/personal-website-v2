@@ -5,14 +5,12 @@
   a {
     font-weight: var(--fontWeightMedium);
   }
-  @include tablet {
-    padding-right: 30px;
-  }
 }
 
 .FlexBox {
   @include tablet {
     display: flex;
     align-items: flex-start;
+    gap: 30px;
   }
 }

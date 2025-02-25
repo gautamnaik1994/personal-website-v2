@@ -1,9 +1,31 @@
 const siteMetaData = {
   siteUrl: `https://www.gautamnaik.com`,
+  ogImage: `https://www.gautamnaik.com/img/og-image.png`,
   title: `Gautam Naik`,
-  description:
-    `Gautam Naik is a Senior Software Engineer who specializes in Web Development, Data Science and Machine Learning.`,
-  projectPageDescription:
-    `A showcase of my software engineering and AI/Machine learning projects.`,
+  description: `Gautam Naik is a Software Engineer, Data Scientist, and Machine Learning Engineer. He is passionate about building innovative solutions that leverage the power of data and machine learning to solve real-world problems.`,
+  projectPageDescription: `A showcase of my software engineering and AI/Machine learning projects.`,
+  keywords: [
+    `responsive web design`,
+    `progressive web application`,
+    `web application`,
+    `web design`,
+    `web development`,
+    `css`,
+    `aws`,
+    `frontend`,
+    `reactjs`,
+    `javascript`,
+    `python`,
+    `fastapi`,
+    `scss`,
+    `blog`,
+    `machine learning`,
+    `data science`,
+    `data analysis`,
+    `data visualization`,
+    `data engineering`,
+    `artificial intelligence`,
+    `cloud computing`,
+  ],
 };
 export default siteMetaData;

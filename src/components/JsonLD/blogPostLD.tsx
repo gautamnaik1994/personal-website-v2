@@ -17,12 +17,12 @@ export default async function JsonLD(props: BlogPostLDProps) {
   const data = {
     '@context': `https://schema.org`,
     '@type': `BlogPosting`,
-    headline: props.title, // Use props title
-    name: props.title, // Use props title
+    headline: props.title,
+    name: props.title,
     url: `${siteMetaData.siteUrl}/blog/${props.slug}`,
-    dateCreated: props.date, // YYYY-MM-DD format
-    datePublished: props.date, // YYYY-MM-DD format
-    dateModified: props.date, // YYYY-MM-DD format
+    dateCreated: props.date,
+    datePublished: props.date,
+    dateModified: props.date,
     description: props.description, // Use props description
 
     author: {
