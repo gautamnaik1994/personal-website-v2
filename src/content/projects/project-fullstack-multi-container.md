@@ -6,10 +6,10 @@ publish: true
 homepage: false
 category: Software Engineering
 externalProject: false
-projectColor: "#222222"
+projectColor: '#222222'
 details:
-  - key: "Role"
-    value: "Software Developer"
+  - key: 'Role'
+    value: 'Software Developer'
   - key: Technologies Used
     value: NextJS, MongoDB, Docker, Typescript, Redis
 links:
@@ -20,6 +20,7 @@ links:
 mainLink: https://www.gautamnaik.com/blog/fullstack-multi-container-app/
 description: This application showcases using Docker to create a multi-container application with NextJS, MongoDB, and Redis.
 ---
+
 <!--StartFragment-->
 
 This application showcases using Docker to create a multi-container application with NextJS, MongoDB, and Redis.

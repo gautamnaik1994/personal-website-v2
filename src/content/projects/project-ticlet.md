@@ -5,12 +5,12 @@ order: 5
 publish: false
 category: Software Engineering
 externalProject: true
-projectColor: "#6b75d2"
+projectColor: '#6b75d2'
 companyName: Genora Infotech
 details:
-  - key: "Role "
+  - key: 'Role '
     value: UI Designer
-  - key: "Technologies Used "
+  - key: 'Technologies Used '
     value: Photoshop, Illustrator
 links:
   - key: Design Link
@@ -18,4 +18,5 @@ links:
 description: |
   Ticlet is a mobile app that allows users to explore the nightlife in clubs in Goa & book tickets for events happening around your location.
 ---
+
 Ticlet is a mobile app that allows users to explore the nightlife in clubs in Goa & book tickets for events happening around your location.

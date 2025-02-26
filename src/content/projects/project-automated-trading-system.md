@@ -5,9 +5,9 @@ order: 9
 publish: true
 homepage: true
 externalProject: false
-projectColor: "#222222"
+projectColor: '#222222'
 category: AI & Machine Learning
-companyName: ""
+companyName: ''
 details:
   - key: Languages
     value: Python, Javascript, React
@@ -22,6 +22,7 @@ mainLink: https://www.gautamnaik.com/blog/automated-trading-system/
 description: |
   This system scans daily market data to generate trade signals, automatically places orders, and saves trade data to a database.
 ---
+
 <!--StartFragment-->
 
 This system scans daily market data to generate trade signals, automatically places orders, and saves trade data to a database.

@@ -5,7 +5,7 @@ order: 4
 publish: false
 category: Software Engineering
 externalProject: true
-projectColor: "#53c0e4"
+projectColor: '#53c0e4'
 companyName: Genora Infotech
 details:
   - key: Role
@@ -18,4 +18,5 @@ links:
 description: |
   mWell is a mobile app that helps users suffering from psychological problems to share their problems and seek help from professionals and others.
 ---
+
 mWell is a mobile app that helps users suffering from psychological problems to share their problems and seek help from professionals and others.

@@ -336,38 +336,38 @@ Although I am not a [Tableau](https://public.tableau.com/app/discover) expert, I
 ```python
 business_decrease_df= spark.sql("""
         with Lower_Rating_Drivers as (
-            select 
-                distinct Driver_ID 
-            from 
-                (select 
-                    Driver_ID, 
-                    first(`Quarterly Rating`) over(partition by Driver_ID order by reporting_month_year) as first_rating, 
-                    last(`Quarterly Rating`) over(partition by Driver_ID order by reporting_month_year) as last_rating 
-                from 
+            select
+                distinct Driver_ID
+            from
+                (select
+                    Driver_ID,
+                    first(`Quarterly Rating`) over(partition by Driver_ID order by reporting_month_year) as first_rating,
+                    last(`Quarterly Rating`) over(partition by Driver_ID order by reporting_month_year) as last_rating
+                from
                     ola_driver
-                ) 
-            where 
+                )
+            where
                 first_rating > last_rating
-        ), 
+        ),
         Quarterly_Business_Value as (
-            select 
-                Driver_ID, 
-                ReportingYear_Quarter, 
-                sum(`Total Business Value`) over( partition by Driver_ID, ReportingYear_Quarter) as Total_Business_Value 
-            from 
-                ola_driver 
+            select
+                Driver_ID,
+                ReportingYear_Quarter,
+                sum(`Total Business Value`) over( partition by Driver_ID, ReportingYear_Quarter) as Total_Business_Value
+            from
+                ola_driver
                 join Lower_Rating_Drivers using(Driver_ID)
-        ) 
-        select 
-            Driver_ID, 
-            first(Total_Business_Value) as First_Business_Value, 
-            last(Total_Business_Value) as Last_Business_Value, 
-            (Last_Business_Value - First_Business_Value)/ First_Business_Value as Business_Value_Change, 
-            case when Last_Business_Value < First_Business_Value then 1 else 0 end as Business_Decrease 
-        from 
-            Quarterly_Business_Value 
-        group by 
-            Driver_ID 
+        )
+        select
+            Driver_ID,
+            first(Total_Business_Value) as First_Business_Value,
+            last(Total_Business_Value) as Last_Business_Value,
+            (Last_Business_Value - First_Business_Value)/ First_Business_Value as Business_Value_Change,
+            case when Last_Business_Value < First_Business_Value then 1 else 0 end as Business_Decrease
+        from
+            Quarterly_Business_Value
+        group by
+            Driver_ID
 """).toPandas()
 business_decrease_df.head()
 business_decrease_df["Business_Decrease"].value_counts().to_frame().T.rename(columns={1:"Business Decrease Count", 0:"Business Increase Count"}).T.plot(kind="barh")
@@ -387,35 +387,35 @@ plt.title("Count of Drivers with Change in Business Value");
 **Effect of rating based on the month of the year**
 
 ```python
-spark.sql(""" 
+spark.sql("""
   with Quarterly_Agg as (
-    select 
-        Driver_ID, 
-        ReportingYear_Quarter, 
+    select
+        Driver_ID,
+        ReportingYear_Quarter,
         case when max(`Quarterly Rating`) = 1 then 1 else 0 end as rating_1_flag,
         case when max(`Quarterly Rating`) = 2 then 1 else 0 end as rating_2_flag,
         case when max(`Quarterly Rating`) = 3 then 1 else 0 end as rating_3_flag,
         case when max(`Quarterly Rating`) = 4 then 1 else 0 end as rating_4_flag,
-        reporting_month_year 
-    from 
-        ola_driver 
-    group by 
-        ReportingYear_Quarter, 
-        Driver_ID, 
+        reporting_month_year
+    from
+        ola_driver
+    group by
+        ReportingYear_Quarter,
+        Driver_ID,
         reporting_month_year
   )
-  select 
-      reporting_month_year, 
+  select
+      reporting_month_year,
       sum(rating_1_flag) as Total_Rating_1,
       sum(rating_2_flag) as Total_Rating_2,
       sum(rating_3_flag) as Total_Rating_3,
       sum(rating_4_flag) as Total_Rating_4
-  from 
-      Quarterly_Agg 
-  group by 
+  from
+      Quarterly_Agg
+  group by
       reporting_month_year
-  order by 
-      reporting_month_year  
+  order by
+      reporting_month_year
 """)
 ```
 

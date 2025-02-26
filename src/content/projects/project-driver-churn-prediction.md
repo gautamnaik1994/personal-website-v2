@@ -6,10 +6,10 @@ publish: true
 homepage: false
 category: AI & Machine Learning
 externalProject: false
-projectColor: "#222222"
+projectColor: '#222222'
 details:
-  - key: "Role"
-    value: "Data Scientist"
+  - key: 'Role'
+    value: 'Data Scientist'
   - key: Technologies Used
     value: Python, Pandas, Numpy, Scikit-learn, Matplotlib, Seaborn, Pyspark, Tableau
 links:
@@ -23,6 +23,7 @@ mainLink: https://www.gautamnaik.com/blog/driver-churn-prediction/
 description: |
   This application predicts the driver churn rate for a ride-sharing company using machine learning algorithms.
 ---
+
 <!--StartFragment-->
 
 This application predicts the driver churn rate for a ride-sharing company using machine learning algorithms.

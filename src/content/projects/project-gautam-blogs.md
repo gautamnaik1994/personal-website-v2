@@ -4,7 +4,7 @@ order: 7
 publish: true
 category: Software Engineering
 externalProject: false
-projectColor: "#2196f3"
+projectColor: '#2196f3'
 details:
   - key: Technologies Used
     value: Gatsby, Graphql

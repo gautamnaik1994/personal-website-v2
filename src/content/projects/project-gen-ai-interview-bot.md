@@ -5,7 +5,7 @@ order: 10
 publish: true
 homepage: true
 externalProject: false
-projectColor: "#222"
+projectColor: '#222'
 category: AI & Machine Learning
 companyName: []
 details:
@@ -22,6 +22,7 @@ mainLink: https://gen-ai-interview-bot.streamlit.app/
 description: |
   This chatbot automates the shortlisting of job candidates, reducing the HR team's workload. It uses Gen AI to rate candidates' responses.
 ---
+
 <!--StartFragment-->
 
 This chatbot automates the shortlisting of job candidates, reducing the HR team's workload. It uses Gen AI to rate candidates' responses.
