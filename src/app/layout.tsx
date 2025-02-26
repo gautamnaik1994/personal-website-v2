@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     email: true,
   },
   icons: {
-    icon: `/icon-48x48.png`,
+    icon: `/icons/icon-48x48.png`,
     apple: `/icons/icon-192x192.png`,
   },
   appleWebApp: {

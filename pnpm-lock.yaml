@@ -43,9 +43,6 @@ importers:
       react-use:
         specifier: ^17.6.0
         version: 17.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      rehype-pretty-code:
-        specifier: ^0.14.0
-        version: 0.14.0(patch_hash=dc2c93f8147e4a2837932e1345f704380da507ee82399057daecb77e6051a961)(shiki@3.0.0)
       sanitize.css:
         specifier: ^13.0.0
         version: 13.0.0
@@ -62,9 +59,6 @@ importers:
       '@next/bundle-analyzer':
         specifier: ^15.1.7
         version: 15.1.7
-      '@shikijs/rehype':
-        specifier: ^3.0.0
-        version: 3.0.0
       '@types/mdx':
         specifier: ^2.0.13
         version: 2.0.13
@@ -92,6 +86,9 @@ importers:
       rehype-mdx-import-media:
         specifier: ^1.2.0
         version: 1.2.0
+      rehype-pretty-code:
+        specifier: ^0.14.0
+        version: 0.14.0(patch_hash=dc2c93f8147e4a2837932e1345f704380da507ee82399057daecb77e6051a961)(shiki@3.0.0)
       rehype-slug:
         specifier: ^6.0.0
         version: 6.0.0
@@ -588,9 +585,6 @@ packages:
 
   '@shikijs/langs@3.0.0':
     resolution: {integrity: sha512-HBsZAukiYz7k3hzttPWa0en3PABEwK3cpxcAcERRwvwuKc5pn0Y+yPxAIYZtN9cFdtNqrbFJNhfcEu/xbG1u/A==}
-
-  '@shikijs/rehype@3.0.0':
-    resolution: {integrity: sha512-cvl6W9rkxM94q1nECj8WTpOjUxZ1BIhuAxiq1V1sqLPWLm7TN6GtNOPT7fhg1fHX6M5fj3fE0LUXELFKC2FRCQ==}
 
   '@shikijs/themes@3.0.0':
     resolution: {integrity: sha512-mz63nyVB5nXWsv5H2hifDFIThZEJ/cJhMq1/+0JjMdOuuBq2H2D1Fn8UM5yzUtEvap/ipRltv381+hsHZFs4ug==}
@@ -2997,15 +2991,6 @@ snapshots:
   '@shikijs/langs@3.0.0':
     dependencies:
       '@shikijs/types': 3.0.0
-
-  '@shikijs/rehype@3.0.0':
-    dependencies:
-      '@shikijs/types': 3.0.0
-      '@types/hast': 3.0.4
-      hast-util-to-string: 3.0.1
-      shiki: 3.0.0
-      unified: 11.0.5
-      unist-util-visit: 5.0.0
 
   '@shikijs/themes@3.0.0':
     dependencies:
