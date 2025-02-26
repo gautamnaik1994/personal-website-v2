@@ -32,7 +32,8 @@ const Footer = () => {
         Built using{` `}
         <Link title='NextJS' target='_blank' href='https://www.nextjs.org/'>
           NextJS
-        </Link>{` `}
+        </Link>
+        {` `}
         and hosted on{` `}
         <Link title='Netlify' href='https://www.netlify.com/' target='_blank'>
           Netlify
