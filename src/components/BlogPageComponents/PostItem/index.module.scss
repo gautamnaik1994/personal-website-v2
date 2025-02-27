@@ -10,6 +10,10 @@
   position: relative;
   .btn-holder {
     text-align: center;
+    i {
+      width: 16px;
+      display: inline-block;
+    }
   }
   @include tablet {
     margin-bottom: 0rem;
@@ -27,6 +31,9 @@
     display: flex;
     gap: 8px;
     align-items: center;
+    i {
+      width: 16px;
+    }
     a {
       margin-right: 5px;
       &:after {
@@ -40,23 +47,6 @@
   .category-link {
     display: inline-block;
     font-weight: var(--fontWeightMedium);
-    * {
-      vertical-align: middle;
-    }
-    :global {
-      .r-icon {
-        font-size: 14px;
-      }
-      .l-icon {
-        display: inline-block;
-        font-size: 20px;
-        margin-right: 10px;
-      }
-    }
-
-    span {
-      margin: 0 5px 0 0.5rem;
-    }
   }
 
   .img-container {

@@ -12,14 +12,14 @@
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.0",
-    "@next/mdx": "^15.1.6",
-    "@next/third-parties": "^15.1.7",
+    "@next/mdx": "15.2.0",
+    "@next/third-parties": "15.2.0",
     "@react-spring/web": "^9.7.5",
     "@serwist/next": "^9.0.11",
     "date-fns": "^4.1.0",
-    "next": "15.1.7",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "15.2.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-use": "^17.6.0",
     "sanitize.css": "^13.0.0"
   },
@@ -27,13 +27,13 @@
     "@altano/remark-mdx-toc-with-slugs": "^3.0.0",
     "@eslint/eslintrc": "^3",
     "@mdx-js/loader": "^3.1.0",
-    "@next/bundle-analyzer": "^15.1.7",
+    "@next/bundle-analyzer": "15.2.0",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
     "eslint": "^9",
-    "eslint-config-next": "15.1.7",
+    "eslint-config-next": "15.2.0",
     "eslint-config-prettier": "^10.0.1",
     "prettier": "^3.5.0",
     "rehype-mdx-import-media": "^1.2.0",
@@ -51,6 +51,10 @@
   "pnpm": {
     "patchedDependencies": {
       "rehype-pretty-code": "patches/rehype-pretty-code.patch"
+    },
+    "overrides": {
+      "@types/react": "19.0.10",
+      "@types/react-dom": "19.0.4"
     }
   }
 }

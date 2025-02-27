@@ -29,6 +29,16 @@ const TOCWrapper: React.FC<TOCWrapperProps> = ({ items }) => {
     setIsOpen(false);
   };
 
+  const handleClick = (e: React.MouseEvent) => {
+    // check if vibration is supported
+    if (navigator.vibrate) {
+      navigator.vibrate(100);
+    }
+
+    setIsOpen(!isOpen);
+    (e.target as HTMLElement).blur();
+  };
+
   if (!isClient) {
     return null;
   }
@@ -36,10 +46,7 @@ const TOCWrapper: React.FC<TOCWrapperProps> = ({ items }) => {
   return (
     <>
       <Button
-        onClick={(e) => {
-          setIsOpen(!isOpen);
-          (e.target as HTMLElement).blur();
-        }}
+        onClick={handleClick}
         variant='primary'
         className={`floating-toc-button ${styles[`floating`]}`}
         title='Open Table of Contents'

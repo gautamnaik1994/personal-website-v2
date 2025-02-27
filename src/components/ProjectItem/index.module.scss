@@ -31,9 +31,6 @@
     object-fit: contain;
     display: block;
   }
-  .gatsby-image-wrapper {
-    width: 100% !important;
-  }
   h3 {
     font-variant-ligatures: none;
     line-height: 2rem;
@@ -42,6 +39,10 @@
     color: var(--primary);
   }
   .linkHolder {
+    i {
+      width: 16px;
+      display: inline-block;
+    }
     a + a {
       margin-left: 15px;
     }
@@ -68,6 +69,7 @@
     font-weight: var(--fontWeightBold);
     color: var(--accent);
   }
+
   & + & {
     margin-top: 1rem;
   }
