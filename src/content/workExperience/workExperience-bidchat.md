@@ -10,6 +10,8 @@ companyUrl: https://www.grassdoorlogitech.com/
 <!--StartFragment-->
 
 - Was a member of the core team that developed Grassdoor, an e-commerce website and its associated admin portal using ReactJS.
+  
+- Led the company's transition to data-driven decision-making through ML implementation.
 
 - Communicated with stakeholders to gather requirements and provided recommendations that considered both business and technical viability, resulting in reduced development time.
 

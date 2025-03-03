@@ -3,7 +3,7 @@ title: Gen AI Interview Bot
 image: gen-ai-interview-bot.png
 order: 10
 publish: true
-homepage: true
+homepage: false
 externalProject: false
 projectColor: '#222'
 category: AI & Machine Learning
@@ -12,7 +12,7 @@ details:
   - key: Languages
     value: Python
   - key: Technology
-    value: Streamlit, LangChain
+    value: Streamlit, LangChain, LLM
 links:
   - key: Github
     value: https://github.com/gautamnaik1994/Gen_AI_Interview_Bot
