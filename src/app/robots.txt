@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /sitemap-0.xml
+Disallow: /blog/fullstack-multi-container-app
+Disallow: /blog/2
+
+Sitemap: https://www.gautamnaik.com/sitemap.xml

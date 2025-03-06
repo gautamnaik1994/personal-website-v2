@@ -14,29 +14,46 @@ export default function Pagination({
   const hasNext = postsPerPage * pageNumber < total;
   const hasPrev = pageNumber !== 1;
 
+  const previousPageUrl =
+    pageNumber - 1 == 1
+      ? `${baseUrl.replace('/page', '')}`
+      : `${baseUrl}/${pageNumber - 1}`;
+
+  // const previousPageUrl = altBaseUrl
+  //   ? `${baseUrl}/${pageNumber - 1}`
+  //   : `${baseUrl}/${pageNumber - 1}`;
+
   return (
     <div className={styles.PaginationWrapper}>
-      <InternalLinkButton
-        variant='primary'
-        href={`${baseUrl}/${pageNumber - 1}`}
-        rel='prev'
-        title='Previous'
-        className={`${styles.left} ${!hasPrev && styles.disabled}`}
-      >
-        <i className='icon-arrow-right' />
-        <span>&nbsp;Prev</span>
-      </InternalLinkButton>
+      {hasPrev ? (
+        <InternalLinkButton
+          variant='primary'
+          href={previousPageUrl}
+          rel='prev'
+          title='Previous'
+          className={`${styles.left}`}
+        >
+          <i className='icon-arrow-right' />
+          <span>&nbsp;Prev</span>
+        </InternalLinkButton>
+      ) : (
+        <div></div>
+      )}
 
-      <InternalLinkButton
-        variant='primary'
-        href={`${baseUrl}/${pageNumber + 1}`}
-        rel='next'
-        title='Next'
-        className={`${styles.right} ${!hasNext && styles.disabled}`}
-      >
-        <span>Next&nbsp;</span>
-        <i className='icon-arrow-right' />
-      </InternalLinkButton>
+      {hasNext ? (
+        <InternalLinkButton
+          variant='primary'
+          href={`${baseUrl}/${pageNumber + 1}`}
+          rel='next'
+          title='Next'
+          className={`${styles.right}`}
+        >
+          <span>Next&nbsp;</span>
+          <i className='icon-arrow-right' />
+        </InternalLinkButton>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }
