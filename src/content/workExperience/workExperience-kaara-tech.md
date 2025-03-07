@@ -9,9 +9,11 @@ companyUrl: https://kaaratech.com/
 
 <!--StartFragment-->
 
-- Serving as a Frontend Consultant for Microsoft, collaborating on an application built using ReactJS, NextJS, and Redux.
+- Developed a Gen AI application that streamlined the recruitment process by ranking CVs based on their alignment with specific job descriptions.
+- Built a Gen AI interview conducting bot using LLM for rating candidate answers that lessened the workload of the recruiting team.
+- Concurrently advanced ML expertise through self-directed learning and personal projects focused on deep learning and Gen AI, applying software engineering best practices to ML workflows.
+- Serving as a Consultant for Microsoft, collaborating on an application built using ReactJS, NextJS, and Redux.
 - Successfully integrated RTK Query into the project's architecture, significantly improving the data fetching and caching processes.
-- Collaborated with the design team to develop custom Azure B2C templates, adhering to the established UI/UX guidelines.
-- Implemented Google Analytics integration to monitor and analyse user behaviour, providing valuable insights for product improvement.
+- Implemented Google Analytics integration to monitor and analyze user behavior, providing valuable insights for product improvement.
 
 <!--EndFragment-->
