@@ -1,6 +1,9 @@
 User-agent: *
 Disallow: /sitemap-0.xml
 Disallow: /blog/fullstack-multi-container-app
+Disallow: /vim
+Disallow: /Vim
 Disallow: /blog/2
+Disallow: /blog/case study/
 
 Sitemap: https://www.gautamnaik.com/sitemap.xml
