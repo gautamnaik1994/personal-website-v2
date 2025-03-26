@@ -8,42 +8,58 @@ export const skills: Skill[] = [
     details: [
       {
         key: `Expertise`,
-        value: `Predictive Analysis • Time Series Analysis • EDA • Model Deployment • Business Intelligence • Experiment Tracking`,
+        value: `Predictive Modeling • Time Series Analysis • Recommender Systems • Deep Learning • Generative AI • EDA • Business Intelligence • Data Visualization`,
       },
       {
         key: `Tools`,
-        value: `Python • Pandas • Numpy • SQL • Streamlit • Tableau • Sci-kit Learn • PySpark`,
+        value: `Python • Pandas • NumPy • Scikit-learn • PyTorch • SQL • Tableau • PySpark`,
       },
     ],
   },
   {
-    title: `Frontend Dev`,
-    value: 80,
+    title: `MLOps & Cloud`,
+    value: 70,
     publish: true,
     details: [
       {
         key: `Expertise`,
-        value: `Web Development • Single Page Applications • Progressive Web Apps`,
+        value: `Simple ETL Pipelines • Model Deployment • Experiment Tracking • Cloud Architecture • Serverless Computing`,
       },
       {
-        key: `Technologies`,
-        value: `HTML-CSS • ReactJS • NextJS • Redux • JavaScript • Typescript • Webpack`,
+        key: `Tools`,
+        value: `Python • AWS CDK • AWS Lambda • Docker • Streamlit • MLflow • AWS`,
       },
     ],
   },
   {
-    title: `Backend Dev`,
-    value: 50,
+    title: `Fullstack Dev`,
+    value: 80,
     publish: true,
     details: [
-      { key: `Expertise`, value: `Serverless Apps • API Design` },
+      { key: `Expertise`, value: `API Design • Serverless Applications` },
       {
         key: `Technologies`,
-        value: `Python • Fast API • AWS CDK • AWS Lambda • NodeJS`,
+        value: `Python • FastAPI • AWS CDK • AWS Lambda • Node.js • ReactJS • NextJS`,
       },
       { key: `Databases`, value: `DynamoDB • MySQL` },
     ],
   },
+
+  // {
+  //   title: `Frontend Dev`,
+  //   value: 80,
+  //   publish: true,
+  //   details: [
+  //     {
+  //       key: `Expertise`,
+  //       value: `Web Development • Single Page Applications • Progressive Web Apps`,
+  //     },
+  //     {
+  //       key: `Technologies`,
+  //       value: `HTML-CSS • ReactJS • NextJS • Redux • JavaScript • Typescript • Webpack`,
+  //     },
+  //   ],
+  // },
   // {
   //   title: 'Game Developer',
   //   value: 48,

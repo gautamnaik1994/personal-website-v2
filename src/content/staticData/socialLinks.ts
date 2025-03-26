@@ -19,6 +19,11 @@ const socialLinks: SocialLink[] = [
     iconClassName: `kaggle`,
   },
   {
+    key: `Streamlit`,
+    value: `https://share.streamlit.io/user/gautamnaik1994`,
+    iconClassName: `streamlit`,
+  },
+  {
     key: `Linkedin`,
     value: `https://www.linkedin.com/in/gautamnaik1994/`,
     iconClassName: `linkedin`,
