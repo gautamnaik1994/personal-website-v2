@@ -3,7 +3,7 @@ title: Gen AI CV JD Ranker
 image: gen-ai-cv-jd-ranker.png
 order: 11
 publish: true
-homepage: true
+homepage: false
 externalProject: false
 projectColor: '#222'
 category: AI & Machine Learning
