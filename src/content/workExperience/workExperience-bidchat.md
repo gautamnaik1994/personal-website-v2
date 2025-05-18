@@ -1,6 +1,6 @@
 ---
 title: Grassdoor
-role: Lead Software Engineer
+role: Lead Software Engineer (Data & ML)
 timeRange: April 2017 - Dec 2023
 order: 4
 status: stop
@@ -13,14 +13,16 @@ companyUrl: https://www.grassdoorlogitech.com/
   
 - Led the company's transition to data-driven decision-making through ML implementation.
 
-- Communicated with stakeholders to gather requirements and provided recommendations that considered both business and technical viability, resulting in reduced development time.
+- Architected and deployed multiple ML systems for sales forecasting and inventory planning, resulting in a 15% increase in profit.
 
-- Built an ML model using the Random Forest algorithm to predict monthly sales resulting in a 15% increase in profit and better inventory planning.
+- Built a recommender system for the website, that resulted in increased sales across product categories.
 
-- Built a recommender system using the Apriori algorithm resulting in increased sales across product categories.
+- Developed a deep learning text summarization model for product descriptions, leading to a 60% to 70% reduction in bounce rate.
 
 - Developed sales analytics dashboards by constructing efficient SQL queries to aggregate data from various sources
 
+- Communicated with stakeholders to gather requirements and provided recommendations that considered both business and technical viability, resulting in reduced development time.
+  
 - Increased the engineering team's efficiency by recruiting, training, and supervising a group of 7 junior developers.
 
 - Developed cost-effective serverless microservices using AWS CDK, AWS Lambda, DynamoDB, and API Gateway.

@@ -1,6 +1,6 @@
 ---
 title: Kaara Tech
-role: Senior Consultant
+role: Senior Software Engineer (AI & ML)
 timeRange: Jan 2024 - Present
 order: 6
 status: pause
