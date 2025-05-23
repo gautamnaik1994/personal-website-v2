@@ -40,3 +40,7 @@ export function OL(props: ComponentPropsWithoutRef<`ol`>) {
 export function A(props: ComponentPropsWithoutRef<`a`>) {
   return <a {...props} target='_blank' rel='noopener noreferrer' />;
 }
+
+export function BlockQuote(props: ComponentPropsWithoutRef<`blockquote`>) {
+  return <blockquote className={styles.blockquote} {...props} />;
+}

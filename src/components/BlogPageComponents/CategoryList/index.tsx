@@ -9,25 +9,26 @@ interface Props {
 
 export default function List({ activeCategory }: Props) {
   return (
-    <div className={styles.CategoryTagList}>
-      <h2 className='one-rem-mb'>Categories</h2>
-      <Link
-        title='All'
-        href={`/blog/`}
-        className={activeCategory == `Gautam Blogs` ? styles.active : ``}
-      >
-        All
-      </Link>
-      {categories.map((item) => (
+    <div className={styles.CategoryTagListParent}>
+      <div className={styles.CategoryTagList}>
         <Link
-          key={item}
-          scroll={false}
-          href={`/blog/category/` + categoryToSlugMap[item]}
-          className={item == activeCategory ? styles.active : `no`}
+          title='All'
+          href={`/blog/`}
+          className={activeCategory == `Gautam Blogs` ? styles.active : ``}
         >
-          {item}
+          All
         </Link>
-      ))}
+        {categories.map((item) => (
+          <Link
+            key={item}
+            scroll={false}
+            href={`/blog/category/` + categoryToSlugMap[item]}
+            className={item == activeCategory ? styles.active : `no`}
+          >
+            {item}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

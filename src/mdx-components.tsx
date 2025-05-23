@@ -10,6 +10,7 @@ import {
   OL,
   P,
   A,
+  BlockQuote,
 } from '@/components/MDComponents/TextC';
 import Alert from '@/components/MDComponents/Alert';
 import Image from '@/components/MDComponents/CustomImage';
@@ -32,6 +33,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     img: Image,
     Aside: Aside,
     ExpandableSeeMore: ExpandableSeeMore,
+    blockquote: BlockQuote,
     // code: Code,
     ...components,
   };

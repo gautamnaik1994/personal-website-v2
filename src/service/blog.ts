@@ -4,6 +4,7 @@ import { Post, PostContent, PostContentLite } from '@/types';
 export const categories = [
   `Data Science`,
   `Machine Learning`,
+  `Deep Learning`,
   `Software Engineering`,
   `Web Development`,
   `Vim`,
@@ -14,6 +15,7 @@ export type Category = (typeof categories)[number];
 export const slugToCategoryMap: Record<string, Category> = {
   'data-science': `Data Science`,
   'machine-learning': `Machine Learning`,
+  'deep-learning': `Deep Learning`,
   'software-engineering': `Software Engineering`,
   'web-development': `Web Development`,
   vim: `Vim`,
@@ -22,6 +24,7 @@ export const slugToCategoryMap: Record<string, Category> = {
 export const categoryToSlugMap: Record<Category, string> = {
   'Data Science': `data-science`,
   'Machine Learning': `machine-learning`,
+  'Deep Learning': `deep-learning`,
   'Software Engineering': `software-engineering`,
   'Web Development': `web-development`,
   Vim: `vim`,

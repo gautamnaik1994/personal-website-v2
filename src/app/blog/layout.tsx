@@ -14,10 +14,26 @@ export const metadata: Metadata = {
     url: `${siteMetaData.siteUrl}/blog`,
     title: title,
     description: description,
+    images: [
+      {
+        url: `${siteMetaData.siteUrl}/img/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: siteMetaData.title,
+      },
+    ],
   },
   twitter: {
     title: title,
     description: description,
+    images: [
+      {
+        url: `${siteMetaData.siteUrl}/img/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: siteMetaData.title,
+      },
+    ],
   },
 };
 

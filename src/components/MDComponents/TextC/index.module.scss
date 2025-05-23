@@ -77,3 +77,12 @@
     padding-left: 40px;
   }
 }
+
+.blockquote {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+  padding-left: 15px;
+  border-left: 4px solid var(--primary);
+}

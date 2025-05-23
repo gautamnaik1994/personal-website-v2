@@ -18,10 +18,26 @@ export const metadata: Metadata = {
     url: `${siteMetaData.siteUrl}/projects`, // fixed the URL to use siteMetaData
     title: `Projects`,
     description: siteMetaData.projectPageDescription,
+    images: [
+      {
+        url: `${siteMetaData.siteUrl}/img/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: siteMetaData.title,
+      },
+    ],
   },
   twitter: {
     title: `Projects`,
     description: siteMetaData.projectPageDescription,
+    images: [
+      {
+        url: `${siteMetaData.siteUrl}/img/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: siteMetaData.title,
+      },
+    ],
   },
 };
 
