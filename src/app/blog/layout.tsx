@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     url: `${siteMetaData.siteUrl}/blog`,
     title: title,
     description: description,
+    type: 'website',
     images: [
       {
         url: `${siteMetaData.siteUrl}/img/og-image.png`,

@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: `${siteMetaData.siteUrl}/projects`, // fixed the URL to use siteMetaData
     title: `Projects`,
+    type: `website`,
     description: siteMetaData.projectPageDescription,
     images: [
       {

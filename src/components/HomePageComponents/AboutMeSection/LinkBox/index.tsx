@@ -33,6 +33,10 @@ const LinkBox = (): React.ReactElement => {
           </div>
           <div className='edu-item'>
             <span>•</span>
+            Continuous Learner, Still Learning 📈
+          </div>
+          {/* <div className='edu-item'>
+            <span>•</span>
             <a
               href='https://woolf.university/id/1003119532'
               target='_blank'
@@ -44,12 +48,15 @@ const LinkBox = (): React.ReactElement => {
               {` `}
               <span className='icon-open-new-tab'></span>
             </a>
-          </div>
+          </div> */}
         </div>
         <h3 className=''>StackOverflow Badge</h3>
         <a
           href='https://stackoverflow.com/users/2376317/gautam-naik'
           className='stack-badge'
+          target='_blank'
+          title='View my StackOverflow profile'
+          rel='noreferrer'
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
