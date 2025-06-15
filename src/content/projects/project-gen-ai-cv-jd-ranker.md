@@ -9,8 +9,8 @@ projectColor: '#222'
 category: AI & Machine Learning
 companyName: []
 details:
-  - key: Languages
-    value: Python
+  - key: Role
+    value: ML Engineer
   - key: Technology
     value: Streamlit, LangChain, LLM
 links:

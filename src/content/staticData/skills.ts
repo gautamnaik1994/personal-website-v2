@@ -3,22 +3,22 @@ import { Skill } from '@/types';
 export const skills: Skill[] = [
   {
     title: `Data Science, AI & ML`,
-    value: 80,
+    value: 90,
     publish: true,
     details: [
       {
         key: `Expertise`,
-        value: `Predictive Modeling • Time Series Analysis • Recommender Systems • Deep Learning • Generative AI • EDA • Business Intelligence • Data Visualization`,
+        value: `Predictive Modeling • Time Series Forecasting • Deep Learning • Gen AI • EDA • Business Intelligence • Data Viz`,
       },
       {
         key: `Tools`,
-        value: `Python • Pandas • NumPy • Scikit-learn • PyTorch • SQL • Tableau • PySpark`,
+        value: `Python • Pandas • NumPy • Scikit-learn • PyTorch • SQL • Tableau • PySpark • SparkML`,
       },
     ],
   },
   {
     title: `MLOps & Cloud`,
-    value: 70,
+    value: 80,
     publish: true,
     details: [
       {
@@ -27,7 +27,7 @@ export const skills: Skill[] = [
       },
       {
         key: `Tools`,
-        value: `Python • AWS CDK • AWS Lambda • Docker • Streamlit • MLflow • AWS`,
+        value: `AWS CDK • AWS Lambda • Docker • MLflow • AWS SageMaker `,
       },
     ],
   },
@@ -44,50 +44,6 @@ export const skills: Skill[] = [
       { key: `Databases`, value: `DynamoDB • MySQL` },
     ],
   },
-
-  // {
-  //   title: `Frontend Dev`,
-  //   value: 80,
-  //   publish: true,
-  //   details: [
-  //     {
-  //       key: `Expertise`,
-  //       value: `Web Development • Single Page Applications • Progressive Web Apps`,
-  //     },
-  //     {
-  //       key: `Technologies`,
-  //       value: `HTML-CSS • ReactJS • NextJS • Redux • JavaScript • Typescript • Webpack`,
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: 'Game Developer',
-  //   value: 48,
-  //   publish: false,
-  //   details: [
-  //     {
-  //       key: 'Expertise',
-  //       value: '3D Modelling • Texturing • Level Design • UI Design',
-  //     },
-  //     { key: 'Technologies', value: 'C# • Nvidia CG' },
-  //     { key: 'Tools', value: 'Unity3D • Autodesk Maya • Blender • Audacity' },
-  //   ],
-  // },
-  // {
-  //   title: 'Designer',
-  //   value: 70,
-  //   publish: false,
-  //   details: [
-  //     {
-  //       key: 'Expertise',
-  //       value: 'UI Design • Graphic Design • Branding • Prototyping',
-  //     },
-  //     {
-  //       key: 'Tools',
-  //       value: 'Adobe XD • Photoshop • Illustrator • Figma • Indesign',
-  //     },
-  //   ],
-  // },
 ];
 
 export default skills;

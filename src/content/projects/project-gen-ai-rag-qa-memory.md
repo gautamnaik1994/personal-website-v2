@@ -3,12 +3,14 @@ title: Gen AI QnA Bot with Memory
 image: gen-ai-rag-memory.png
 order: 13
 publish: true
-homepage: true
+homepage: false
 externalProject: false
 projectColor: '#222'
 category: AI & Machine Learning
 companyName: []
 details:
+  - key: Role
+    value: ML Engineer
   - key: Technology
     value: Streamlit, LangChain, LLM
 links:
