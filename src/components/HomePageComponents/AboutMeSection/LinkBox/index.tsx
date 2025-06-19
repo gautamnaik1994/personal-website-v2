@@ -8,7 +8,7 @@ const LinkBox = (): React.ReactElement => {
     <div className={styles.LinkBox}>
       <div className={styles.circle} />
       <div className='relative'>
-        <h3 className='mt-0'>Social Links</h3>
+        <h3 className='mt-0'>Professional Links</h3>
         <div className='link-list'>
           {socialLinks.map((link: SocialLink, index: number) => {
             return (

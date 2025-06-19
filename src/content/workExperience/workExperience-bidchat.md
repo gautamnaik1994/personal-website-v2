@@ -9,22 +9,11 @@ companyUrl: https://www.grassdoorlogitech.com/
 
 <!--StartFragment-->
 
-- Was a member of the core team that developed Grassdoor, an e-commerce website and its associated admin portal using ReactJS.
-  
-- Led the company's transition to data-driven decision-making through ML implementation.
-
-- Architected and deployed multiple ML systems for sales forecasting and inventory planning, resulting in a 15% increase in profit.
-
-- Built a recommender system for the website, that resulted in increased sales across product categories.
-
-- Developed a deep learning text summarization model for product descriptions, leading to a 60% to 70% reduction in bounce rate.
-
-- Developed sales analytics dashboards by constructing efficient SQL queries to aggregate data from various sources
-
-- Communicated with stakeholders to gather requirements and provided recommendations that considered both business and technical viability, resulting in reduced development time.
-  
-- Increased the engineering team's efficiency by recruiting, training, and supervising a group of 7 junior developers.
-
-- Developed cost-effective serverless microservices using AWS CDK, AWS Lambda, DynamoDB, and API Gateway.
+- Drove a 15% increase in company profit by architecting and deploying scalable AI/ML systems for sales forecasting and inventory optimisation, spearheading the company's transition to a data-driven operational model.
+- Significantly boosted cross-category sales and reduced bounce rate by 70% through the development of AI-powered product recommender systems and a deep learning text summarisation model (PyTorch) for enhanced product descriptions.
+- Engineered cost-effective, scalable serverless microservices on AWS (CDK, Lambda, DynamoDB, API Gateway) to support critical business operations and data analytics.
+- Enhanced business intelligence and operational insights by developing robust sales analytics dashboards with optimised SQL queries.
+- Mentored and scaled the engineering team, recruiting, training, and supervising 7 developers to improve overall team efficiency significantly.
+- Partnered with the UX team to resolve critical user experience issues (e.g., cart abandonment, signup drop-offs) using Google Analytics data, increasing sales and user engagement.
 
 <!--EndFragment-->

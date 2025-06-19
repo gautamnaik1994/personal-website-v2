@@ -8,7 +8,7 @@ export const skills: Skill[] = [
     details: [
       {
         key: `Expertise`,
-        value: `Predictive Modeling • Time Series Forecasting • Deep Learning • Gen AI • EDA • Business Intelligence • Data Viz`,
+        value: `Supervised & Unsupervised Learning • Time Series Forecasting • Deep Learning • NLP • Gen AI • Business Intelligence`,
       },
       {
         key: `Tools`,
@@ -23,11 +23,11 @@ export const skills: Skill[] = [
     details: [
       {
         key: `Expertise`,
-        value: `Simple ETL Pipelines • Model Deployment • Experiment Tracking • Cloud Architecture • Serverless Computing`,
+        value: `ETL Pipelines • Model Deployment • Experiment Tracking • Cloud Architecture • CI/CD • Serverless Computing`,
       },
       {
         key: `Tools`,
-        value: `AWS CDK • AWS Lambda • Docker • MLflow • AWS SageMaker `,
+        value: `AWS CDK • AWS Lambda • SQL • Docker • MLflow • AWS SageMaker • Airflow`,
       },
     ],
   },

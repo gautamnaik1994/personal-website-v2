@@ -5,6 +5,12 @@
   a {
     font-weight: var(--fontWeightMedium);
   }
+  strong {
+    color: #ffffff;
+    // letter-spacing: 0.5px;
+    font-weight: 600;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+  }
 }
 
 .FlexBox {
