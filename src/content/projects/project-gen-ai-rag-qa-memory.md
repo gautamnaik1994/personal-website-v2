@@ -3,7 +3,7 @@ title: Gen AI QnA Bot with Memory
 image: gen-ai-rag-memory.png
 order: 13
 publish: true
-homepage: false
+homepage: true
 externalProject: false
 projectColor: '#222'
 category: AI & Machine Learning

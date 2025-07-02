@@ -2,8 +2,8 @@
 title: Therapy Analyzer Multi Agent
 image: gen-ai-therapy-multi-agent.png
 order: 14
-publish: true
-homepage: true
+publish: false
+homepage: false
 externalProject: false
 projectColor: '#222'
 category: AI & Machine Learning
