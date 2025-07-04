@@ -20,13 +20,14 @@ links:
   - key: Github
     value: https://github.com/gautamnaik1994/SalesForecasting_ML_CaseStudy
 description: |
-  This application predicts the driver churn rate for a ride-sharing company using machine learning algorithms.
+  This project involves building a machine learning model to predict sales for a retail company based on historical data.
 
 mainLink: https://www.gautamnaik.com/blog/sales-forecasting/
 ---
 
 <!--StartFragment-->
 
-This application predicts the driver churn rate for a ride-sharing company using machine learning algorithms.
+This project involves building a machine learning model to predict sales for a
+retail company based on historical data.
 
 <!--EndFragment-->
