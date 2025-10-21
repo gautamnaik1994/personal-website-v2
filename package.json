@@ -29,7 +29,7 @@
     "@mdx-js/loader": "^3.1.0",
     "@next/bundle-analyzer": "15.2.0",
     "@types/mdx": "^2.0.13",
-    "@types/node": "^20.17.50",
+    "@types/node": "^22.0.0",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
     "eslint": "^9.27.0",
