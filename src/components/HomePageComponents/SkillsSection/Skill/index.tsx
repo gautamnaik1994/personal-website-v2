@@ -49,8 +49,6 @@ const SkillComponent = ({
     <div className={styles.Skill} {...props}>
       <div className={styles[`box-title`]}>{name}</div>
       <SkillMeter level={level} order={order} />
-      {/* 
-//@ts-expect-error: TypeScript cannot infer the type correctly */}
       <animated.div className={styles[`info-sec`]} style={expand}>
         <div
           ref={ref as unknown as React.RefObject<HTMLDivElement>}
@@ -72,8 +70,6 @@ const SkillComponent = ({
           onClick={() => toggle(!open)}
         >
           {open ? `Less` : `More`}
-          {/* 
-//@ts-expect-error: TypeScript cannot infer the type correctly */}
           <animated.i className='icon-arrow-right' style={rotate} />
         </button>
       </div>
