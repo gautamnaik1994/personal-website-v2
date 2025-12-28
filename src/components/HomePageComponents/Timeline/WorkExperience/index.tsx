@@ -75,8 +75,7 @@ const WorkExpeContainer = ({
 
         <div className={styles[`time`]}>{timeRange}</div>
       </div>
-      {/* 
-//@ts-expect-error: TypeScript cannot infer the type correctly */}
+
       <animated.div className={styles[`info-sec`]} style={expand}>
         <div
           ref={ref as unknown as React.RefObject<HTMLDivElement>}
@@ -93,8 +92,6 @@ const WorkExpeContainer = ({
         aria-label='Show Responsibilities'
         title='Show Responsibilities'
       >
-        {/* 
-//@ts-expect-error: TypeScript cannot infer the type correctly */}
         <animated.i className='icon-arrow-right' style={rotate} />
       </button>
     </div>

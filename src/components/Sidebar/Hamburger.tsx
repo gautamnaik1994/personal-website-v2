@@ -67,7 +67,6 @@ export default function HamburgerFn(props: Props): React.ReactElement {
         viewBox='0 0 28 28'
       >
         <animated.rect
-          //@ts-expect-error: TypeScript cannot infer the type correctly
           y={rect1Props.y}
           style={{ transform: rect1Props.transform }}
           width='28'
@@ -76,7 +75,6 @@ export default function HamburgerFn(props: Props): React.ReactElement {
           fill='white'
         />
         <animated.rect
-          //@ts-expect-error: TypeScript cannot infer the type correctly
           y='13'
           style={{ transform: rectMid.transform }}
           width='28'
@@ -86,7 +84,6 @@ export default function HamburgerFn(props: Props): React.ReactElement {
           fill='white'
         />
         <animated.rect
-          //@ts-expect-error: TypeScript cannot infer the type correctly
           y={rect2Props.y}
           width='28'
           style={{ transform: rect2Props.transform }}

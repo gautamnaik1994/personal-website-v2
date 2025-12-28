@@ -57,8 +57,7 @@ const HireMe = (): React.ReactNode => {
       </div>
       <div className={styles[`middle-sec`]}>
         <span>NEXT</span>
-        {/* 
-// @ts-expect-error: TypeScript cannot infer the type correctly */}
+
         <animated.span className={styles[`lvl`]} style={jump}>
           LEVEL?{` `}
           <span className={styles[`i-wrapper`]}>
