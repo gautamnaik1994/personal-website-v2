@@ -1,0 +1,57 @@
+direction: down
+
+
+**.style.border-radius: 8
+**.style.font-color: "#333"
+
+pre_training: "Pre Training" {
+  style: {
+    fill: "transparent"
+    stroke-dash: 2
+  }
+  data: "Data" {
+    shape: stored_data
+  }
+  neural_network: "Neural Network" {
+    icon:https://icons.terrastruct.com/aws%2FMachine%20Learning%2FAmazon-SageMaker_Model_light-bg.svg
+    
+  }
+  pretrained_model: "Pretrained Model" {
+    shape: rectangle
+  }
+}
+
+pre_training.data -> pre_training.neural_network
+pre_training.neural_network -> pre_training.pretrained_model
+
+instruction_tuning: "Instruction Tuning" {
+  style: {
+    fill: "transparent"
+    stroke-dash: 2
+  }
+  instruction_data: "Instruction Data" {
+    shape: stored_data
+  }
+  instruction_tuned_model: "Instruction Tuned Model" {
+    shape: rectangle
+  }
+}
+pre_training.pretrained_model -> instruction_tuning.instruction_tuned_model
+instruction_tuning.instruction_data -> instruction_tuning.instruction_tuned_model
+
+fine_tuning: "Fine Tuning" {
+  style: {
+    fill: "transparent"
+    stroke-dash: 2
+  }
+  domain_specific_data: "Domain Specific Data" {
+    shape: stored_data
+  }
+  fine_tuned_model: "Fine Tuned Model" {
+    shape: rectangle
+  }
+}
+instruction_tuning.instruction_tuned_model -> fine_tuning.fine_tuned_model
+fine_tuning.domain_specific_data -> fine_tuning.fine_tuned_model
+
+pre_training -> instruction_tuning -> fine_tuning

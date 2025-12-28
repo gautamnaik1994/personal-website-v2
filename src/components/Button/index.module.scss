@@ -24,6 +24,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    corner-shape: squircle;
+    @supports (corner-shape: squircle) {
+      border-radius: 30px;
+    }
   }
 
   &.default {

@@ -1,0 +1,35 @@
+direction: down
+
+**.style.border-radius: 8
+**.style.font-color: "#333"
+
+vector_store: "Vector Store" {
+  shape: cylinder
+}
+
+documents: "Documents" {
+  shape: document
+  style: {
+    multiple: true
+  }
+}
+
+user_query: "User Query" {
+  shape: person
+}
+llm: "Language Model" {
+  shape: rectangle
+}
+top_k_chunks: "Top K Chunks" {
+  style: {
+    multiple: true
+  }
+}
+response: "Response"
+
+top_k_chunks -> llm: provide context
+documents -> vector_store: create embeddings
+vector_store -> top_k_chunks: retrieve top k
+user_query -> vector_store: similarity search
+user_query -> llm
+llm -> response

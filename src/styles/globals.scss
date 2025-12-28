@@ -180,6 +180,20 @@ body {
   transition:
     background-color 0.3s ease-in,
     color 0.3s ease-in;
+  // background-image:
+  //   radial-gradient(at 12% 26%, rgb(10, 27, 80) 0px, transparent 50%),
+  //   radial-gradient(at 48% 55%, hsl(202, 77%, 17%) 0px, transparent 50%),
+  //   radial-gradient(at 28% 95%, hsl(273, 65%, 17%) 0px, transparent 50%),
+  //   radial-gradient(at 42% 60%, hsl(180, 70%, 17%) 0px, transparent 50%),
+  //   radial-gradient(at 62% 19%, hsl(289, 81%, 17%) 0px, transparent 50%),
+  //   radial-gradient(at 79% 79%, hsl(233, 71%, 17%) 0px, transparent 50%);
+  //   radial-gradient(
+  //   circle,
+  //   rgba(28, 34, 48, 1) 0%,
+  //   rgba(33, 150, 243, 1) 50%,
+  //   rgba(28, 34, 48, 1) 100%
+  // );
+  background-attachment: fixed;
 }
 
 :root {
@@ -198,13 +212,16 @@ body {
   --bodyBackgroundColor: hsl(224 26% 15% / 1);
   --bodyBackgroundColorRgb: 28, 34, 48;
   --bodyColor: #b5c3d1;
-  // --cardColor: #2d364d;
   --cardColor: hsl(223 26% 22% / 1);
   --sideCardColor: #0d1117;
   --cardShadow: 0px 22px 40px rgba(0, 0, 0, 0);
   --mobile: 576px;
   --tablet: 768px;
   --desktop: 992px;
+  --globalBlurRadius: 30px;
+  --globalBlurTransparency: 50%;
+  // --cardColor: rgba(42, 50, 71, var(--globalBlurTransparency));
+  // --sideCardColor: rgba(13, 17, 23, var(--globalBlurTransparency));
 }
 
 p,
