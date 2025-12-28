@@ -1,5 +1,6 @@
 // Import the MDX plugin
 import createMDX from '@next/mdx';
+import path from 'path';
 import remarkMdxTocWithSlugs from '@altano/remark-mdx-toc-with-slugs';
 import readingTime from 'remark-reading-time';
 import readingMdxTime from 'remark-reading-time/mdx.js';
@@ -12,6 +13,10 @@ import rehypeUnwrapImages from 'rehype-unwrap-images';
 import withSerwistInit from '@serwist/next';
 import rehypePrettyCode from 'rehype-pretty-code';
 import withBundleAnalyzer from '@next/bundle-analyzer';
+import { remarkMermaid } from '@theguild/remark-mermaid';
+const currentDir = path.resolve(process.cwd());
+
+console.log(currentDir);
 
 const withSerwist = withSerwistInit({
   swSrc: 'src/app/sw.ts',
@@ -23,13 +28,22 @@ const nextConfig = {
   // Configure pageExtensions to support MDX
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx', 'md'],
   sassOptions: {
-    additionalData: `@use "mixins" as *;`,
-    includePaths: ['./src/styles'],
+    additionalData: `
+    @use "/src/styles/mixins.scss" as *;
+    `,
+    includePaths: ['src/styles'],
   },
-  eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    // ignoreDuringBuilds: true,
+  images: {
+    qualities: [100, 75],
+  },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.d2$/,
+      use: [], // no loader → Next.js ignores .d2 files
+      type: 'asset/source', // optional, prevents Next from choking
+    });
+
+    return config;
   },
   async headers() {
     return [
@@ -107,6 +121,7 @@ const withMDX = createMDX({
       readingMdxTime,
       remarkFrontmatter,
       remarkMdxFrontmatter,
+      remarkMermaid,
     ],
     rehypePlugins: [
       rehypeUnwrapImages,
