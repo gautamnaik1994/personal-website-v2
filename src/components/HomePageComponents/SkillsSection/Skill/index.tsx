@@ -10,11 +10,13 @@ interface Props {
   level: number;
   details: Array<{ key: string; value: string }>;
   className?: string;
+  order?: number;
 }
 
 const SkillComponent = ({
   name = `UI Designing`,
   level = 55,
+  order = 0,
   details,
   ...props
 }: Props): React.ReactNode => {
@@ -46,7 +48,7 @@ const SkillComponent = ({
   return (
     <div className={styles.Skill} {...props}>
       <div className={styles[`box-title`]}>{name}</div>
-      <SkillMeter level={level} />
+      <SkillMeter level={level} order={order} />
       {/* 
 //@ts-expect-error: TypeScript cannot infer the type correctly */}
       <animated.div className={styles[`info-sec`]} style={expand}>

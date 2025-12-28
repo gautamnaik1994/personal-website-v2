@@ -38,6 +38,34 @@ const config = [
   },
 ];
 
+const config_v2 = [
+  {
+    label: `Professional`,
+    limit: 100,
+    top: `4facfe`, // blue
+    bottom: `00f2fe`,
+    topDark: `3d8acb`,
+    bottomDark: `00c2cb`,
+  },
+  {
+    label: `Professional`,
+    // red
+    limit: 100,
+    top: `43e97b`, // green
+    bottom: `38f9d7`,
+    topDark: `36b868`,
+    bottomDark: `2bc7a9`,
+  },
+  {
+    label: `Professional`,
+    limit: 100, // yellow
+    top: `f7b71d`,
+    bottom: `fdef96`,
+    topDark: `c68f17`,
+    bottomDark: `cdbf78`,
+  },
+];
+
 function generateBackgroundUrl(topColor: string, bottomColor: string) {
   return `url("data:image/svg+xml,%3Csvg width='182' height='232' viewBox='0 0 182 232' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 18.1768C20.8552 17.9924 25.8564 0 50.6558 0C61.0963 0 69.7839 4.63641 78.1105 9.22013C86.4371 13.8038 98.2697 15.3054 106.467 12.2759C114.665 9.24647 122.605 1.52791 135.959 1.73865C147.997 1.89671 152.56 5.69013 159.314 8.95669C166.636 12.4867 174.369 18.2558 182 18.1768V232H0V18.1768Z' fill='url(%23paint0_linear)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='91' y1='0' x2='91' y2='182' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23${topColor}'/%3E%3Cstop offset='1' stop-color='%23${bottomColor}'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A")`;
 }
@@ -55,19 +83,25 @@ const findIndex = (val: number) => {
 
 interface Props {
   level: number;
+  order?: number;
 }
 
-export default function SkillMeterFn({ level }: Props): React.ReactElement {
-  const currentConfig = config[findIndex(level)];
+export default function SkillMeterFn({
+  level,
+  order = 0,
+}: Props): React.ReactElement {
+  const currentConfig = config_v2[order];
   const glassRef = useRef<HTMLDivElement>(null);
 
-  const handleOrientation = (event: DeviceOrientationEvent) => {
-    let z: number = 0;
-    // z = event.beta - 90 ?? 0; // In degree in the range [0, 360]
-    if (event.gamma) {
-      z = event.gamma;
+  const handleOrientation = (e: DeviceOrientationEvent) => {
+    const gamma = e.gamma ?? 0;
+
+    // invert so water stays level
+    const angle = -gamma;
+
+    if (glassRef.current) {
+      glassRef.current.style.setProperty('--angle', `${angle}deg`);
     }
-    glassRef.current?.style.setProperty(`--angle`, `${z}deg`);
   };
   useEffect(() => {
     const handleOrientationDebounced = (event: DeviceOrientationEvent) => {

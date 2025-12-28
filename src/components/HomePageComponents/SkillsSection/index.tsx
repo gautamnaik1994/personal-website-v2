@@ -22,6 +22,7 @@ const SkillsSection = ({ className }: Props): React.ReactElement => {
               name={skill.title}
               level={skill.value}
               details={skill.details}
+              order={i}
             />
           );
         })}

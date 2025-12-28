@@ -25,17 +25,17 @@ function ImageComponent(props: ImageComponentProps) {
     setIsLoading(false);
   };
 
-  if (typeof src === `string`) {
+  const isSvg = typeof src !== 'string' && src.src.endsWith('.svg');
+
+  if (typeof src === 'string') {
     /* eslint-disable-next-line @next/next/no-img-element */
     return <img src={src} alt={alt} />;
   }
 
-  // const { blurWidth, blurHeight, ...otherSrc } = src;
-
   delete src.blurWidth;
   delete src.blurHeight;
 
-  const aspectRatio = src.height / src.width;
+  const aspectRatio = typeof src === 'string' ? 1 : src.height / src.width;
 
   return (
     <>
@@ -44,11 +44,11 @@ function ImageComponent(props: ImageComponentProps) {
         alt={alt}
         width={750}
         height={750 * aspectRatio}
-        placeholder='blur'
         onClick={() => setIsOpen(true)}
         className={styles['main-image']}
         loading='lazy'
         quality={100}
+        {...(!isSvg && { placeholder: 'blur' })}
       />
       {isOpen && (
         <div

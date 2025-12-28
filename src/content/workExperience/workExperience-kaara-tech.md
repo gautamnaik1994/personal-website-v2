@@ -1,9 +1,9 @@
 ---
 title: Kaara Tech
 role: Senior Software Engineer (AI & ML)
-timeRange: Jan 2024 - Present
+timeRange: Jan 2024 - June 2025
 order: 6
-status: pause
+status: stop
 companyUrl: https://kaaratech.com/
 ---
 
