@@ -50,9 +50,6 @@
     "typescript": "^5.8.3"
   },
   "pnpm": {
-    "patchedDependencies": {
-      "rehype-pretty-code": "patches/rehype-pretty-code.patch"
-    },
     "overrides": {
       "@types/react": "19.2.2",
       "@types/react-dom": "19.2.2"
