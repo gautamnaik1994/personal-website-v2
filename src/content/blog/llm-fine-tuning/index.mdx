@@ -398,7 +398,7 @@ messages = {
 }
 ```
 
-After applying the chat template and tokenizing, we get the following token IDs:
+After applying the chat template and tokenizing, we get something like the following (token IDs will vary by tokenizer/model version):
 
 ```yaml
 Full text:-
@@ -421,12 +421,36 @@ Input IDs shifted:            [2, 105, 2364, 107, 3048, 659, 614, 16326, 236761,
 Labels shifted:               [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 2094, 12054, 1133, 17998, 236761, 106, 107]
 ```
 
-Look closely at the `labels`: the prompt tokens are `-100`, and only the response tokens have valid labels. This way, when we compute loss, only the response tokens contribute.
-This means the model is only penalized for getting the response wrong, not the prompt.
+Let’s break down what’s happening here.
 
-Now look at the shifted `input_ids` and `labels`: they are shifted by one position. The last token in the `input_ids` has been removed. This is because, during training, the model predicts the next token given all previous tokens.
+### 1) Full text vs. prompt
 
-Now look closely at the shifted labels: The first `-100` has been removed. This is removed so that the labels align with the shifted `input_ids`. The model predicts the token at position `t` using the input tokens up to position `t-1`.
+* **Full text** is what you want the model to learn from: prompt **plus** the assistant’s target response.
+* **Prompt text** ends right after the special “start the model’s turn” token (here: `<start_of_turn>model`). This is the part you feed at inference time before calling `generate(...)`.
+* Notice how `Prompt tokenized input_ids` is a **prefix** of `Full tokenized input_ids`.
+
+### 2) Loss masking with `labels` (ignore the prompt)
+
+For supervised fine-tuning (SFT), we want the model to be trained on the assistant answer, not on “predicting the prompt”. The standard trick is:
+
+* Start with `labels = input_ids.clone()`
+* Replace label positions that belong to the prompt with `-100`
+
+That’s exactly what you see above: the prompt tokens are `-100`, and only the response tokens have real label IDs. With `ignore_index=-100`, cross-entropy loss skips those masked positions.
+
+### 3) Why we “shift” for causal language modeling
+
+In a causal LM, the model predicts the **next token**. So the training alignment is:
+
+* inputs: `input_ids[:, :-1]`
+* targets: `labels[:, 1:]`
+
+That’s why the “shifted” view drops:
+
+* the **last** token from `input_ids` (there’s no “next token” to predict after it)
+* the **first** position from `labels` (there’s no prediction for the very first token)
+
+After shifting, each target token at position `t` lines up with the model’s prediction made from tokens up to `t-1`.
 
 ## 5. Efficient Batching with a Custom Collator
 
