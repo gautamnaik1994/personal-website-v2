@@ -29,13 +29,13 @@ bannerImage: llm-fine-tuning.png
 
 ## Introduction
 
-Imagine you’ve built an AI application powered by an LLM (Large Language Model) like **GPT-5** or **Gemini 3**. You demo it to your teammates, your manager, and your client; everyone loves it. You get the go-ahead to ship it to production.
+Imagine you've built an AI application powered by an LLM (Large Language Model) like **GPT-5** or **Gemini 3**. You demo it to your teammates, your manager, and your client; everyone loves it. You get the go-ahead to ship it to production.
 
 A month later, the client returns with a new concern: the app is too expensive to operate. Inference costs are higher than expected, and they want you to reduce them. You think, *Maybe switching to a cheaper model will cut costs significantly.* You swap the model, test a set of real use cases, and the results look good enough. The client is happy again, and you deploy the update.
 
-Three months later, you get another message. This time, the issue isn’t cost, it’s quality. The new model struggles with domain-specific queries, and the client wants better answers. You think, *Maybe I should fine-tune the model on data from this domain.* You gather examples, fine-tune, and validate the results, and the responses improve. Once again, the client approves the change, and you ship it.
+Three months later, you get another message. This time, the issue isn't cost, it's quality. The new model struggles with domain-specific queries, and the client wants better answers. You think, *Maybe I should fine-tune the model on data from this domain.* You gather examples, fine-tune, and validate the results, and the responses improve. Once again, the client approves the change, and you ship it.
 
-That’s the core motivation behind fine-tuning: it lets you adapt a pre-trained model to your specific use case, often improving task performance and sometimes even reducing cost by enabling smaller models to perform well. In the following sections, we’ll walk through an end-to-end, practical notebook-style guide to fine-tuning LLMs.
+That's the core motivation behind fine-tuning: it lets you adapt a pre-trained model to your specific use case, often improving task performance and sometimes even reducing cost by enabling smaller models to perform well. In the following sections, we'll walk through an end-to-end, practical notebook-style guide to fine-tuning LLMs.
 
 <ExpandableSeeMore>
 
@@ -99,9 +99,9 @@ Following is a simple diagram illustrating fine-tuning:
 
 You might be wondering: *Is fine-tuning the only way to adapt LLMs to specific tasks? Is there a simpler option?* Yes another popular approach is **Retrieval Augmented Generation (RAG)**.
 
-RAG pairs a pre-trained language model with an external knowledge source (for example, a database or a document collection). At inference time, it retrieves relevant context and feeds it into the model so the output is grounded in that retrieved information without updating the model’s weights.
+RAG pairs a pre-trained language model with an external knowledge source (for example, a database or a document collection). At inference time, it retrieves relevant context and feeds it into the model so the output is grounded in that retrieved information without updating the model's weights.
 
-However, RAG isn’t always sufficient. If your task is highly specialized, or you need the model to follow a very specific style, structure, or decision pattern, retrieval alone may not get you there. That’s where fine-tuning helps: it can reliably change *how* the model responds.
+However, RAG isn't always sufficient. If your task is highly specialized, or you need the model to follow a very specific style, structure, or decision pattern, retrieval alone may not get you there. That's where fine-tuning helps: it can reliably change *how* the model responds.
 
 In practice, teams often combine both: use RAG for up-to-date or proprietary knowledge, and fine-tune on a smaller domain dataset to shape behavior. The trade-off is extra system complexity (more components to build, operate, and maintain).
 
@@ -171,7 +171,7 @@ But make sure to load the model without quantization while merging LoRA adapters
 
 We will use **[google/gemma-3-270m-it](https://huggingface.co/google/gemma-3-27b-it)** (Gemma 3, 270M parameters, instruction-tuned) model and **[nbertagnolli/counsel-chat](https://huggingface.co/datasets/nbertagnolli/counsel-chat)** (Counsel Chat) dataset from Hugging Face.
 
-The goal for this demo is intentionally simple: take a user message and have the model generate a short "classification-like" response (the dataset’s `topic`) in natural language.
+The goal for this demo is intentionally simple: take a user message and have the model generate a short "classification-like" response (the dataset's `topic`) in natural language.
 
 <Alert title='WARNING' variant='warning'>
 This dataset contains mental health-related text. Please do not use it for real medical advice or diagnosis, or in production systems.
@@ -204,7 +204,7 @@ The above code downloads the pre-trained Gemma model + tokenizer from Hugging Fa
 
 ### Sanity Check
 
-Before you train anything, it’s worth seeing what the base model does on your task.
+Before you train anything, it's worth seeing what the base model does on your task.
 
 ```python
 import torch
@@ -269,7 +269,7 @@ Following is a sample row from the dataset
 
 ```json
 {
-  "questionText": "I have so many issues to address. I have a history of sexual abuse, I’m a breast cancer survivor and I am a lifetime insomniac. I have a long history of depression and I’m beginning to have anxiety. I have low self esteem but I’ve been happily married for almost 35 years.\n  I’ve never had counseling about any of this. Do I have too many issues to address in counseling?",
+  "questionText": "I have so many issues to address. I have a history of sexual abuse, I'm a breast cancer survivor and I am a lifetime insomniac. I have a long history of depression and I'm beginning to have anxiety. I have low self esteem but I've been happily married for almost 35 years.\n  I've never had counseling about any of this. Do I have too many issues to address in counseling?",
   "topic": "depression",
 }
 ```
@@ -278,7 +278,7 @@ Our initial goal is to format the data into a chat-like structure that Gemma und
 
 ### Why chat formatting matters
 
-When fine-tuning instruction-tuned models like Gemma, the input format is crucial. These models are trained on specific conversation structures, and deviating from that can lead to suboptimal performance. That’s why
+When fine-tuning instruction-tuned models like Gemma, the input format is crucial. These models are trained on specific conversation structures, and deviating from that can lead to suboptimal performance. That's why
 standardizing your data format is critical.
 
 There are two common **Instruction Formats** used in the community:
@@ -286,7 +286,7 @@ There are two common **Instruction Formats** used in the community:
 * **Alpaca Format**: `{ "instruction": "...", "input": "...", "output": "..." }`
 * **ShareGPT Format**: Multi-turn conversation history. This is generally superior for chat models as it teaches the model to handle context and follow-up questions.
 
-Gemma is instruction-tuned and expects a particular chat syntax (special tokens, turn separators, etc.). The tokenizer’s `apply_chat_template(...)` is the reliable way to produce the *exact* text format the model was trained with.
+Gemma is instruction-tuned and expects a particular chat syntax (special tokens, turn separators, etc.). The tokenizer's `apply_chat_template(...)` is the reliable way to produce the *exact* text format the model was trained with.
 
 Following is the chat template used in the notebook.
   
@@ -377,7 +377,7 @@ Now that we have the conversations formatted, we need to tokenize them and creat
 
 Fine-tuning here is **supervised fine-tuning (SFT)**: we show the model a full prompt + desired answer, then compute loss only on the answer tokens.
 
-To do that, we build `labels` from `input_ids`, but we set prompt tokens to `-100` (the ignore index). PyTorch’s cross-entropy loss skips positions where the label is `-100`.
+To do that, we build `labels` from `input_ids`, but we set prompt tokens to `-100` (the ignore index). PyTorch's cross-entropy loss skips positions where the label is `-100`.
 
 This is the most important step.
 
@@ -421,36 +421,36 @@ Input IDs shifted:            [2, 105, 2364, 107, 3048, 659, 614, 16326, 236761,
 Labels shifted:               [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 2094, 12054, 1133, 17998, 236761, 106, 107]
 ```
 
-Let’s break down what’s happening here.
+Let's break down what's happening here.
 
-### 1) Full text vs. prompt
+### 1. Full text vs prompt
 
-* **Full text** is what you want the model to learn from: prompt **plus** the assistant’s target response.
-* **Prompt text** ends right after the special “start the model’s turn” token (here: `<start_of_turn>model`). This is the part you feed at inference time before calling `generate(...)`.
+* **Full text** is what you want the model to learn from: prompt **plus** the assistant's target response.
+* **Prompt text** ends right after the special "start the model's turn" token (here: `<start_of_turn>model`). This is the part you feed at inference time before calling `generate(...)`.
 * Notice how `Prompt tokenized input_ids` is a **prefix** of `Full tokenized input_ids`.
 
-### 2) Loss masking with `labels` (ignore the prompt)
+### 2. Loss masking with `labels` (ignore the prompt)
 
-For supervised fine-tuning (SFT), we want the model to be trained on the assistant answer, not on “predicting the prompt”. The standard trick is:
+For supervised fine-tuning (SFT), we want the model to be trained on the assistant answer, not on "predicting the prompt". The standard trick is:
 
-* Start with `labels = input_ids.clone()`
+* Start with `labels = input_ids.copy()`
 * Replace label positions that belong to the prompt with `-100`
 
-That’s exactly what you see above: the prompt tokens are `-100`, and only the response tokens have real label IDs. With `ignore_index=-100`, cross-entropy loss skips those masked positions.
+That's exactly what you see above: the prompt tokens are `-100`, and only the response tokens have real label IDs. With `ignore_index=-100`, cross-entropy loss skips those masked positions.
 
-### 3) Why we “shift” for causal language modeling
+### 3. Why we "shift" for causal language modeling
 
 In a causal LM, the model predicts the **next token**. So the training alignment is:
 
 * inputs: `input_ids[:, :-1]`
 * targets: `labels[:, 1:]`
 
-That’s why the “shifted” view drops:
+That's why the "shifted" view drops:
 
-* the **last** token from `input_ids` (there’s no “next token” to predict after it)
-* the **first** position from `labels` (there’s no prediction for the very first token)
+* the **last** token from `input_ids` (there's no "next token" to predict after it)
+* the **first** position from `labels` (there's no prediction for the very first token)
 
-After shifting, each target token at position `t` lines up with the model’s prediction made from tokens up to `t-1`.
+After shifting, each target token at position `t` lines up with the model's prediction made from tokens up to `t-1`.
 
 ## 5. Efficient Batching with a Custom Collator
 
@@ -469,7 +469,7 @@ In our case, we avoided padding during tokenization to keep the dataset compact.
 This collator pads:
 
 * `input_ids` with `tokenizer.pad_token_id`
-* `labels` with `-100` (so padding tokens don’t contribute to loss)
+* `labels` with `-100` (so padding tokens don't contribute to loss)
 
 ```python
 from torch.nn.utils.rnn import pad_sequence
@@ -729,7 +729,7 @@ Mixed precision works best on hardware optimized for low-precision math (notably
 * Before `optimizer.step()`, it unscales gradients back to their true magnitude so the update is correct.
 * It automatically tunes the scale factor: if `inf`/`NaN` is detected, it lowers the scale for the next step; otherwise, it may gradually increase it for better utilization.
 
-GradScaler doesn’t permanently "transform" the weights. It temporarily scales the loss (and therefore the gradients) to avoid float16 underflow, then unscales gradients back right before the optimizer updates the weights.
+GradScaler doesn't permanently "transform" the weights. It temporarily scales the loss (and therefore the gradients) to avoid float16 underflow, then unscales gradients back right before the optimizer updates the weights.
 
 Numeric toy example (single weight)
 Minimal PyTorch snippet demonstrating how `GradScaler` works:
@@ -1135,7 +1135,7 @@ The complete code for this blog is available in my GitHub repository: [LLM_Fine_
 
 ## Conclusion
 
-Fine-tuning is a key tool in an AI engineer’s toolkit, enabling the transition from general-purpose language understanding to strong, domain-specific performance. By combining data-centric engineering, efficient training methods like LoRA, and robust evaluation workflows, we can build AI systems that are not only capable but also aligned with real business requirements.
+Fine-tuning is a key tool in an AI engineer's toolkit, enabling the transition from general-purpose language understanding to strong, domain-specific performance. By combining data-centric engineering, efficient training methods like LoRA, and robust evaluation workflows, we can build AI systems that are not only capable but also aligned with real business requirements.
 
 The future of applied AI will be driven less by ever-larger models and more by specialized, efficient, and well-engineered systems that tightly integrate models with high-quality data.
 
