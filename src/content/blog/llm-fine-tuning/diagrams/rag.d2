@@ -1,14 +1,16 @@
 direction: down
+# dark bargound color scheme
 
 **.style.border-radius: 8
-**.style.font-color: "#333"
 
 vector_store: "Vector Store" {
   shape: cylinder
+  style.fill: "#AE445A"
 }
 
 documents: "Documents" {
   shape: document
+  
   style: {
     multiple: true
   }
@@ -19,16 +21,20 @@ user_query: "User Query" {
 }
 llm: "Language Model" {
   shape: rectangle
+  style.fill: "#4a5ce2"
 }
 top_k_chunks: "Top K Chunks" {
   style: {
     multiple: true
+    fill: "#430A5D"
   }
 }
 response: "Response"
 
 top_k_chunks -> llm: provide context
-documents -> vector_store: create embeddings
+documents -> vector_store: create embeddings{
+  style.animated: true
+}
 vector_store -> top_k_chunks: retrieve top k
 user_query -> vector_store: similarity search
 user_query -> llm

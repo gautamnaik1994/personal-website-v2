@@ -1,7 +1,7 @@
-direction: right
+direction: down
 
 **.style.border-radius: 8
-**.style.font-color: "#333"
+# **.style.font-color: "#333"
 
 domain_specific_data: "Domain Specific Data" {
   shape: document
@@ -10,36 +10,50 @@ domain_specific_data: "Domain Specific Data" {
 peft_model: {
   label: "Peft Model"
   style: {
-    fill: "beige"
+    fill: "#453C67"
     stroke-dash: 2
-    font-color: "#333333"
+    # font-color: "#333333"
   }
-  frozen_model: "Frozen Model"
+  frozen_model: "Frozen Base Model"
   lora_adapter: "LoRA Adapter" {
     style: {
-      fill: "aliceblue"
+      fill: "#5C5470"
       stroke-dash: 2
     }
-    lora_adapter: "Weight A" {
+    multiplier: "×" {
+      shape: circle
+      width: 50
+      height: 50
+    }
+    lora_adapter_1: "Weight matrix A" {
       style: {
-        fill: "lightblue"
+        fill: "#AE445A"
       }
     }
-    lora_adapter_2: "Weight B" {
+
+    lora_adapter_2: "Weight matrix B" {
       style: {
-        fill: "lightgreen"
+        fill: "teal"
       }
     }
+    lora_adapter_1 -> multiplier
+    lora_adapter_2 -> multiplier
   }
 }
 
 adder: "+" {
   shape: circle
+  width: 50
+  height: 50
 }
 
 combined_model: "Combined Model"
 
-domain_specific_data -> peft_model
+domain_specific_data -> peft_model: {
+  style: {
+    animated: true
+  }
+}
 peft_model.lora_adapter -> adder
 peft_model.frozen_model -> adder
 adder -> combined_model: "merge model"
