@@ -43,9 +43,9 @@
 .icon-category:before {
   content: '\e905';
 }
-.icon-pluralsight:before {
-  content: '\e90b';
-}
+// .icon-pluralsight:before {
+//   content: '\e90b';
+// }
 .icon-logo:before {
   content: '\e908';
 }
@@ -81,14 +81,14 @@
 .icon-stack-overflow:before {
   content: '\e911';
 }
-.icon-behance:before {
-  color: #1769ff;
-  content: '\e912';
-}
-.icon-codepen:before {
-  content: '\e913';
-  color: var(--bodyColor);
-}
+// .icon-behance:before {
+//   color: #1769ff;
+//   content: '\e912';
+// }
+// .icon-codepen:before {
+//   content: '\e913';
+//   color: var(--bodyColor);
+// }
 .icon-moon:before {
   content: '\e914';
 }
@@ -143,6 +143,18 @@
 .icon-streamlit:before {
   color: #ff4b4b;
   content: '\e902';
+}
+.icon-danger:before {
+  content: '\e907';
+}
+.icon-success:before {
+  content: '\e903';
+}
+.icon-warning:before {
+  content: '\e90b';
+}
+.icon-info:before {
+  content: '\e90c';
 }
 // Import Vanilla framework
 // @import '~vanilla-framework/scss/vanilla';

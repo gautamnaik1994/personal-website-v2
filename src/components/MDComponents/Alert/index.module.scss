@@ -6,7 +6,8 @@
 //   };
 
 .AlertStyles {
-  padding: 20px;
+  padding: 15px;
+  padding-top: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
   border-left: 5px solid #d4d5d8;
@@ -17,18 +18,37 @@
     margin: 0;
   }
   &.warning {
-    border-left-color: #e6a700;
+    --alert-color: #e6a700;
   }
   &.danger {
-    border-left-color: #e13238;
+    --alert-color: #e13238;
   }
   &.info {
-    border-left-color: #4cb3d4;
+    --alert-color: #4cb3d4;
   }
   &.success {
-    border-left-color: #28a745;
+    --alert-color: #28a745;
   }
   &.primary {
     border-left-color: var(--primary);
+    --alert-color: var(--primary);
+  }
+  border-left-color: var(--alert-color);
+  .AlertHeader {
+    margin-bottom: 10px;
+    color: var(--alert-color);
+    i {
+      vertical-align: middle;
+      font-size: 18px;
+    }
+    span {
+      font-weight: var(--fontWeightMedium);
+      vertical-align: middle;
+      text-transform: uppercase;
+    }
+  }
+  @include tablet {
+    padding: 20px;
+    padding-top: 15px;
   }
 }
