@@ -18,6 +18,27 @@
     margin-top: 1rem;
     filter: blur(9px);
   }
+  @include desktop {
+    .glass-shadow {
+      transition:
+        filter 0.3s ease-in-out,
+        height 0.3s ease-in-out,
+        width 0.3s ease-in-out;
+    }
+    .Glass {
+      transition: transform 0.3s ease-in-out;
+    }
+    &:hover {
+      .Glass {
+        transform: translateY(-10px);
+      }
+      .glass-shadow {
+        filter: blur(10px);
+        height: calc(var(--glassDims) / 10);
+        width: calc(var(--glassDims) * 0.8);
+      }
+    }
+  }
 }
 
 .Glass {
