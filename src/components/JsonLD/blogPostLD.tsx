@@ -20,9 +20,9 @@ export default async function JsonLD(props: BlogPostLDProps) {
     headline: props.title,
     name: props.title,
     url: `${siteMetaData.siteUrl}/blog/${props.slug}`,
-    dateCreated: props.date,
-    datePublished: props.date,
-    dateModified: props.date,
+    dateCreated: props.date + `T00:00:00+05:30`,
+    datePublished: props.date + `T00:00:00+05:30`,
+    dateModified: props.date + `T00:00:00+05:30`,
     description: props.description, // Use props description
 
     author: {

@@ -60,7 +60,7 @@ export default async function JsonLD(props: BlogListLDProps) {
           height: 630,
         },
         keywords: post.keywords.join(`, `),
-        datePublished: post.date,
+        datePublished: post.date + `T00:00:00+05:30`,
         timeRequired: post.readingTime.text,
         genre: post.categories,
       })),
