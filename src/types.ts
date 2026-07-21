@@ -119,3 +119,12 @@ export type WorkExperience = {
   companyUrl: string;
   content: ElementType;
 };
+
+export interface Painting {
+  title: string;
+  image: ImageData;
+  toolUsed: string;
+  order: number;
+  publish: boolean;
+  description: string;
+}

@@ -15,6 +15,13 @@ export const NAVIGATION = [
     title: `Read articles of my blog`,
     navClassName: ``,
   },
+  // {
+  //   to: `/paintings`,
+  //   label: `Digital Paintings`,
+  //   closeSidebar: true,
+  //   title: `My Digital Paintings`,
+  //   navClassName: ``,
+  // },
   // { to: '/snippets/', label: 'Snippets' },
   {
     to: `https://gautamnaik1994.gitbook.io/snippets/`,
