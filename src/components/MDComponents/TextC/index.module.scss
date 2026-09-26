@@ -76,6 +76,9 @@
   @include desktop {
     padding-left: 40px;
   }
+  > li {
+    margin-bottom: 1.5rem;
+  }
 }
 
 .blockquote {

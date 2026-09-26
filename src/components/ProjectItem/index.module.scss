@@ -58,6 +58,9 @@
     border-radius: 9px 0 9px 0;
     color: rgb(255 255 255 / 75%);
   }
+  article > p {
+    line-height: 1.5rem;
+  }
   @include desktop {
     margin-bottom: 0;
   }

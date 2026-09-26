@@ -49,7 +49,8 @@ export default function ProjectItem({
         </div>
 
         <h3>{title}</h3>
-        {children}
+        <article>{children}</article>
+
         <div>
           {details.map(({ key, value }) => (
             <div key={key} className={styles.Item}>
