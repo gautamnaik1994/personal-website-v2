@@ -35,8 +35,8 @@ const Footer = () => {
         </Link>
         {` `}
         and hosted on{` `}
-        <Link title='Netlify' href='https://www.netlify.com/' target='_blank'>
-          Netlify
+        <Link title='Vercel' href='https://www.vercel.com/' target='_blank'>
+          Vercel
         </Link>
       </small>
       <small>&copy; Copyright {getYear()}, Gautam Naik</small>

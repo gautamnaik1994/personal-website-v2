@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
-// import { GoogleTagManager } from '@next/third-parties/google';
-import { Analytics } from '@vercel/analytics/next';
+import { GoogleTagManager } from '@next/third-parties/google';
+// import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Ubuntu } from 'next/font/google';
 import 'sanitize.css';
@@ -99,7 +99,7 @@ export default function RootLayout({
       <head>
         <meta name='googlebot' content='all' />
       </head>
-      {/* <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ``} /> */}
+      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ``} />
       <body className={`${ubuntuFont.variable} toc-not-in-view `}>
         <Navbar />
         <Sidebar />
@@ -107,7 +107,6 @@ export default function RootLayout({
         <OuterLinks />
         <Footer />
         <SpeedInsights />
-        <Analytics />
       </body>
     </html>
   );
