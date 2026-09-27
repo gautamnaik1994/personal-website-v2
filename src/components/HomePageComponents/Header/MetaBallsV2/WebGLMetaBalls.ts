@@ -64,8 +64,7 @@ export class WebGLMetaballs {
   };
 
   cancelAll = (): void => {
-    const cancelAnimationFrame =
-      window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+    const cancelAnimationFrame = window.cancelAnimationFrame;
     if (this.animationRequest !== null) {
       cancelAnimationFrame(this.animationRequest);
     }
