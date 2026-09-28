@@ -736,18 +736,15 @@ According to Unity, this system utilizes all the cores available on the CPU, whi
   The Entity Component System (ECS) and Data-Oriented Technology Stack (DOTS) are architectural patterns and tools in Unity designed for high performance data processing. Unlike traditional object-oriented programming (where data and behavior are bundled in objects), ECS separates data (components) from logic (systems) and lays data out sequentially in memory. This maximizes CPU cache efficiency and allows multi-threading across all available CPU cores, making it ideal for simulating thousands of autonomous agents simultaneously. You can read more about Unity DOTS [here](https://unity.com/dots).
 </Alert>
 
-### Why This Design Works Well
+### Key Advantages of This Architectural Approach
 
-The implementation combines:
+By integrating state machines, pathfinding algorithms, adaptive agent logic, and rich diagnostic logging, this framework ensures virtual shoppers act with dynamic, realistic priorities rather than scripted predictability:
 
-- State-machine clarity
-- Path-aware ranking
-- Cooldown-based contention handling
-- Persona-driven variability
-- Mood-driven adaptation
-- Rich history logging for debugging and analytics
+- **Behavioral Dynamics:** Combines explicit state-machine transitions with mood-driven adjustments to reflect real-time psychological shifts.
+- **Navigation & Contention:** Uses path-aware ranking for movement and cooldown mechanics to gracefully resolve shelf congestion.
+- **Agent Diversity & Observability:** Leverages persona variability for diverse decisions while capturing detailed history logs for analytics and debugging.
 
-Result: agents feel less like scripted bots and more like shoppers with competing priorities.
+As a result, agents navigate the virtual store like real human shoppers balancing competing interests rather than automated bots.
 
 ## Playable Demo
 
