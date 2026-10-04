@@ -4,7 +4,7 @@ image: retail-simulator-ai.png
 order: 15
 publish: true
 homepage: true
-category: AI & Machine Learning
+category: Software Engineering
 externalProject: false
 projectColor: '#222'
 details:
